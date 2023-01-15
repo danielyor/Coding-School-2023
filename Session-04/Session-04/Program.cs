@@ -46,4 +46,4 @@ Console.WriteLine("Fahrenheit: " + fahrenheit);
 Console.WriteLine("Kelvin: " + kelvin);
 
 
-Console.ReadLine();
+Console.ReadKey();
