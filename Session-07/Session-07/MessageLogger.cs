@@ -1,7 +1,6 @@
 using System;
-using MessageNS;
 
-namespace MessageLoggerNS {
+namespace Session07 {
     public class MessageLogger {
 
         // Properties

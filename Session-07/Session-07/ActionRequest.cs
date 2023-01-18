@@ -1,7 +1,6 @@
 using System;
-using ActionResolverNS;
 
-namespace ActionRequestNS {
+namespace Session07 {
     public class ActionRequest {
 
         // Properties
@@ -10,8 +9,8 @@ namespace ActionRequestNS {
         public ActionEnum Action { get; set; }
 
         // Constructor
-        public ActionRequest(Guid reqID, string input, ActionEnum action) {
-            RequestID = reqID;
+        public ActionRequest(string input, ActionEnum action) {
+            RequestID = Guid.NewGuid();
             Input = input;
             Action = action;
         }

@@ -1,9 +1,6 @@
 using System;
-using ActionRequestNS;
-using ActionResponseNS;
-using MessageLoggerNS;
 
-namespace ActionResolverNS {
+namespace Session07 {
 
     public enum ActionEnum {
         Convert,
@@ -24,7 +21,7 @@ namespace ActionResolverNS {
         // Methods
         public ActionResponse Execute(ActionRequest request) {
 
-            ActionResponse response = new(Guid.NewGuid(), Guid.NewGuid(), null);
+            ActionResponse response = new();
 
             switch (request.Action) {
 

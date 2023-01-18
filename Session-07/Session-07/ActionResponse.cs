@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ActionResponseNS {
+namespace Session07 {
     public class ActionResponse {
 
         // Properties
@@ -9,13 +9,9 @@ namespace ActionResponseNS {
         public string Output { get; set; }
 
         // Constructors
-        public ActionResponse(Guid reqID, Guid resID, string output) {
-            RequestID = reqID;
-            ResponseID = resID;
-            Output = output;
-        }
         public ActionResponse() {
-
+            RequestID = Guid.NewGuid();
         }
+
     }
 }

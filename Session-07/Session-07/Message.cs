@@ -1,6 +1,6 @@
 using System;
 
-namespace MessageNS {
+namespace Session07 {
 	public class Message {
 
 		// Properties
@@ -9,8 +9,8 @@ namespace MessageNS {
 		public string MessageText { get; set; }
 
 		// Constructor
-		public Message(Guid id, DateTime timestamp, string message) {
-			ID = id;
+		public Message(DateTime timestamp, string message) {
+			ID = Guid.NewGuid();
 			TimeStamp = timestamp;
 			MessageText = message;
 		}

@@ -1,13 +1,11 @@
 ﻿using System;
-using ActionRequestNS;
-using ActionResponseNS;
-using ActionResolverNS;
+using Session07;
 
 Console.WriteLine("Session 07 Exercise");
 
-ActionRequest request = new ActionRequest(Guid.NewGuid(), "Good morning!", ActionEnum.Uppercase);
+ActionRequest request = new ActionRequest("Good morning!", ActionEnum.Uppercase);
 ActionResponse response = new();
-ActionResolver resolver = new ActionResolver();
+ActionResolver resolver = new();
 
 response = resolver.Execute(request);
 
