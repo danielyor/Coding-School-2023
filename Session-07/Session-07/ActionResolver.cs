@@ -33,26 +33,36 @@ namespace Session07 {
                         bool parseSucceeded = int.TryParse(request.Input, out int dec);
                         if (parseSucceeded) {
                             string binary = Convert.ToString(dec, 2);
-                            Console.WriteLine(binary);
+                            
+                            //Console.WriteLine(binary);
+                            // write Message
 
                             // log message. Use someString.PadLeft(8, '0'); in response
                         }
                         else {
-                            Console.WriteLine("Convert action failed, bad input.");
-
-                            // log error message
+                            //Console.WriteLine("Convert action failed, bad input.");
+                            // throw exception
                         }
                         break;
 
                     case ActionEnum.Uppercase:
-                        // check if input is string
-
-                        Console.WriteLine(Uppercase(request.Input));
-
+                        if (request.Input is string) {
+                            // Console.WriteLine(Uppercase(request.Input));
+                            // write message
+                        }
+                        else {
+                            // throw exception
+                        }
                         break;
 
                     case ActionEnum.Reverse:
-                        Console.WriteLine(Reverse(request.Input));
+                        if (request.Input is string) {
+                            // Console.WriteLine(Reverse(request.Input));
+                            // write message
+                        }
+                        else {
+                            // throw exception
+                        }
                         break;
 
                     default:
@@ -96,19 +106,11 @@ namespace Session07 {
         }
 
         public string Reverse(string input) {
-            string[] str = new string[input.Length];
-            int i = 0;
-
-            if ((input == null) || (input.Length <= 1)) {
-                str[i] = input;
-            }
-            else {
-                //Console.Write(str[str.Length - 1]);
-                str[input.Length - 1] = input;
-                Reverse(input.Substring(0, (str.Length - 1)));
+            if (input == null || input.Length <= 1) {
+                return input;
             }
 
-            return string.Join("", str);
+            return Reverse(input.Substring(1)) + input[0];
         }
 
     }
