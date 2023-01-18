@@ -5,21 +5,28 @@ namespace Session07 {
 
         // Properties
         public Message[] Messages { get; set; }
+        private int _messageCounter = 0;
 
         // Constructor
         public MessageLogger() {
-             
+            Messages = new Message[1000];
         }
 
         // Methods
         public void ReadAll() {
-            // print all messages
+            foreach (Message message in Messages) {
+                if (message != null) {
+                    Console.WriteLine(message.MessageText);
+                }
+            }
         }
         public void Clear() {
-            // clear Messages
+            Messages = new Message[1000];
+            _messageCounter = 0;
         }
         public void Write(Message msg) {
-            // push msg to Messages array
+            Messages[_messageCounter] = msg;
+            _messageCounter++;
         }
 
     }

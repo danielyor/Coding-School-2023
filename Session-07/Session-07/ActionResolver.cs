@@ -15,44 +15,55 @@ namespace Session07 {
 
         // Constructor
         public ActionResolver() {
-
+            Logger = new MessageLogger();
         }
 
         // Methods
         public ActionResponse Execute(ActionRequest request) {
 
             ActionResponse response = new();
+            response.ResponseID = Guid.NewGuid();
 
-            switch (request.Action) {
+            // log start
 
-                case ActionEnum.Convert:
-                    bool binParse = int.TryParse(request.Input, out int bin);
-                    if (binParse) {
-                        // convert
-                        // log message
-                    }
-                    else {
-                        Console.WriteLine("Convert action failed, bad input.");
-                        // log error message
-                    }
-                    break;
 
-                case ActionEnum.Uppercase:
-                    // do stuff
-                    break;
+            try {
+                switch (request.Action) {
 
-                case ActionEnum.Reverse:
-                    // do stuff
-                    break;
+                    case ActionEnum.Convert:
+                        bool parseSucceeded = int.TryParse(request.Input, out int bin);
+                        if (parseSucceeded) {
+                            // convert
+                            // log message
+                        }
+                        else {
+                            Console.WriteLine("Convert action failed, bad input.");
+                            // log error message
+                        }
+                        break;
 
-                default:
-                    Console.WriteLine("Invalid request!");
-                    // log error message
-                    break;
+                    case ActionEnum.Uppercase:
+                        // do stuff
+                        break;
 
+                    case ActionEnum.Reverse:
+                        // do stuff
+                        break;
+
+                    default:
+                        // throw exception
+                        break;
+
+                }
+            }
+            catch {
+                // log error msg
+            }
+            finally {
+                // log end
             }
 
-            return null;
+            return response;
         }
 
 

@@ -8,10 +8,14 @@ namespace Session07 {
 		public DateTime TimeStamp { get; set; }
 		public string MessageText { get; set; }
 
-		// Constructor
-		public Message(DateTime timestamp, string message) {
+        // Constructors
+        public Message() {
+            ID = Guid.NewGuid();
+        }
+
+        public Message(string message) {
 			ID = Guid.NewGuid();
-			TimeStamp = timestamp;
+			TimeStamp = DateTime.Now;
 			MessageText = message;
 		}
 
