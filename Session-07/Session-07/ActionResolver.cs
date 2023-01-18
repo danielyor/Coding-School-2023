@@ -24,7 +24,7 @@ namespace Session07 {
             ActionResponse response = new();
             response.ResponseID = Guid.NewGuid();
 
-            // log start
+            Log($"Execution for Action \"{request.Action}\" started.");
 
             try {
                 switch (request.Action) {
@@ -33,52 +33,53 @@ namespace Session07 {
                         bool parseSucceeded = int.TryParse(request.Input, out int dec);
                         if (parseSucceeded) {
                             string binary = Convert.ToString(dec, 2);
-                            
-                            //Console.WriteLine(binary);
-                            // write Message
-
-                            // log message. Use someString.PadLeft(8, '0'); in response
+                            response.Output = binary.PadLeft(8, '0');
+                            Log("Execution succeeded.");
                         }
                         else {
-                            //Console.WriteLine("Convert action failed, bad input.");
-                            // throw exception
+                            throw new Exception("Convert action failed, bad input.");
                         }
                         break;
 
                     case ActionEnum.Uppercase:
                         if (request.Input is string) {
-                            // Console.WriteLine(Uppercase(request.Input));
-                            // write message
+                            response.Output = Uppercase(request.Input);
+                            Log("Execution succeeded.");
                         }
                         else {
-                            // throw exception
+                            throw new Exception("Uppercase action failed. Input is not string type.");
                         }
                         break;
 
                     case ActionEnum.Reverse:
                         if (request.Input is string) {
-                            // Console.WriteLine(Reverse(request.Input));
-                            // write message
+                            response.Output = Reverse(request.Input);
+                            Log("Execution succeeded.");
                         }
                         else {
-                            // throw exception
+                            throw new Exception("Uppercase action failed. Input is not string type.");
                         }
                         break;
 
                     default:
-                        // throw exception
+                        throw new Exception("Unknown error occured!");
                         break;
 
                 }
             }
-            catch {
-                // log error msg
+            catch (Exception e) {
+                Log($"ERROR: {e.Message}");
             }
             finally {
-                // log end
+                Log("Ending execution process.");
             }
 
             return response;
+        }
+
+        private void Log(string text) {
+            Message message = new Message(text);
+            Logger.Write(message);
         }
 
         public string Uppercase(string input) {

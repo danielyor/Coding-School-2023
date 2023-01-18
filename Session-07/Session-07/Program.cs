@@ -3,21 +3,29 @@ using Session07;
 
 Console.WriteLine("Session 07 Exercise");
 
-// request = new ActionRequest("80", ActionEnum.Convert);
-//ActionRequest request = new ActionRequest("There are long words in this string and some are longer than others !", ActionEnum.Uppercase);
-ActionRequest request = new ActionRequest("Hello, I can speak backwards!", ActionEnum.Reverse);
-
-ActionResponse response = new();
 ActionResolver resolver = new();
 
-response = resolver.Execute(request);
+// 1. Convert request
+ActionRequest request1 = new ActionRequest("80", ActionEnum.Convert);
+ActionResponse response1 = new();
+response1 = resolver.Execute(request1);
 
-// 2nd request: Uppercase
+// 2. Uppercase request
+ActionRequest request2 = new ActionRequest("There are long words in this string and some are longer than others !", ActionEnum.Uppercase);
+ActionResponse response2 = new();
+response2 = resolver.Execute(request2);
 
-// 3rd request: Reverse
+// 3. Reverse request
+ActionRequest request3 = new ActionRequest("Hello, I can speak backwards!", ActionEnum.Reverse);
+ActionResponse response3 = new();
+response3 = resolver.Execute(request3);
 
-// 4th request: an invalid request
+// 4. Invalid request
+ActionRequest request4 = new ActionRequest("Tell me my fortune", ActionEnum.Convert);
+ActionResponse response4 = new();
+response4 = resolver.Execute(request4);
 
-// log all the messages
+// Log all the messages
+resolver.Logger.ReadAll();
 
 Console.ReadKey();

@@ -16,7 +16,7 @@ namespace Session07 {
         public void ReadAll() {
             foreach (Message message in Messages) {
                 if (message != null) {
-                    Console.WriteLine(message.MessageText);
+                    Console.WriteLine($"{message.TimeStamp}: {message.MessageText}");
                 }
             }
         }
