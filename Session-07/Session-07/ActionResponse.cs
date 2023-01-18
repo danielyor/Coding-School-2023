@@ -1,11 +1,10 @@
 ﻿using System;
 
 namespace Session07 {
-    public class ActionResponse {
+    public class ActionResponse : ActionEntity {
 
         // Properties
         public Guid ResponseID { get; set; }
-        public Guid RequestID { get; set; }
         public string Output { get; set; }
 
         // Constructors
