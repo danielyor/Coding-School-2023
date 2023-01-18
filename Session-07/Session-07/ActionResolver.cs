@@ -32,7 +32,8 @@ namespace Session07 {
                     case ActionEnum.Convert:
                         bool parseSucceeded = int.TryParse(request.Input, out int dec);
                         if (parseSucceeded) {
-                            // convert to binary
+                            string binary = Convert.ToString(dec, 2);
+                            Console.WriteLine(binary);
 
                             // log message. Use someString.PadLeft(8, '0'); in response
                         }
@@ -46,9 +47,8 @@ namespace Session07 {
                     case ActionEnum.Uppercase:
                         // check if input is string
 
-                        // if there is a space, return the longest word in uppercase
+                        Console.WriteLine(Uppercase(request.Input));
 
-                        // else return string in uppercase
                         break;
 
                     case ActionEnum.Reverse:
@@ -69,6 +69,30 @@ namespace Session07 {
             }
 
             return response;
+        }
+
+        public string Uppercase(string input) {
+            string[] words = input.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (words.Length == 1) {
+                return words[0].ToUpper();
+            }
+            else {
+                int longest = 0;
+
+                for (int i=0; i<words.Length; i++) {
+                    if (words[i].Length > longest) {
+                        longest = words[i].Length;
+                    }
+                }
+                for (int i = 0; i < words.Length; i++) {
+                    if (words[i].Length == longest) {
+                        words[i] = words[i].ToUpper();
+                    }
+                }
+            }
+
+            return string.Join(" ", words);
         }
 
         public string Reverse(string input) {
