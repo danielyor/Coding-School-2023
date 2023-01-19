@@ -1,23 +1,46 @@
+using LibCalculator;
+
 namespace Session_09 {
     public partial class CalculatorUI : Form {
+
+        private decimal? _value1 = null;
+        private decimal? _value2 = null;
+        private decimal? _result = null;
+
+        private CalcOperation _calcOperation;
+
+        enum CalcOperation {
+            Add,
+            Subtract,
+            Multiply,
+            Divide,
+            Pow,
+            Root2
+        }
+
         public CalculatorUI() {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-
+        private void numberClick(object sender, EventArgs e) {
+            resultTextBox.Text = "Number clicked";
         }
 
-        private void button12_Click(object sender, EventArgs e) {
-
+        private void operatorClick(object sender, EventArgs e) {
+            resultTextBox.Text = "Operator clicked";
         }
 
-        private void button16_Click(object sender, EventArgs e) {
-
+        private void resultClick(object sender, EventArgs e) {
+            resultTextBox.Text = "Result clicked";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) {
-
+        private void decimalClick(object sender, EventArgs e) {
+            resultTextBox.Text = "Decimal point clicked";
         }
+
+        private void clearClick(object sender, EventArgs e) {
+            resultTextBox.Text = "";
+        }
+
     }
 }
