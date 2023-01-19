@@ -6,6 +6,8 @@ namespace Session_09 {
         private decimal? _value1 = null;
         private decimal? _value2 = null;
         private decimal? _result = null;
+        private bool _opSelected = false;
+        private string _strValue = string.Empty;
 
         private CalcOperation _calcOperation;
 
@@ -23,7 +25,7 @@ namespace Session_09 {
         }
 
         private void numberClick(object sender, EventArgs e) {
-            //resultTextBox.Text = "Number clicked";
+            resultTextBox.Text += ((Button)sender).Text;
 
             // fill string until operator or result is selected
             // update textbox
@@ -54,9 +56,13 @@ namespace Session_09 {
         }
 
         private void clearClick(object sender, EventArgs e) {
-            resultTextBox.Text = "";
-            // reset all properties
-        }
+            resultTextBox.Text = string.Empty;
+            _strValue = string.Empty;
+            _value1 = null;
+            _value2 = null;
+            _result = null;
+            _opSelected = false;
+    }
 
     }
 }
