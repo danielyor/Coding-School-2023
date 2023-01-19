@@ -15,7 +15,7 @@ namespace Session_09 {
             Multiply,
             Divide,
             Pow,
-            Root2
+            SqRoot
         }
 
         public CalculatorUI() {
@@ -23,23 +23,39 @@ namespace Session_09 {
         }
 
         private void numberClick(object sender, EventArgs e) {
-            resultTextBox.Text = "Number clicked";
-        }
+            //resultTextBox.Text = "Number clicked";
 
-        private void operatorClick(object sender, EventArgs e) {
-            resultTextBox.Text = "Operator clicked";
-        }
-
-        private void resultClick(object sender, EventArgs e) {
-            resultTextBox.Text = "Result clicked";
+            // fill string until operator or result is selected
+            // update textbox
         }
 
         private void decimalClick(object sender, EventArgs e) {
-            resultTextBox.Text = "Decimal point clicked";
+            //resultTextBox.Text = "Decimal point clicked";
+
+            // if string has no decimal point, insert it
+            // update textbox
+
+        }
+
+        private void operatorClick(object sender, EventArgs e) {
+            //resultTextBox.Text = "Operator clicked";
+
+            // if value1 is not null and value2 is, convert string to value1 and update operator
+            // update textbox
+        }
+
+        private void resultClick(object sender, EventArgs e) {
+            //resultTextBox.Text = "Result clicked";
+            //Addition addition = new();
+            //resultTextBox.Text = Convert.ToString( addition.Do(5, (decimal) 5.25) );
+
+            // if both values and operator are not null, convert string to value2 and calc result
+            // update textbox
         }
 
         private void clearClick(object sender, EventArgs e) {
             resultTextBox.Text = "";
+            // reset all properties
         }
 
     }
