@@ -24,17 +24,18 @@
         /// </summary>
         private void InitializeComponent() {
             this.uniGroupBox = new System.Windows.Forms.GroupBox();
+            this.scheduledCoursesGridView = new System.Windows.Forms.DataGridView();
+            this.coursesGridView = new System.Windows.Forms.DataGridView();
+            this.gradesGridView = new System.Windows.Forms.DataGridView();
+            this.studentsGridView = new System.Windows.Forms.DataGridView();
             this.saveBtn = new System.Windows.Forms.Button();
             this.loadBtn = new System.Windows.Forms.Button();
-            this.studentsGridView = new System.Windows.Forms.DataGridView();
-            this.gradesGridView = new System.Windows.Forms.DataGridView();
-            this.coursesGridView = new System.Windows.Forms.DataGridView();
-            this.scheduledCoursesGridView = new System.Windows.Forms.DataGridView();
+            this.loadDemoDataBtn = new System.Windows.Forms.Button();
             this.uniGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gradesGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduledCoursesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // uniGroupBox
@@ -48,7 +49,43 @@
             this.uniGroupBox.Size = new System.Drawing.Size(1006, 537);
             this.uniGroupBox.TabIndex = 0;
             this.uniGroupBox.TabStop = false;
-            this.uniGroupBox.Text = "University Props";
+            this.uniGroupBox.Text = "University";
+            // 
+            // scheduledCoursesGridView
+            // 
+            this.scheduledCoursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scheduledCoursesGridView.Location = new System.Drawing.Point(760, 381);
+            this.scheduledCoursesGridView.Name = "scheduledCoursesGridView";
+            this.scheduledCoursesGridView.RowTemplate.Height = 25;
+            this.scheduledCoursesGridView.Size = new System.Drawing.Size(240, 150);
+            this.scheduledCoursesGridView.TabIndex = 3;
+            // 
+            // coursesGridView
+            // 
+            this.coursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.coursesGridView.Location = new System.Drawing.Point(6, 381);
+            this.coursesGridView.Name = "coursesGridView";
+            this.coursesGridView.RowTemplate.Height = 25;
+            this.coursesGridView.Size = new System.Drawing.Size(240, 150);
+            this.coursesGridView.TabIndex = 2;
+            // 
+            // gradesGridView
+            // 
+            this.gradesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gradesGridView.Location = new System.Drawing.Point(760, 22);
+            this.gradesGridView.Name = "gradesGridView";
+            this.gradesGridView.RowTemplate.Height = 25;
+            this.gradesGridView.Size = new System.Drawing.Size(240, 150);
+            this.gradesGridView.TabIndex = 1;
+            // 
+            // studentsGridView
+            // 
+            this.studentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentsGridView.Location = new System.Drawing.Point(6, 22);
+            this.studentsGridView.Name = "studentsGridView";
+            this.studentsGridView.RowTemplate.Height = 25;
+            this.studentsGridView.Size = new System.Drawing.Size(240, 150);
+            this.studentsGridView.TabIndex = 0;
             // 
             // saveBtn
             // 
@@ -68,57 +105,32 @@
             this.loadBtn.Text = "Load";
             this.loadBtn.UseVisualStyleBackColor = true;
             // 
-            // studentsGridView
+            // loadDemoDataBtn
             // 
-            this.studentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.studentsGridView.Location = new System.Drawing.Point(6, 22);
-            this.studentsGridView.Name = "studentsGridView";
-            this.studentsGridView.RowTemplate.Height = 25;
-            this.studentsGridView.Size = new System.Drawing.Size(240, 150);
-            this.studentsGridView.TabIndex = 0;
-            // 
-            // gradesGridView
-            // 
-            this.gradesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gradesGridView.Location = new System.Drawing.Point(760, 22);
-            this.gradesGridView.Name = "gradesGridView";
-            this.gradesGridView.RowTemplate.Height = 25;
-            this.gradesGridView.Size = new System.Drawing.Size(240, 150);
-            this.gradesGridView.TabIndex = 1;
-            // 
-            // coursesGridView
-            // 
-            this.coursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.coursesGridView.Location = new System.Drawing.Point(6, 381);
-            this.coursesGridView.Name = "coursesGridView";
-            this.coursesGridView.RowTemplate.Height = 25;
-            this.coursesGridView.Size = new System.Drawing.Size(240, 150);
-            this.coursesGridView.TabIndex = 2;
-            // 
-            // scheduledCoursesGridView
-            // 
-            this.scheduledCoursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.scheduledCoursesGridView.Location = new System.Drawing.Point(760, 381);
-            this.scheduledCoursesGridView.Name = "scheduledCoursesGridView";
-            this.scheduledCoursesGridView.RowTemplate.Height = 25;
-            this.scheduledCoursesGridView.Size = new System.Drawing.Size(240, 150);
-            this.scheduledCoursesGridView.TabIndex = 3;
+            this.loadDemoDataBtn.Location = new System.Drawing.Point(937, 12);
+            this.loadDemoDataBtn.Name = "loadDemoDataBtn";
+            this.loadDemoDataBtn.Size = new System.Drawing.Size(75, 23);
+            this.loadDemoDataBtn.TabIndex = 3;
+            this.loadDemoDataBtn.Text = "Demo";
+            this.loadDemoDataBtn.UseVisualStyleBackColor = true;
+            this.loadDemoDataBtn.Click += new System.EventHandler(this.loadDemoDataBtn_Click);
             // 
             // UniversityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 590);
+            this.Controls.Add(this.loadDemoDataBtn);
             this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.uniGroupBox);
             this.Name = "UniversityForm";
             this.Text = "UniversityForm";
             this.uniGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.studentsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gradesGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduledCoursesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +144,6 @@
         private DataGridView studentsGridView;
         private Button saveBtn;
         private Button loadBtn;
+        private Button loadDemoDataBtn;
     }
 }
