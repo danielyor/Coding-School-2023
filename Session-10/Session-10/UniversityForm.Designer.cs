@@ -40,13 +40,16 @@
             // 
             // uniGroupBox
             // 
+            this.uniGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uniGroupBox.Controls.Add(this.scheduledCoursesGridView);
             this.uniGroupBox.Controls.Add(this.coursesGridView);
             this.uniGroupBox.Controls.Add(this.gradesGridView);
             this.uniGroupBox.Controls.Add(this.studentsGridView);
             this.uniGroupBox.Location = new System.Drawing.Point(12, 41);
             this.uniGroupBox.Name = "uniGroupBox";
-            this.uniGroupBox.Size = new System.Drawing.Size(1006, 537);
+            this.uniGroupBox.Size = new System.Drawing.Size(1077, 647);
             this.uniGroupBox.TabIndex = 0;
             this.uniGroupBox.TabStop = false;
             this.uniGroupBox.Text = "University";
@@ -54,28 +57,28 @@
             // scheduledCoursesGridView
             // 
             this.scheduledCoursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.scheduledCoursesGridView.Location = new System.Drawing.Point(760, 381);
+            this.scheduledCoursesGridView.Location = new System.Drawing.Point(6, 490);
             this.scheduledCoursesGridView.Name = "scheduledCoursesGridView";
             this.scheduledCoursesGridView.RowTemplate.Height = 25;
-            this.scheduledCoursesGridView.Size = new System.Drawing.Size(240, 150);
+            this.scheduledCoursesGridView.Size = new System.Drawing.Size(1065, 150);
             this.scheduledCoursesGridView.TabIndex = 3;
             // 
             // coursesGridView
             // 
             this.coursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.coursesGridView.Location = new System.Drawing.Point(6, 381);
+            this.coursesGridView.Location = new System.Drawing.Point(6, 334);
             this.coursesGridView.Name = "coursesGridView";
             this.coursesGridView.RowTemplate.Height = 25;
-            this.coursesGridView.Size = new System.Drawing.Size(240, 150);
+            this.coursesGridView.Size = new System.Drawing.Size(1065, 150);
             this.coursesGridView.TabIndex = 2;
             // 
             // gradesGridView
             // 
             this.gradesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gradesGridView.Location = new System.Drawing.Point(760, 22);
+            this.gradesGridView.Location = new System.Drawing.Point(6, 178);
             this.gradesGridView.Name = "gradesGridView";
             this.gradesGridView.RowTemplate.Height = 25;
-            this.gradesGridView.Size = new System.Drawing.Size(240, 150);
+            this.gradesGridView.Size = new System.Drawing.Size(1065, 150);
             this.gradesGridView.TabIndex = 1;
             // 
             // studentsGridView
@@ -84,7 +87,7 @@
             this.studentsGridView.Location = new System.Drawing.Point(6, 22);
             this.studentsGridView.Name = "studentsGridView";
             this.studentsGridView.RowTemplate.Height = 25;
-            this.studentsGridView.Size = new System.Drawing.Size(240, 150);
+            this.studentsGridView.Size = new System.Drawing.Size(1065, 150);
             this.studentsGridView.TabIndex = 0;
             // 
             // saveBtn
@@ -107,7 +110,8 @@
             // 
             // loadDemoDataBtn
             // 
-            this.loadDemoDataBtn.Location = new System.Drawing.Point(937, 12);
+            this.loadDemoDataBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loadDemoDataBtn.Location = new System.Drawing.Point(1008, 12);
             this.loadDemoDataBtn.Name = "loadDemoDataBtn";
             this.loadDemoDataBtn.Size = new System.Drawing.Size(75, 23);
             this.loadDemoDataBtn.TabIndex = 3;
@@ -119,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 590);
+            this.ClientSize = new System.Drawing.Size(1101, 700);
             this.Controls.Add(this.loadDemoDataBtn);
             this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.saveBtn);
