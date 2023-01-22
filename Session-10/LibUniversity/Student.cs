@@ -3,10 +3,11 @@ namespace LibUniversity {
 
         // Properties
         public int RegistrationNumber { get; set; }
-        public Course[] Courses { get; set; }
+        public List<Course> Courses { get; set; }
 
         // Constructors
         public Student() : base() {
+
         }
 
         // Methods
