@@ -1,7 +1,9 @@
 using LibUniversity;
+using LibSerializer;
 
 namespace Session_10 {
     public partial class UniversityForm : Form {
+        public University uni { get; set; }
         public UniversityForm() {
             InitializeComponent();
         }
@@ -67,6 +69,35 @@ namespace Session_10 {
 
             scheduledCoursesGridView.DataSource = schedules;
 
+            // Update University entity
+            uni = new University() {
+                Name = "Epsilon University",
+                Students = students,
+                Courses = courses,
+                Grades = grades,
+                ScheduledCourse = schedules
+            };
+            uniGroupBox.Text = uni.Name;
+
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e) {
+            Serializer serializer = new();
+            serializer.SerializeToFile(uni, "saved-data.json");
+
+            MessageBox.Show("Save to file complete!", "Alert", MessageBoxButtons.OK);
+        }
+
+        private void loadBtn_Click(object sender, EventArgs e) {
+            Serializer serializer = new();
+            uni = serializer.Deserialize<University>("saved-data.json");
+
+            studentsGridView.DataSource = uni.Students;
+            gradesGridView.DataSource = uni.Grades;
+            coursesGridView.DataSource = uni.Courses;
+            scheduledCoursesGridView.DataSource = uni.ScheduledCourse;
+
+            MessageBox.Show("Load from file complete!", "Alert", MessageBoxButtons.OK);
         }
     }
 }

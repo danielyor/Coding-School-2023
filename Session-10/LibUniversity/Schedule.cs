@@ -14,6 +14,8 @@ namespace LibUniversity {
             ProfessorID = profID;
             Calendar = cal;
         }
+        public Schedule() {
 
+        }
     }
 }

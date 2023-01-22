@@ -14,6 +14,15 @@ namespace LibUniversity {
             CourseID = courseID;
             Grading = grade;
         }
+        public Grade(Guid gradeID, Guid studentID, Guid courseID, int grade) {
+            ID = gradeID;
+            StudentID = studentID;
+            CourseID = courseID;
+            Grading = grade;
+        }
+        public Grade() {
+
+        }
 
     }
 }

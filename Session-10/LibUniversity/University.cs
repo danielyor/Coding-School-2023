@@ -2,10 +2,10 @@
     public class University : Institute {
 
         // Properties
-        public Student[] Students { get; set; }
-        public Course[] Courses { get; set; }
-        public Grade[] Grades { get; set; }
-        public Schedule[] ScheduledCourse { get; set; }
+        public List<Student> Students { get; set; }
+        public List<Course> Courses { get; set; }
+        public List<Grade> Grades { get; set; }
+        public List<Schedule> ScheduledCourse { get; set; }
 
         // Constructors
         public University() : base() {
