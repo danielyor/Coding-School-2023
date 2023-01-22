@@ -97,7 +97,18 @@ namespace Session_10 {
             coursesGridView.DataSource = uni.Courses;
             scheduledCoursesGridView.DataSource = uni.ScheduledCourse;
 
+            uniGroupBox.Text = uni.Name;
+
             MessageBox.Show("Load from file complete!", "Alert", MessageBoxButtons.OK);
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e) {
+            studentsGridView.DataSource = null;
+            gradesGridView.DataSource = null;
+            coursesGridView.DataSource = null;
+            scheduledCoursesGridView.DataSource = null;
+
+            uniGroupBox.Text = "Institute Name";
         }
     }
 }

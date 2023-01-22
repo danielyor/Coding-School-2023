@@ -31,6 +31,7 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.loadBtn = new System.Windows.Forms.Button();
             this.loadDemoDataBtn = new System.Windows.Forms.Button();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.uniGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduledCoursesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesGridView)).BeginInit();
@@ -52,7 +53,7 @@
             this.uniGroupBox.Size = new System.Drawing.Size(1077, 647);
             this.uniGroupBox.TabIndex = 0;
             this.uniGroupBox.TabStop = false;
-            this.uniGroupBox.Text = "University";
+            this.uniGroupBox.Text = "Institute Name";
             // 
             // scheduledCoursesGridView
             // 
@@ -121,11 +122,22 @@
             this.loadDemoDataBtn.UseVisualStyleBackColor = true;
             this.loadDemoDataBtn.Click += new System.EventHandler(this.loadDemoDataBtn_Click);
             // 
+            // clearBtn
+            // 
+            this.clearBtn.Location = new System.Drawing.Point(174, 12);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 4;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
+            // 
             // UniversityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 700);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.loadDemoDataBtn);
             this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.saveBtn);
@@ -151,5 +163,6 @@
         private Button saveBtn;
         private Button loadBtn;
         private Button loadDemoDataBtn;
+        private Button clearBtn;
     }
 }
