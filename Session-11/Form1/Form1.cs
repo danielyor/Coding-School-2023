@@ -1,5 +1,6 @@
 
 using Session_11.CarServiceLib;
+using System;
 
 namespace Form1
 {
@@ -14,18 +15,19 @@ namespace Form1
         {
             CreateCustomer();
             CreateCar();
-            //CreateEngineer();
+
+            //CreateEngineer(ManagerID);
             CreateManager();
             //CreateServiceTask();
-            //CreateTransaction();
-
+            //CreateTransaction(customerID,managerID,carID);
+            //CreateTransactionLine(Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours)
         }
 
         public void CreateCustomer()
         {
             Customer customer1 = new Customer();
-            customer1.ID=Guid.NewGuid();
-            customer1.Name= "Chris";
+            customer1.ID = Guid.NewGuid();
+            customer1.Name = "Chris";
             customer1.Surname = "Typou";
             customer1.Phone = "6948192491";
             customer1.TIN = "What's this";
@@ -60,12 +62,44 @@ namespace Form1
             engineer1.Name = "Nikos";
             engineer1.ManagerID = managerID;
         }
-        public void Transaction()
+        public void Transaction(Guid customerID, Guid managerID, Guid carID)
         {
             Transaction transaction1 = new Transaction();
             transaction1.ID = Guid.NewGuid();
             transaction1.Date = DateTime.Now;
-            
+            transaction1.CustomerID = customerID;
+            transaction1.ManagerID = managerID;
+            transaction1.CarID = carID;
+        }
+        public void TransactionLine(Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours)
+        {
+            TransactionLine transactionLine1 = new TransactionLine();
+            transactionLine1.ID = Guid.NewGuid();
+            transactionLine1.TransactionID = transactionID;
+            transactionLine1.Hours = hours;
+            transactionLine1.PricePerHour = 45.5M;
+            transactionLine1.EngineerID = engineerID;
+            transactionLine1.ServiceTaskID = serviceTaskID;
+
+        }
+
+        public void CreateServiceTask()
+        {
+            ServiceTask serviceTask1 = new ServiceTask();
+            serviceTask1.ID = Guid.NewGuid();
+            serviceTask1.Description = "Description";
+            serviceTask1.Hours = 0;
+            //serviceTask1.Code
+        }
+        public void CreateMonthlyLedger()
+        {
+            MonthlyLedger monthlyLedger1 = new MonthlyLedger();
+            monthlyLedger1.Month = DateTime.Parse(DateTime.Now.Month.ToString());
+            monthlyLedger1.Year = DateTime.Parse(DateTime.Now.Year.ToString());
+            //monthlyLedger1.Income
+            //monthlyLedger1.Expenses    
+            //monthlyLedger1.Total
+
         }
 
     }
