@@ -18,7 +18,8 @@ namespace Form1
 
             //CreateEngineer(ManagerID);
             CreateManager();
-            //CreateServiceTask();
+            //Code?
+            CreateServiceTask();
             //CreateTransaction(customerID,managerID,carID);
             //CreateTransactionLine(Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours)
         }
@@ -88,7 +89,7 @@ namespace Form1
             ServiceTask serviceTask1 = new ServiceTask();
             serviceTask1.ID = Guid.NewGuid();
             serviceTask1.Description = "Description";
-            serviceTask1.Hours = 0;
+            serviceTask1.Hours = 2;
             //serviceTask1.Code
         }
         public void CreateMonthlyLedger()
