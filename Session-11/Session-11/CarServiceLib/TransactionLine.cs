@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Session_11 {
-    public class TransactionLine {
+namespace Session_11.CarServiceLib
+{
+    public class TransactionLine
+    {
 
-        public Guid ID { get; set; }  
+        public Guid ID { get; set; }
 
         public Guid TransactionID { get; set; }
 
@@ -17,11 +19,12 @@ namespace Session_11 {
 
         public decimal Hours { get; set; }
 
-        public decimal PricePerHour { get; set; }  
+        public decimal PricePerHour { get; set; }
 
         public decimal Price { get; set; }
 
-        public TransactionLine() {
+        public TransactionLine()
+        {
 
         }
     }

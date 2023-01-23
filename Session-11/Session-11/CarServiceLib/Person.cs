@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Session_11 {
-    public class Person {
+namespace Session_11.CarServiceLib
+{
+    public class Person
+    {
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        public Person() {
+        public Person()
+        {
 
         }
     }
