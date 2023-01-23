@@ -102,6 +102,11 @@ namespace Form1
             //monthlyLedger1.Total
 
         }
+        //public TransactionLine CalculatePrice(TransactionLine transactionline)
+        //{
+        //    transactionLine.Price = transactionLine.PricePerHour * TransactionLine.Hours;
 
+        //    return transactionLine;
+        //}
     }
 }
