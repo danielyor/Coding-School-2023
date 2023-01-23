@@ -10,5 +10,7 @@ namespace Session_10 {
             ApplicationConfiguration.Initialize();
             Application.Run(new UniversityForm());
         }
+
+        //test
     }
 }
