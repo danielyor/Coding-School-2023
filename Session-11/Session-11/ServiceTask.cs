@@ -7,5 +7,19 @@ using System.Threading.Tasks;
 namespace Session_11 {
     public class ServiceTask {
 
+        public Guid ID { get; set; }
+
+        public enum Code {
+            //prepei na doume pos tha doulepsei to enum me to code
+            
+        }
+
+        public string Description { get; set; }
+
+        public decimal Hours { get; set; }
+
+        public ServiceTask() {
+
+        }
     }
 }

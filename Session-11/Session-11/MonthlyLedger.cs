@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace Session_11 {
     public class MonthlyLedger {
+        //to dateTime to vlepoume kai gia int
+        public DateTime Year { get; set; }
+        
+        public DateTime Month { get; set; }
 
+        public decimal Income { get; set; }
+
+        public decimal Expenses { get; set; }
+
+        public decimal Total { get; set; }
     }
 }
