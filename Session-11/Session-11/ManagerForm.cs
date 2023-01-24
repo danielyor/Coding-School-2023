@@ -39,7 +39,8 @@ namespace Session_11 {
             BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.serviceTasks);
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
 
-            
+            BindingList<Transaction> transactions = new BindingList<Transaction>(data.transactions);
+            grdTransactions.DataSource = new BindingSource() { DataSource = transactions };
 
 
 
