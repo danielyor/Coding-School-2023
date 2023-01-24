@@ -29,5 +29,10 @@ namespace Session_11 {
         {
 
         }
+
+        private void textBoxServiceTaskTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
