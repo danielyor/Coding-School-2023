@@ -32,7 +32,7 @@ namespace Session_11 {
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
 
             repManagers.DataSource = new BindingSource() { DataSource = managers };
-            repManagers.DisplayMember = "Name";
+            repManagers.DisplayMember = "Surname";
             repManagers.ValueMember = "ID";
             repManagersView.Assign(grdManagers.MainView, false);
 
@@ -42,7 +42,15 @@ namespace Session_11 {
             BindingList<Transaction> transactions = new BindingList<Transaction>(data.transactions);
             grdTransactions.DataSource = new BindingSource() { DataSource = transactions };
 
+            BindingList<Car> cars = new BindingList<Car>(data.cars);
+            repCars.DataSource = new BindingSource() { DataSource = cars };
+            repCars.DisplayMember = "Model";
+            repCars.ValueMember = "ID";
 
+            BindingList<Customer> customers = new BindingList<Customer>(data.customers);
+            repCustomers.DataSource = new BindingSource() { DataSource = customers };
+            repCustomers.DisplayMember = "Surname";
+            repCustomers.ValueMember = "ID";
 
             //repManagersView.Columns = grdManagers.MainView
 

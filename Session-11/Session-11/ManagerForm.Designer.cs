@@ -48,9 +48,15 @@
             this.grvTransactions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdCustomerName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repCustomers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdCar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repCars = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdManager = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdTotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repManagers2 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
@@ -61,12 +67,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManagers2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 2;
@@ -113,10 +125,10 @@
             // 
             // grdManagers
             // 
-            this.grdManagers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdManagers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.grdManagers.Location = new System.Drawing.Point(4, 4);
             this.grdManagers.MainView = this.grvManagers;
-            this.grdManagers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdManagers.Margin = new System.Windows.Forms.Padding(4);
             this.grdManagers.Name = "grdManagers";
             this.grdManagers.Size = new System.Drawing.Size(625, 312);
             this.grdManagers.TabIndex = 1;
@@ -126,10 +138,10 @@
             // 
             // grdEngineers
             // 
-            this.grdEngineers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdEngineers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.grdEngineers.Location = new System.Drawing.Point(4, 328);
             this.grdEngineers.MainView = this.grvEngineers;
-            this.grdEngineers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdEngineers.Margin = new System.Windows.Forms.Padding(4);
             this.grdEngineers.Name = "grdEngineers";
             this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repManagers});
@@ -209,10 +221,10 @@
             // 
             // grdServiceTasks
             // 
-            this.grdServiceTasks.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdServiceTasks.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.grdServiceTasks.Location = new System.Drawing.Point(709, 4);
             this.grdServiceTasks.MainView = this.grvServiceTasks;
-            this.grdServiceTasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdServiceTasks.Margin = new System.Windows.Forms.Padding(4);
             this.grdServiceTasks.Name = "grdServiceTasks";
             this.grdServiceTasks.Size = new System.Drawing.Size(625, 312);
             this.grdServiceTasks.TabIndex = 4;
@@ -266,6 +278,10 @@
             this.grdTransactions.Location = new System.Drawing.Point(709, 328);
             this.grdTransactions.MainView = this.grvTransactions;
             this.grdTransactions.Name = "grdTransactions";
+            this.grdTransactions.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repCars,
+            this.repCustomers,
+            this.repManagers2});
             this.grdTransactions.Size = new System.Drawing.Size(625, 312);
             this.grdTransactions.TabIndex = 5;
             this.grdTransactions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -295,6 +311,7 @@
             // grdCustomerName
             // 
             this.grdCustomerName.Caption = "Customer Name";
+            this.grdCustomerName.ColumnEdit = this.repCustomers;
             this.grdCustomerName.FieldName = "CustomerID";
             this.grdCustomerName.MinWidth = 30;
             this.grdCustomerName.Name = "grdCustomerName";
@@ -302,9 +319,25 @@
             this.grdCustomerName.VisibleIndex = 1;
             this.grdCustomerName.Width = 112;
             // 
+            // repCustomers
+            // 
+            this.repCustomers.AutoHeight = false;
+            this.repCustomers.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repCustomers.Name = "repCustomers";
+            this.repCustomers.PopupView = this.gridView1;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
             // grdCar
             // 
             this.grdCar.Caption = "Car";
+            this.grdCar.ColumnEdit = this.repCars;
             this.grdCar.FieldName = "CarID";
             this.grdCar.MinWidth = 30;
             this.grdCar.Name = "grdCar";
@@ -312,9 +345,25 @@
             this.grdCar.VisibleIndex = 2;
             this.grdCar.Width = 112;
             // 
+            // repCars
+            // 
+            this.repCars.AutoHeight = false;
+            this.repCars.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repCars.Name = "repCars";
+            this.repCars.PopupView = this.repositoryItemGridLookUpEdit1View;
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // grdManager
             // 
             this.grdManager.Caption = "Manager";
+            this.grdManager.ColumnEdit = this.repManagers2;
             this.grdManager.FieldName = "ManagerID";
             this.grdManager.MinWidth = 30;
             this.grdManager.Name = "grdManager";
@@ -331,6 +380,21 @@
             this.grdTotalPrice.Visible = true;
             this.grdTotalPrice.VisibleIndex = 4;
             this.grdTotalPrice.Width = 112;
+            // 
+            // repManagers2
+            // 
+            this.repManagers2.AutoHeight = false;
+            this.repManagers2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repManagers2.Name = "repManagers2";
+            this.repManagers2.PopupView = this.gridView2;
+            // 
+            // gridView2
+            // 
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // ManagerForm
             // 
@@ -355,6 +419,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManagers2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,5 +460,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdCar;
         private DevExpress.XtraGrid.Columns.GridColumn grdManager;
         private DevExpress.XtraGrid.Columns.GridColumn grdTotalPrice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repCustomers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repCars;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repManagers2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
     }
 }
