@@ -8,10 +8,7 @@ namespace LibCarService
 {
     public class ServiceTask
     {
-        public Guid ID { get; set; }
-
-        public enum CodeEnum
-        {
+        public enum CodeEnum {
             OilChange,
             TireChange,
             BrokenWindow,
@@ -19,6 +16,7 @@ namespace LibCarService
             MirrorReplacement
 
         }
+        public Guid ID { get; set; }
 
         public string Description { get; set; }
 
