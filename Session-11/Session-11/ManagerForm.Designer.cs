@@ -39,16 +39,19 @@
             this.repManagers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repManagersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColEngineerSalary = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdServiceTasks = new DevExpress.XtraGrid.GridControl();
+            this.grvServiceTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colServiceTaskCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colServiceTaskDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colServiceTaskHours = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagersView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -187,27 +190,63 @@
             this.grdColEngineerSalary.VisibleIndex = 3;
             this.grdColEngineerSalary.Width = 94;
             // 
-            // gridControl1
+            // grdServiceTasks
             // 
-            this.gridControl1.Location = new System.Drawing.Point(567, 3);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(500, 250);
-            this.gridControl1.TabIndex = 4;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.grdServiceTasks.Location = new System.Drawing.Point(567, 3);
+            this.grdServiceTasks.MainView = this.grvServiceTasks;
+            this.grdServiceTasks.Name = "grdServiceTasks";
+            this.grdServiceTasks.Size = new System.Drawing.Size(500, 250);
+            this.grdServiceTasks.TabIndex = 4;
+            this.grdServiceTasks.UseEmbeddedNavigator = true;
+            this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvServiceTasks});
             // 
-            // gridView1
+            // grvServiceTasks
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.grvServiceTasks.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colServiceTaskCode,
+            this.colServiceTaskDescription,
+            this.colServiceTaskHours});
+            this.grvServiceTasks.GridControl = this.grdServiceTasks;
+            this.grvServiceTasks.Name = "grvServiceTasks";
+            this.grvServiceTasks.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvServiceTasks_CellValueChanging);
+            // 
+            // colServiceTaskCode
+            // 
+            this.colServiceTaskCode.Caption = "Code";
+            this.colServiceTaskCode.FieldName = "Code";
+            this.colServiceTaskCode.MinWidth = 25;
+            this.colServiceTaskCode.Name = "colServiceTaskCode";
+            this.colServiceTaskCode.Visible = true;
+            this.colServiceTaskCode.VisibleIndex = 0;
+            this.colServiceTaskCode.Width = 94;
+            // 
+            // colServiceTaskDescription
+            // 
+            this.colServiceTaskDescription.Caption = "Description";
+            this.colServiceTaskDescription.FieldName = "Description";
+            this.colServiceTaskDescription.MinWidth = 25;
+            this.colServiceTaskDescription.Name = "colServiceTaskDescription";
+            this.colServiceTaskDescription.Visible = true;
+            this.colServiceTaskDescription.VisibleIndex = 1;
+            this.colServiceTaskDescription.Width = 94;
+            // 
+            // colServiceTaskHours
+            // 
+            this.colServiceTaskHours.Caption = "Hours";
+            this.colServiceTaskHours.FieldName = "Hours";
+            this.colServiceTaskHours.MinWidth = 25;
+            this.colServiceTaskHours.Name = "colServiceTaskHours";
+            this.colServiceTaskHours.Visible = true;
+            this.colServiceTaskHours.VisibleIndex = 2;
+            this.colServiceTaskHours.Width = 94;
             // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1480, 765);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.grdServiceTasks);
             this.Controls.Add(this.grdEngineers);
             this.Controls.Add(this.grdManagers);
             this.Controls.Add(this.button1);
@@ -220,8 +259,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagersView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,7 +284,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColEngineerSalary;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repManagers;
         private DevExpress.XtraGrid.Views.Grid.GridView repManagersView;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl grdServiceTasks;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvServiceTasks;
+        private DevExpress.XtraGrid.Columns.GridColumn colServiceTaskCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colServiceTaskDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colServiceTaskHours;
     }
 }

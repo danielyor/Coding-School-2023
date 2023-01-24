@@ -1,4 +1,6 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.BandedGrid;
 using LibCarService;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using static LibCarService.ServiceTask;
 
 namespace Session_11 {
     public partial class ManagerForm : Form {
@@ -32,11 +36,15 @@ namespace Session_11 {
             repManagers.ValueMember = "ID";
             repManagersView.Assign(grdManagers.MainView, false);
 
+            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.serviceTasks);
+            grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
+
+            
 
 
 
             //repManagersView.Columns = grdManagers.MainView
-            
+
             //managers.AddNew();
             //grvEngineers.AutoGenerateColumns = false;
             //grvManagers.DataSource = data.managers;
@@ -70,6 +78,34 @@ namespace Session_11 {
             //var buttons = grdManagers.EmbeddedNavigator.Buttons;
         }
 
-        
+
+        private void grvServiceTasks_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e) {
+            if (e.Column.Caption == "Code") {
+                //MessageBox.Show(e.Value.ToString());
+
+                switch (e.Value) {
+                    case CodeEnum.OilChange:
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the oils");
+                        break;
+                    case CodeEnum.TireChange:
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the tire");
+                        break;
+                    case CodeEnum.BrokenWindow:
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Fix the broken window");
+                        break;
+                    case CodeEnum.EngineChange:
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the engine");
+                        break;
+                    case CodeEnum.MirrorReplacement:
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Replace the mirror");
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+            }
+        }
     }
 }
