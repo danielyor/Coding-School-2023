@@ -133,6 +133,14 @@ namespace Session_11 {
             transactionLine1.EngineerID = _engineers[0].ID;
             transactionLine1.ServiceTaskID = _serviceTasks[0].ID;
             _transactionLines.Add(transactionLine1);
+            TransactionLine transactionLine2 = new TransactionLine();
+            transactionLine1.ID = Guid.NewGuid();
+            transactionLine1.TransactionID = _transactions[0].ID;
+            transactionLine1.Hours = _serviceTasks[1].Hours;
+            transactionLine1.PricePerHour = 45.5M;
+            transactionLine1.EngineerID = _engineers[0].ID;
+            transactionLine1.ServiceTaskID = _serviceTasks[1].ID;
+            _transactionLines.Add(transactionLine2);
         }
 
 
