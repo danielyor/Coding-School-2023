@@ -13,5 +13,10 @@ namespace Session_11 {
         public ManagerForm() {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            DummyCarMech data = new();
+            MessageBox.Show(data.managers[0].Name, "Wowowww", MessageBoxButtons.OK);
+        }
     }
 }
