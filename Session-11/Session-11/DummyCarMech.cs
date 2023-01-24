@@ -142,9 +142,19 @@ namespace Session_11 {
             transaction1.CustomerID = customers[0].ID;
             transaction1.ManagerID = managers[0].ID;
             transaction1.CarID = cars[0].ID;
-            //transaction1.CustomerID = customerID;
-            //transaction1.ManagerID = managerID;
-            //transaction1.CarID = carID;
+            transaction1.TotalPrice = 91;
+
+            transactions.Add(transaction1);
+
+            Transaction transaction2 = new Transaction();
+            transaction1.Date = DateTime.Now;
+            transaction1.CustomerID = customers[1].ID;
+            transaction1.ManagerID = managers[1].ID;
+            transaction1.CarID = cars[1].ID;
+            transaction1.TotalPrice = 0;
+
+            transactions.Add(transaction2);
+
         }
         //Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours
         public void TransactionLine() {
