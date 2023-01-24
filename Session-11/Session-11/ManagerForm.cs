@@ -57,7 +57,9 @@ namespace Session_11 {
             repManagers2.DataSource = new BindingSource() { DataSource = managers };
             repManagers2.DisplayMember = "Surname";
             repManagers2.ValueMember = "ID";
-            repManagerView.Columns = grdManagers.MainView;
+            gridView2.Assign(grdManagers.MainView, false);
+
+            //repManagerView.Columns = grdManagers.MainView;
 
             //managers.AddNew();
             //grvEngineers.AutoGenerateColumns = false;
