@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LibCarService.ServiceTask;
 
 namespace Session_11 {
     public partial class DummyCarMech {
@@ -15,7 +16,7 @@ namespace Session_11 {
         public List<Engineer> engineers = new List<Engineer>();
         public List<Transaction> transactions = new List<Transaction>();
         public List<TransactionLine> transactionLines = new List<TransactionLine>();
-
+        
 
         public DummyCarMech() {
             PopulateCustomers();
@@ -64,12 +65,14 @@ namespace Session_11 {
             ServiceTask serviceTask1 = new ServiceTask();
             serviceTask1.Description = "Brakes Change";
             serviceTask1.Hours = 2.3M;
+            serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
             serviceTasks.Add(serviceTask1);
 
             ServiceTask serviceTask2 = new ServiceTask();
             serviceTask1.Description = "Tires Change";
             serviceTask1.Hours = 1.5M;
             serviceTasks.Add(serviceTask1);
+            serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
             //serviceTask1.Code = "";
         }
 

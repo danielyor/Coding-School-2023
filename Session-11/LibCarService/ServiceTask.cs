@@ -10,19 +10,27 @@ namespace LibCarService
     {
         public Guid ID { get; set; }
 
-        public enum Code
+        public enum CodeEnum
         {
-            //prepei na doume pos tha doulepsei to enum me to code
+            OilChange,
+            TireChange,
+            BrokenWindow,
+            EngineChange,
+            MirrorReplacement
 
         }
 
         public string Description { get; set; }
 
         public decimal Hours { get; set; }
-
+        public CodeEnum Code { get; set; }
+        
         public ServiceTask()
         {
             ID = Guid.NewGuid();
         }
+
+        
+    
     }
 }

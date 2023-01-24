@@ -57,6 +57,7 @@
             this.gridSalaryPerMonth});
             this.gridView1.GridControl = this.grdEngineers;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             // 
             // gridEngineerName
             // 
@@ -106,6 +107,7 @@
             this.gridHours});
             this.gridView2.GridControl = this.grdServiceTasks;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // gridCode
             // 
