@@ -24,15 +24,10 @@ namespace Session_11 {
         public DummyCarMech() {
             PopulateCustomers();
             PopulateManagers();
-
             PopulateCars();
             PopulateEngineers();
             PopulateServiceTasks();
 
-
-            //Code?
-            //CreateTransaction(customerID,managerID,carID);
-            //CreateTransactionLine(Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours)
         }
         public void PopulateCustomers() {
             Customer customer1 = new Customer();
