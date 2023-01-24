@@ -30,6 +30,10 @@ namespace Session_11 {
 
             BindingList<Engineer> engineers = new BindingList<Engineer>(data.engineers);
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
+
+            repManagers.DataSource = new BindingSource() { DataSource = managers };
+            repManagers.DisplayMember = "Name";
+            repManagers.ValueMember = "ID";
             //managers.AddNew();
             //grvEngineers.AutoGenerateColumns = false;
             //grvManagers.DataSource = data.managers;
