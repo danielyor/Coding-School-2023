@@ -112,6 +112,7 @@
             // gridCode
             // 
             this.gridCode.Caption = "Code";
+            this.gridCode.FieldName = "Code";
             this.gridCode.MinWidth = 30;
             this.gridCode.Name = "gridCode";
             this.gridCode.Visible = true;

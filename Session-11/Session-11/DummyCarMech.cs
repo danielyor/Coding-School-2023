@@ -74,8 +74,33 @@ namespace Session_11 {
             ServiceTask serviceTask2 = new ServiceTask();
             serviceTask1.Description = "Tires Change";
             serviceTask1.Hours = 1.5M;
-            serviceTasks.Add(serviceTask1);
             serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
+            serviceTasks.Add(serviceTask1);
+            switch (serviceTask1.Code)
+            {
+                case CodeEnum.OilChange:
+                    serviceTask1.Description = "Change the oils";
+                    serviceTask1.Hours = 1.5M;
+                    break;
+                case CodeEnum.TireChange:
+                    serviceTask1.Description = "Change the tire";
+                    serviceTask1.Hours = 2.5M;
+                    break;
+                case CodeEnum.BrokenWindow:
+                    serviceTask1.Description = "Fix the broken window";
+                    serviceTask1.Hours = 1.25M;
+                    break;
+                case CodeEnum.EngineChange:
+                    serviceTask1.Description = "Change the engine";
+                    serviceTask1.Hours = 2;
+                    break;
+                case CodeEnum.MirrorReplacement:
+                    serviceTask1.Description = "Replace the mirror";
+                    serviceTask1.Hours = 0.5M;
+                    break;
+                default:
+                    break;
+            }
             //serviceTask1.Code = "";
         }
 
@@ -148,7 +173,7 @@ namespace Session_11 {
             //monthlyLedger1.Total
 
         }
-
+        
         //public TransactionLine CalculatePrice(TransactionLine transactionline)
         //{
         //    transactionLine.Price = transactionLine.PricePerHour * TransactionLine.Hours;
