@@ -51,8 +51,13 @@ namespace Session_11 {
             repCustomers.DataSource = new BindingSource() { DataSource = customers };
             repCustomers.DisplayMember = "Surname";
             repCustomers.ValueMember = "ID";
+            
+            
 
-            //repManagersView.Columns = grdManagers.MainView
+            repManagers2.DataSource = new BindingSource() { DataSource = managers };
+            repManagers2.DisplayMember = "Surname";
+            repManagers2.ValueMember = "ID";
+            repManagerView.Columns = grdManagers.MainView;
 
             //managers.AddNew();
             //grvEngineers.AutoGenerateColumns = false;
