@@ -3,7 +3,7 @@ using LibCarService;
 using LibSerializer;
 
 namespace Session_11 {
-    public partial class Form1 : Form {
+    public partial class LoginForm : Form {
 
         private List<Manager> _managers = new List<Manager>();
         private List<Customer> _customers = new List<Customer>();
@@ -12,7 +12,7 @@ namespace Session_11 {
         private List<Engineer> _engineers = new List<Engineer>();
         private List<Transaction> _transactions = new List<Transaction>();
         private List<TransactionLine> _transactionLines = new List<TransactionLine>();
-        public Form1() {
+        public LoginForm() {
             InitializeComponent();
         }
 
@@ -140,6 +140,25 @@ namespace Session_11 {
             //monthlyLedger1.Expenses    
             //monthlyLedger1.Total
 
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e) {
+
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e) {
+            CustomerForm customerForm = new();
+            customerForm.ShowDialog();
+        }
+
+        private void btnManager_Click(object sender, EventArgs e) {
+            ManagerForm managerForm = new();
+            managerForm.ShowDialog();
+        }
+
+        private void btnEngineer_Click(object sender, EventArgs e) {
+            EngineerForm engineerForm = new();
+            engineerForm.ShowDialog();
         }
         //public TransactionLine CalculatePrice(TransactionLine transactionline)
         //{
