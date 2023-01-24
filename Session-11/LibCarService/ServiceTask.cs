@@ -22,7 +22,7 @@ namespace LibCarService
 
         public ServiceTask()
         {
-
+            ID = Guid.NewGuid();
         }
     }
 }

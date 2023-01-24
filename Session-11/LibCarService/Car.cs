@@ -9,7 +9,7 @@
 
         public Car()
         {
-
+            ID = Guid.NewGuid();
         }
     }
 }

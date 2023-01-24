@@ -9,6 +9,8 @@ namespace LibCarService
     public class MonthlyLedger
     {
         //to dateTime to vlepoume kai gia int
+
+        // TODO: make properties private
         public DateTime Year { get; set; }
 
         public DateTime Month { get; set; }
@@ -18,6 +20,8 @@ namespace LibCarService
         public decimal Expenses { get; set; }
 
         public decimal Total { get; set; }
+
+        // TODO: implement Update() method to update the monthly ledger
     }
 }
 

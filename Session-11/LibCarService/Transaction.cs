@@ -22,7 +22,7 @@ namespace LibCarService
 
         public Transaction()
         {
-
+            ID = Guid.NewGuid();
         }
     }
 }

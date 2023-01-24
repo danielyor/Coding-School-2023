@@ -14,7 +14,7 @@ namespace LibCarService
 
         public Person()
         {
-
+            ID = Guid.NewGuid();
         }
     }
 }
