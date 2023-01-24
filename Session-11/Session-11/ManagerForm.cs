@@ -15,25 +15,28 @@ namespace Session_11 {
         public ManagerForm() {
             InitializeComponent();
             SetControlProperties();
+
+            
         }
 
-
+        DummyCarMech data = new();
         private void SetControlProperties() {
-            DummyCarMech data = new();
-            //grvStudents.AutoGenerateColumns = false;
-            //grdManagersEngineers.AutoGenerateColumns = false;
-
-            
-            
             BindingList<Manager> managers = new BindingList<Manager>(data.managers);
             grdManagers.DataSource = new BindingSource() { DataSource = managers };
-
+            
             BindingList<Engineer> engineers = new BindingList<Engineer>(data.engineers);
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
 
             repManagers.DataSource = new BindingSource() { DataSource = managers };
             repManagers.DisplayMember = "Name";
             repManagers.ValueMember = "ID";
+            repManagersView.Assign(grdManagers.MainView, false);
+
+
+
+
+            //repManagersView.Columns = grdManagers.MainView
+            
             //managers.AddNew();
             //grvEngineers.AutoGenerateColumns = false;
             //grvManagers.DataSource = data.managers;
@@ -64,7 +67,7 @@ namespace Session_11 {
             //colSemester.Items.Add(Course.SemesterEnum.Spring);
 
             // grvStudents.CellContentClick += GrvStudents_CellContentClick;
-            var buttons = grdManagers.EmbeddedNavigator.Buttons;
+            //var buttons = grdManagers.EmbeddedNavigator.Buttons;
         }
 
         

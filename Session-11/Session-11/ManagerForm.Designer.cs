@@ -36,15 +36,19 @@
             this.grdColEngineerName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColEngineerSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColEngineerManager = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColEngineerSalary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repManagers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repManagersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdColEngineerSalary = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -106,7 +110,7 @@
             // 
             // grdEngineers
             // 
-            this.grdEngineers.Location = new System.Drawing.Point(3, 273);
+            this.grdEngineers.Location = new System.Drawing.Point(3, 262);
             this.grdEngineers.MainView = this.grvEngineers;
             this.grdEngineers.Name = "grdEngineers";
             this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -158,16 +162,6 @@
             this.grdColEngineerManager.VisibleIndex = 2;
             this.grdColEngineerManager.Width = 94;
             // 
-            // grdColEngineerSalary
-            // 
-            this.grdColEngineerSalary.Caption = "Month Salary";
-            this.grdColEngineerSalary.FieldName = "SalaryPerMonth";
-            this.grdColEngineerSalary.MinWidth = 25;
-            this.grdColEngineerSalary.Name = "grdColEngineerSalary";
-            this.grdColEngineerSalary.Visible = true;
-            this.grdColEngineerSalary.VisibleIndex = 3;
-            this.grdColEngineerSalary.Width = 94;
-            // 
             // repManagers
             // 
             this.repManagers.AutoHeight = false;
@@ -183,11 +177,37 @@
             this.repManagersView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repManagersView.OptionsView.ShowGroupPanel = false;
             // 
+            // grdColEngineerSalary
+            // 
+            this.grdColEngineerSalary.Caption = "Month Salary";
+            this.grdColEngineerSalary.FieldName = "SalaryPerMonth";
+            this.grdColEngineerSalary.MinWidth = 25;
+            this.grdColEngineerSalary.Name = "grdColEngineerSalary";
+            this.grdColEngineerSalary.Visible = true;
+            this.grdColEngineerSalary.VisibleIndex = 3;
+            this.grdColEngineerSalary.Width = 94;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(567, 3);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(500, 250);
+            this.gridControl1.TabIndex = 4;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1410, 688);
+            this.ClientSize = new System.Drawing.Size(1480, 765);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.grdEngineers);
             this.Controls.Add(this.grdManagers);
             this.Controls.Add(this.button1);
@@ -200,6 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repManagersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,5 +245,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColEngineerSalary;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repManagers;
         private DevExpress.XtraGrid.Views.Grid.GridView repManagersView;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
