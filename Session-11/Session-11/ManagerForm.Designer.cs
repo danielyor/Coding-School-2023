@@ -32,15 +32,19 @@
             this.grdColSalary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdManagers = new DevExpress.XtraGrid.GridControl();
             this.grdEngineers = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grvEngineers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColEngineerName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColEngineerSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColEngineerManager = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColEngineerSalary = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repManagers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repManagersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManagers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManagersView)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -103,22 +107,25 @@
             // grdEngineers
             // 
             this.grdEngineers.Location = new System.Drawing.Point(3, 273);
-            this.grdEngineers.MainView = this.gridView1;
+            this.grdEngineers.MainView = this.grvEngineers;
             this.grdEngineers.Name = "grdEngineers";
+            this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repManagers});
             this.grdEngineers.Size = new System.Drawing.Size(500, 250);
             this.grdEngineers.TabIndex = 3;
+            this.grdEngineers.UseEmbeddedNavigator = true;
             this.grdEngineers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.grvEngineers});
             // 
-            // gridView1
+            // grvEngineers
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grvEngineers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grdColEngineerName,
             this.grdColEngineerSurname,
             this.grdColEngineerManager,
             this.grdColEngineerSalary});
-            this.gridView1.GridControl = this.grdEngineers;
-            this.gridView1.Name = "gridView1";
+            this.grvEngineers.GridControl = this.grdEngineers;
+            this.grvEngineers.Name = "grvEngineers";
             // 
             // grdColEngineerName
             // 
@@ -143,6 +150,7 @@
             // grdColEngineerManager
             // 
             this.grdColEngineerManager.Caption = "Manager";
+            this.grdColEngineerManager.ColumnEdit = this.repManagers;
             this.grdColEngineerManager.FieldName = "ManagerID";
             this.grdColEngineerManager.MinWidth = 25;
             this.grdColEngineerManager.Name = "grdColEngineerManager";
@@ -160,11 +168,26 @@
             this.grdColEngineerSalary.VisibleIndex = 3;
             this.grdColEngineerSalary.Width = 94;
             // 
+            // repManagers
+            // 
+            this.repManagers.AutoHeight = false;
+            this.repManagers.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repManagers.Name = "repManagers";
+            this.repManagers.PopupView = this.repManagersView;
+            // 
+            // repManagersView
+            // 
+            this.repManagersView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repManagersView.Name = "repManagersView";
+            this.repManagersView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repManagersView.OptionsView.ShowGroupPanel = false;
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 600);
+            this.ClientSize = new System.Drawing.Size(1410, 688);
             this.Controls.Add(this.grdEngineers);
             this.Controls.Add(this.grdManagers);
             this.Controls.Add(this.button1);
@@ -174,7 +197,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManagers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManagersView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,10 +216,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColSalary;
         private DevExpress.XtraGrid.GridControl grdManagers;
         private DevExpress.XtraGrid.GridControl grdEngineers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvEngineers;
         private DevExpress.XtraGrid.Columns.GridColumn grdColEngineerName;
         private DevExpress.XtraGrid.Columns.GridColumn grdColEngineerSurname;
         private DevExpress.XtraGrid.Columns.GridColumn grdColEngineerManager;
         private DevExpress.XtraGrid.Columns.GridColumn grdColEngineerSalary;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repManagers;
+        private DevExpress.XtraGrid.Views.Grid.GridView repManagersView;
     }
 }
