@@ -27,7 +27,8 @@ namespace Session_11 {
             PopulateCars();
             PopulateEngineers();
             PopulateServiceTasks();
-
+            Transaction();
+            TransactionLine();
         }
         public void PopulateCustomers() {
             Customer customer1 = new Customer();
@@ -125,13 +126,15 @@ namespace Session_11 {
             engineer1.Surname = "Nikou";
             engineer1.Name = "Nikos";
             engineer1.ManagerID = managers[0].ID;
+            engineer1.SalaryPerMonth = 1000;
             engineers.Add(engineer1);
 
             Engineer engineer2 = new Engineer();
-            engineer1.Surname = "Xariton";
-            engineer1.Name = "Giotis";
-            engineer1.ManagerID = managers[0].ID;
-            engineers.Add(engineer1);
+            engineer2.Surname = "Xariton";
+            engineer2.Name = "Giotis";
+            engineer2.ManagerID = managers[0].ID;
+            engineer2.SalaryPerMonth = 1100;
+            engineers.Add(engineer2);
 
         }
 
@@ -147,11 +150,11 @@ namespace Session_11 {
             transactions.Add(transaction1);
 
             Transaction transaction2 = new Transaction();
-            transaction1.Date = DateTime.Now;
-            transaction1.CustomerID = customers[1].ID;
-            transaction1.ManagerID = managers[1].ID;
-            transaction1.CarID = cars[1].ID;
-            transaction1.TotalPrice = 0;
+            transaction2.Date = DateTime.Now;
+            transaction2.CustomerID = customers[1].ID;
+            transaction2.ManagerID = managers[1].ID;
+            transaction2.CarID = cars[1].ID;
+            transaction2.TotalPrice = 0;
 
             transactions.Add(transaction2);
 
