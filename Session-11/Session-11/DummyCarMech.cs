@@ -24,15 +24,10 @@ namespace Session_11 {
         public DummyCarMech() {
             PopulateCustomers();
             PopulateManagers();
-
             PopulateCars();
             PopulateEngineers();
             PopulateServiceTasks();
 
-
-            //Code?
-            //CreateTransaction(customerID,managerID,carID);
-            //CreateTransactionLine(Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours)
         }
         public void PopulateCustomers() {
             Customer customer1 = new Customer();
@@ -76,32 +71,39 @@ namespace Session_11 {
             serviceTask1.Hours = 1.5M;
             serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
             serviceTasks.Add(serviceTask1);
+            //Propably in a function
             switch (serviceTask1.Code)
             {
                 case CodeEnum.OilChange:
                     serviceTask1.Description = "Change the oils";
                     serviceTask1.Hours = 1.5M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.OilChange;
                     break;
                 case CodeEnum.TireChange:
                     serviceTask1.Description = "Change the tire";
                     serviceTask1.Hours = 2.5M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
                     break;
                 case CodeEnum.BrokenWindow:
                     serviceTask1.Description = "Fix the broken window";
                     serviceTask1.Hours = 1.25M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
                     break;
                 case CodeEnum.EngineChange:
                     serviceTask1.Description = "Change the engine";
                     serviceTask1.Hours = 2;
+                    serviceTask1.Code = ServiceTask.CodeEnum.EngineChange;
                     break;
                 case CodeEnum.MirrorReplacement:
                     serviceTask1.Description = "Replace the mirror";
                     serviceTask1.Hours = 0.5M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.MirrorReplacement;
                     break;
                 default:
                     break;
             }
-            //serviceTask1.Code = "";
+
+           
         }
 
         public void PopulateCars() {
