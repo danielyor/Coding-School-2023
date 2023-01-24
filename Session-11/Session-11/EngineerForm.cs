@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibCarService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,21 @@ namespace Session_11 {
     public partial class EngineerForm : Form {
         public EngineerForm() {
             InitializeComponent();
+            SetControlProperties();
+        }
+        private void SetControlProperties()
+        {
+            DummyCarMech data = new();
+
+           
+            BindingList<Engineer> engineers = new BindingList<Engineer>(data.engineers);
+            grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
+            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.serviceTasks);
+            grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
+        }
+            private void EngineerForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
