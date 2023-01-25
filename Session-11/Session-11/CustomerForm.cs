@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,64 +27,20 @@ namespace Session_11 {
 
         public void CustomerForm_Load_1(object sender, EventArgs e) {
 
-           // PopulateCarCenter();
-            
         }
 
         private void PopulateCarCenter() {
 
             carServiceCenter = new CarServiceCenter();
+            DummyCarMech data = new();
+            carServiceCenter.Customers = data.Customers;
+            carServiceCenter.Cars = data.Cars;
+            carServiceCenter.Managers = data.Managers;
+            carServiceCenter.Engineers = data.Engineers;
+            carServiceCenter.ServiceTasks = data.ServiceTasks;
+            carServiceCenter.Transactions = data.Transactions;
+            carServiceCenter.TransactionLines = data.TransactionLines;
 
-            Customer customer1 = new Customer() {
-                Name = "Chris",
-                Surname = "Typou",
-                Phone = "6948192491",
-                TIN = "123456789",
-            };
-
-            carServiceCenter.Customers.Add(customer1);
-
-            Customer customer2 = new Customer() {
-                Name = "Nick",
-                Surname = "Pappas",
-                Phone = "69284820582",
-                TIN = "8575896865",
-            };
-
-            carServiceCenter.Customers.Add(customer2);
-
-            Car car1 = new Car() {
-                Brand = "Ford",
-                Model = "Focus",
-                CarRegistrationNumber = "AI78839"
-            };
-
-            carServiceCenter.Cars.Add(car1);
-
-            Car car2 = new Car() {
-                Brand = "Audi",
-                Model = "A4",
-                CarRegistrationNumber = "PI78542"
-            };
-
-            carServiceCenter.Cars.Add(car2);
-
-            ServiceTask serviceTask1 = new ServiceTask() {
-                Description = "Change Tires",
-                Hours = 2.3M,
-                Code = ServiceTask.CodeEnum.TireChange
-
-            };
-            
-            carServiceCenter.ServiceTasks.Add(serviceTask1);
-
-            ServiceTask serviceTask2 = new ServiceTask() {
-                Description = "Change the engine",
-                Hours = 1.5M,
-                Code = ServiceTask.CodeEnum.EngineChange
-            };
-
-            carServiceCenter.ServiceTasks.Add(serviceTask2);
 
             PrintDataToGrid();
 
@@ -99,12 +56,22 @@ namespace Session_11 {
 
         private void btnLoad_Click(object sender, EventArgs e) {
 
+            string fileName = "carServiceCenter.json";
+
             Serializer serializer = new Serializer();
-            carServiceCenter = serializer.Deserialize<CarServiceCenter>("carServiceCenter.json");
 
-            PrintDataToGrid();
-
-            MessageBox.Show("Data Loaded!");
+            if (File.Exists(fileName)) {
+                carServiceCenter = serializer.Deserialize<CarServiceCenter>("carServiceCenter.json");
+                if(carServiceCenter != null) {
+                    PrintDataToGrid();
+                }
+                else {
+                    MessageBox.Show("File is empty");
+                }
+            }
+            else {
+                MessageBox.Show("File not Found");
+            }
         }
 
         public void PrintDataToGrid() {
@@ -147,6 +114,11 @@ namespace Session_11 {
                         break;
                 }
             }
+        }
+
+        private void btnPopulate_Click(object sender, EventArgs e) {
+            PopulateCarCenter();
+            
         }
     }
 }

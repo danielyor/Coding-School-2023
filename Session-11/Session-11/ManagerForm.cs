@@ -17,13 +17,22 @@ using static LibCarService.ServiceTask;
 
 namespace Session_11 {
     public partial class ManagerForm : Form {
+
+        CarServiceCenter carServiceCenter;
         public ManagerForm() {
             InitializeComponent();
             SetControlProperties();
 
             
         }
-
+        //carServiceCenter = new CarServiceCenter();
+        //DummyCarMech data = new();
+        //carServiceCenter.Customers = data.Customers;
+        //carServiceCenter.Cars = data.Cars;
+        //carServiceCenter.Managers = data.Managers;
+        //carServiceCenter.Engineers = data.Engineers;
+        //carServiceCenter.ServiceTasks = data.ServiceTasks;
+        //carServiceCenter.Transactions = data.Transactions;
         DummyCarMech data = new();
         private void SetControlProperties() {
             BindingList<Manager> managers = new BindingList<Manager>(data.Managers);
@@ -103,18 +112,23 @@ namespace Session_11 {
                 switch (e.Value) {
                     case CodeEnum.OilChange:
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the oils");
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Hours", 1.5M);
                         break;
                     case CodeEnum.TireChange:
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the tire");
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Hours", 2.5M);
                         break;
                     case CodeEnum.BrokenWindow:
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Fix the broken window");
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Hours", 1.25M);
                         break;
                     case CodeEnum.EngineChange:
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the engine");
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Hours", 5M);
                         break;
                     case CodeEnum.MirrorReplacement:
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Replace the mirror");
+                        grvServiceTasks.SetRowCellValue(e.RowHandle, "Hours", 0.5M);
                         break;
                     default:
                         break;

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace LibSerializer {
     public class Serializer {
@@ -7,7 +8,7 @@ namespace LibSerializer {
         }
 
         public void SerializeToFile(object obj, string fileName) {
-            var options = new JsonSerializerOptions { WriteIndented = true };
+            var options = new JsonSerializerOptions { WriteIndented = true};
             string jsonString = JsonSerializer.Serialize(obj, options);
 
             File.WriteAllText(fileName, jsonString);

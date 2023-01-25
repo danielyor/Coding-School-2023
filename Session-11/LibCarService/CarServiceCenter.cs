@@ -14,6 +14,7 @@ namespace Session_11 {
         public List<ServiceTask> ServiceTasks { get; set; }
         public List<Engineer> Engineers { get; set; }
         public List<Transaction> Transactions { get; set; }
+        public List<TransactionLine> TransactionLines { get; set; }
         public List<MonthlyLedger> MonthlyLedger { get; set; }
         public Settings settings { get; set; }
 
@@ -25,7 +26,7 @@ namespace Session_11 {
             ServiceTasks = new List<ServiceTask>();
             Engineers = new List<Engineer>();
             Transactions = new List<Transaction>();
-            //TransactionLines = new List<TransactionLine>();
+            TransactionLines = new List<TransactionLine>();
         }
 
 

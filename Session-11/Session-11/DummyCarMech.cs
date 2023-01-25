@@ -124,18 +124,20 @@ namespace Session_11 {
             transactionLine1.PricePerHour = 45.5M;
             transactionLine1.EngineerObj = Engineers[0];
             transactionLine1.ServiceTaskObj = ServiceTasks[0];
-            //TransactionLines.Add(transactionLine1);
+            TransactionLines.Add(transactionLine1);
 
             TransactionLine transactionLine2 = new TransactionLine();
-            transactionLine1.TransactionObj = Transactions[0];
-            transactionLine1.Hours = ServiceTasks[1].Hours;
-            transactionLine1.PricePerHour = 45.5M;
-            transactionLine1.EngineerObj = Engineers[0];
-            transactionLine1.ServiceTaskObj = ServiceTasks[1];
-            //TransactionLines.Add(transactionLine2);
+            transactionLine2.TransactionObj = Transactions[0];
+            transactionLine2.Hours = ServiceTasks[1].Hours;
+            transactionLine2.PricePerHour = 45.5M;
+            transactionLine2.EngineerObj = Engineers[0];
+            transactionLine2.ServiceTaskObj = ServiceTasks[1];
+            TransactionLines.Add(transactionLine2);
 
-            Transactions[0].Lines.Add(transactionLine1);
-            Transactions[0].Lines.Add(transactionLine2);
+            
+
+            //Transactions[0].Lines.Add(transactionLine1);
+            //Transactions[0].Lines.Add(transactionLine2);
         }
 
         public void CreateMonthlyLedger() {

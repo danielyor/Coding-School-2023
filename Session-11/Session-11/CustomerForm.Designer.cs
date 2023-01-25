@@ -45,6 +45,7 @@
             this.colServiceTasksCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colServiceTasksDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colServiceTasksHours = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnPopulate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomerOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).BeginInit();
@@ -257,11 +258,21 @@
             this.colServiceTasksHours.VisibleIndex = 2;
             this.colServiceTasksHours.Width = 94;
             // 
+            // btnPopulate
+            // 
+            this.btnPopulate.Location = new System.Drawing.Point(835, 153);
+            this.btnPopulate.Name = "btnPopulate";
+            this.btnPopulate.Size = new System.Drawing.Size(94, 36);
+            this.btnPopulate.TabIndex = 8;
+            this.btnPopulate.Text = "Populate";
+            this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 636);
+            this.Controls.Add(this.btnPopulate);
             this.Controls.Add(this.grdServiceTasks);
             this.Controls.Add(this.grdCars);
             this.Controls.Add(this.btnLoad);
@@ -306,5 +317,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colServiceTasksCode;
         private DevExpress.XtraGrid.Columns.GridColumn colServiceTasksDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colServiceTasksHours;
+        private DevExpress.XtraEditors.SimpleButton btnPopulate;
     }
 }
