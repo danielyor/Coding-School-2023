@@ -3,11 +3,13 @@ using DevExpress.Utils;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using LibCarService;
+using LibSerializer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,43 +23,46 @@ namespace Session_11 {
         CarServiceCenter carServiceCenter;
         public ManagerForm() {
             InitializeComponent();
-            SetControlProperties();
 
-            
         }
-        //carServiceCenter = new CarServiceCenter();
-        //DummyCarMech data = new();
-        //carServiceCenter.Customers = data.Customers;
-        //carServiceCenter.Cars = data.Cars;
-        //carServiceCenter.Managers = data.Managers;
-        //carServiceCenter.Engineers = data.Engineers;
-        //carServiceCenter.ServiceTasks = data.ServiceTasks;
-        //carServiceCenter.Transactions = data.Transactions;
-        DummyCarMech data = new();
-        private void SetControlProperties() {
-            BindingList<Manager> managers = new BindingList<Manager>(data.Managers);
+       
+        private void PopulateCarCenter() {
+
+            carServiceCenter = new CarServiceCenter();
+            DummyCarMech data = new();
+            carServiceCenter.Customers = data.Customers;
+            carServiceCenter.Cars = data.Cars;
+            carServiceCenter.Managers = data.Managers;
+            carServiceCenter.Engineers = data.Engineers;
+            carServiceCenter.ServiceTasks = data.ServiceTasks;
+            carServiceCenter.Transactions = data.Transactions;
+            carServiceCenter.TransactionLines = data.TransactionLines;
+
+        }
+        private void SetFormGrids() {
+            BindingList<Manager> managers = new BindingList<Manager>(carServiceCenter.Managers);
             grdManagers.DataSource = new BindingSource() { DataSource = managers };
             
-            BindingList<Engineer> engineers = new BindingList<Engineer>(data.Engineers);
+            BindingList<Engineer> engineers = new BindingList<Engineer>(carServiceCenter.Engineers);
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
 
             repManagers.DataSource = new BindingSource() { DataSource = managers };
-            repManagers.DisplayMember = "Surname";
+            repManagers.DisplayMember = "Name";
             repManagers.ValueMember = "ID";
             repManagersView.Assign(grdManagers.MainView, false);
 
-            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.ServiceTasks);
+            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(carServiceCenter.ServiceTasks);
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
 
-            BindingList<LibCarService.Transaction> transactions = new BindingList<LibCarService.Transaction>(data.Transactions);
+            BindingList<LibCarService.Transaction> transactions = new BindingList<LibCarService.Transaction>(carServiceCenter.Transactions);
             grdTransactions.DataSource = new BindingSource() { DataSource = transactions };
 
-            BindingList<Car> cars = new BindingList<Car>(data.Cars);
+            BindingList<Car> cars = new BindingList<Car>(carServiceCenter.Cars);
             repCars.DataSource = new BindingSource() { DataSource = cars };
             repCars.DisplayMember = "Model";
             repCars.ValueMember = "ID";
 
-            BindingList<Customer> customers = new BindingList<Customer>(data.Customers);
+            BindingList<Customer> customers = new BindingList<Customer>(carServiceCenter.Customers);
             repCustomers.DataSource = new BindingSource() { DataSource = customers };
             repCustomers.DisplayMember = "Surname";
             repCustomers.ValueMember = "ID";
@@ -69,39 +74,7 @@ namespace Session_11 {
             repManagers2.ValueMember = "ID";
             gridView2.Assign(grdManagers.MainView, false);
 
-            //repManagerView.Columns = grdManagers.MainView;
-
-            //managers.AddNew();
-            //grvEngineers.AutoGenerateColumns = false;
-            //grvManagers.DataSource = data.managers;
-            //grvEngineers.DataSource = data.engineers;
-
-
-            //DataGridViewComboBoxColumn colGender = grvStudents.Columns["colGender"] as DataGridViewComboBoxColumn;
-            //colGender.Items.Add(Student.GenderEnum.Male);
-            //colGender.Items.Add(Student.GenderEnum.Female);
-            //colGender.Items.Add(Student.GenderEnum.Other);
-
-            //DataGridViewComboBoxColumn colUniversity1 = grvStudents.Columns["colUniversity"] as DataGridViewComboBoxColumn;
-            //colUniversity1.DataSource = DataHelper.GetUniversities();
-            //colUniversity1.DisplayMember = "Name";
-            //colUniversity1.ValueMember = "ID";
-
-            //var lookUpEdit = colUniversity.ColumnEdit as RepositoryItemLookUpEdit;
-            //var lookUpEdit = repUniversity;
-            //var lookUpEdit = grvStudents.Columns["UniverityID"].ColumnEdit as RepositoryItemLookUpEdit;
-            //repUniversity.DataSource = DataHelper.GetUniversities();
-            //repUniversity.DisplayMember = "Name";
-            //repUniversity.ValueMember = "ID";
-
-
-
-            //DataGridViewComboBoxColumn colSemester = grvStudentCourses.Columns["colSemester"] as DataGridViewComboBoxColumn;
-            //colSemester.Items.Add(Course.SemesterEnum.Winter);
-            //colSemester.Items.Add(Course.SemesterEnum.Spring);
-
-            // grvStudents.CellContentClick += GrvStudents_CellContentClick;
-            //var buttons = grdManagers.EmbeddedNavigator.Buttons;
+            
         }
 
 
@@ -149,6 +122,37 @@ namespace Session_11 {
             currentTransactionLines = allTransactionLines.FindAll(c =>
                         c.TransactionID == currentTranstactionID).ToList();
             */
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e) {
+            string fileName = "carServiceCenter.json";
+
+            Serializer serializer = new Serializer();
+
+            if (File.Exists(fileName)) {
+                carServiceCenter = serializer.Deserialize<CarServiceCenter>("carServiceCenter.json");
+                if (carServiceCenter != null) {
+                    SetFormGrids();
+                }
+                else {
+                    MessageBox.Show("File is empty");
+                }
+            }
+            else {
+                MessageBox.Show("File not Found");
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e) {
+            Serializer serializer = new Serializer();
+            serializer.SerializeToFile(carServiceCenter, "carServiceCenter.json");
+
+            MessageBox.Show("Data Saved!");
+        }
+
+        private void btnPopulate_Click(object sender, EventArgs e) {
+            PopulateCarCenter();
+            SetFormGrids();
         }
     }
 }
