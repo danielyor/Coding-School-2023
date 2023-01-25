@@ -15,6 +15,7 @@ namespace Session_11 {
         public List<Engineer> Engineers { get; set; }
         public List<Transaction> Transactions { get; set; }
         //public List<TransactionLine> TransactionLines { get; set; }
+        public Settings settings { get; set; }
 
 
         public CarServiceCenter() {
@@ -26,6 +27,19 @@ namespace Session_11 {
             Transactions = new List<Transaction>();
             //TransactionLines = new List<TransactionLine>();
         }
+
+
+        // Methods / Business
+        public void CreateTransaction(Customer customer, Car car, Manager manager) {
+            // basic info
+            Transaction transaction = new Transaction();
+            transaction.Date = DateTime.Now;
+            transaction.CustomerObj = customer;
+            transaction.CarObj = car;
+            transaction.ManagerObj = manager;
+        }
+
+        
 
 
     }

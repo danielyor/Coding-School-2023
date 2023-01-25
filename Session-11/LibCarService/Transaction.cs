@@ -21,5 +21,28 @@ namespace LibCarService
         {
             ID = Guid.NewGuid();
         }
+
+
+        public void AddTransactionLine(ServiceTask serviceTask, Engineer engineer, decimal pricePerHr) {
+            TransactionLine newLine = new TransactionLine();
+            newLine.TransactionObj = this;
+            newLine.ServiceTaskObj = serviceTask;
+            newLine.EngineerObj = engineer;
+            newLine.Hours = serviceTask.Hours;
+            newLine.PricePerHour = pricePerHr;
+            newLine.Price = newLine.Hours * newLine.PricePerHour;
+
+            Lines.Add(newLine);
+            UpdateTotalPrice();
+        }
+
+        public void UpdateTotalPrice() {
+            TotalPrice = 0;
+            foreach(TransactionLine line in Lines) {
+                TotalPrice += line.Price;
+            }
+        }
+
+
     }
 }
