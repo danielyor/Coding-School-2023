@@ -61,40 +61,6 @@ namespace Session_11 {
 
             serviceTask1.UpdateInfo(serviceTask1.Code);
             serviceTask2.UpdateInfo(serviceTask2.Code);
-            //Propably in a function/
-            /*
-            switch (serviceTask1.Code)
-            {
-                case CodeEnum.OilChange:
-                    serviceTask1.Description = "Change the oils";
-                    serviceTask1.Hours = 1.5M;
-                    serviceTask1.Code = ServiceTask.CodeEnum.OilChange;
-                    break;
-                case CodeEnum.TireChange:
-                    serviceTask1.Description = "Change the tire";
-                    serviceTask1.Hours = 2.5M;
-                    serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
-                    break;
-                case CodeEnum.BrokenWindow:
-                    serviceTask1.Description = "Fix the broken window";
-                    serviceTask1.Hours = 1.25M;
-                    serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
-                    break;
-                case CodeEnum.EngineChange:
-                    serviceTask1.Description = "Change the engine";
-                    serviceTask1.Hours = 2;
-                    serviceTask1.Code = ServiceTask.CodeEnum.EngineChange;
-                    break;
-                case CodeEnum.MirrorReplacement:
-                    serviceTask1.Description = "Replace the mirror";
-                    serviceTask1.Hours = 0.5M;
-                    serviceTask1.Code = ServiceTask.CodeEnum.MirrorReplacement;
-                    break;
-                default:
-                    break;
-            }*/
-
-
         }
 
         public void PopulateCars() {
@@ -172,7 +138,6 @@ namespace Session_11 {
             Transactions[0].Lines.Add(transactionLine2);
         }
 
-
         public void CreateMonthlyLedger() {
             
             DateTime date = DateTime.Now;
@@ -183,11 +148,5 @@ namespace Session_11 {
 
         }
         
-        //public TransactionLine CalculatePrice(TransactionLine transactionline)
-        //{
-        //    transactionLine.Price = transactionLine.PricePerHour * TransactionLine.Hours;
-
-        //    return transactionLine;
-        //}
     }
 }

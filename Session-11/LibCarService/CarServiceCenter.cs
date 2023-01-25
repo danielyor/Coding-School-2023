@@ -37,6 +37,8 @@ namespace Session_11 {
             transaction.CustomerObj = customer;
             transaction.CarObj = car;
             transaction.ManagerObj = manager;
+
+            Transactions.Add(transaction);
         }
 
         public void AddServiceTask(ServiceTask serviceTask) {
