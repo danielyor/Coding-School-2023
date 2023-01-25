@@ -133,10 +133,10 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(1044, 114);
+            this.btnSend.Location = new System.Drawing.Point(833, 804);
             this.btnSend.Margin = new System.Windows.Forms.Padding(4);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(118, 36);
+            this.btnSend.Size = new System.Drawing.Size(118, 45);
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -144,10 +144,10 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(1044, 40);
+            this.btnLoad.Location = new System.Drawing.Point(667, 804);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(118, 36);
+            this.btnLoad.Size = new System.Drawing.Size(118, 45);
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -274,7 +274,7 @@
             // 
             // btnPopulate
             // 
-            this.btnPopulate.Location = new System.Drawing.Point(1044, 191);
+            this.btnPopulate.Location = new System.Drawing.Point(44, 804);
             this.btnPopulate.Margin = new System.Windows.Forms.Padding(4);
             this.btnPopulate.Name = "btnPopulate";
             this.btnPopulate.Size = new System.Drawing.Size(118, 45);
@@ -315,7 +315,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 827);
+            this.ClientSize = new System.Drawing.Size(991, 857);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
