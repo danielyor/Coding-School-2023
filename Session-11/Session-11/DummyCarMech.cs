@@ -52,17 +52,17 @@ namespace Session_11 {
 
         public void PopulateServiceTasks() {
             ServiceTask serviceTask1 = new ServiceTask();
-            serviceTask1.Description = "Brakes Change";
-            serviceTask1.Hours = 2.3M;
             serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
             ServiceTasks.Add(serviceTask1);
 
             ServiceTask serviceTask2 = new ServiceTask();
-            serviceTask1.Description = "Tires Change";
-            serviceTask1.Hours = 1.5M;
             serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
             ServiceTasks.Add(serviceTask2);
-            //Propably in a function
+
+            serviceTask1.UpdateInfo(serviceTask1.Code);
+            serviceTask2.UpdateInfo(serviceTask2.Code);
+            //Propably in a function/
+            /*
             switch (serviceTask1.Code)
             {
                 case CodeEnum.OilChange:
@@ -92,9 +92,9 @@ namespace Session_11 {
                     break;
                 default:
                     break;
-            }
+            }*/
 
-           
+
         }
 
         public void PopulateCars() {
@@ -115,14 +115,14 @@ namespace Session_11 {
             Engineer engineer1 = new Engineer();
             engineer1.Surname = "Nikou";
             engineer1.Name = "Nikos";
-            engineer1.ManagerID = Managers[0].ID;
+            engineer1.ManagerObj = Managers[0];
             engineer1.SalaryPerMonth = 1000;
             Engineers.Add(engineer1);
 
             Engineer engineer2 = new Engineer();
             engineer2.Surname = "Xariton";
             engineer2.Name = "Giotis";
-            engineer2.ManagerID = Managers[0].ID;
+            engineer2.ManagerObj = Managers[0];
             engineer2.SalaryPerMonth = 1100;
             Engineers.Add(engineer2);
 
@@ -153,19 +153,19 @@ namespace Session_11 {
         //Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours
         public void TransactionLine() {
             TransactionLine transactionLine1 = new TransactionLine();
-            transactionLine1.TransactionID = Transactions[0].ID;
+            transactionLine1.TransactionObj = Transactions[0];
             transactionLine1.Hours = ServiceTasks[0].Hours;
             transactionLine1.PricePerHour = 45.5M;
-            transactionLine1.EngineerID = Engineers[0].ID;
-            transactionLine1.ServiceTaskID = ServiceTasks[0].ID;
+            transactionLine1.EngineerObj = Engineers[0];
+            transactionLine1.ServiceTaskObj = ServiceTasks[0];
             //TransactionLines.Add(transactionLine1);
 
             TransactionLine transactionLine2 = new TransactionLine();
-            transactionLine1.TransactionID = Transactions[0].ID;
+            transactionLine1.TransactionObj = Transactions[0];
             transactionLine1.Hours = ServiceTasks[1].Hours;
             transactionLine1.PricePerHour = 45.5M;
-            transactionLine1.EngineerID = Engineers[0].ID;
-            transactionLine1.ServiceTaskID = ServiceTasks[1].ID;
+            transactionLine1.EngineerObj = Engineers[0];
+            transactionLine1.ServiceTaskObj = ServiceTasks[1];
             //TransactionLines.Add(transactionLine2);
 
             Transactions[0].Lines.Add(transactionLine1);

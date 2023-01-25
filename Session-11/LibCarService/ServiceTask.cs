@@ -28,7 +28,34 @@ namespace LibCarService
             ID = Guid.NewGuid();
         }
 
-        
+        // TODO: Method to update description and hours from Code
+        public void UpdateInfo(CodeEnum code) {
+            switch (code) {
+                case CodeEnum.OilChange:
+                    Description = "Change the oils";
+                    Hours = 1.5M;
+                    break;
+                case CodeEnum.TireChange:
+                    Description = "Change the tire";
+                    Hours = 2.5M;
+                    break;
+                case CodeEnum.BrokenWindow:
+                    Description = "Fix the broken window";
+                    Hours = 1.25M;
+                    break;
+                case CodeEnum.EngineChange:
+                    Description = "Change the engine";
+                    Hours = 5;
+                    break;
+                case CodeEnum.MirrorReplacement:
+                    Description = "Replace the mirror";
+                    Hours = 0.5M;
+                    break;
+                default:
+                    break;
+            }
+
+        }
     
     }
 }
