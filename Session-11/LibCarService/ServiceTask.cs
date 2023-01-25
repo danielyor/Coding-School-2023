@@ -22,10 +22,16 @@ namespace LibCarService
 
         public decimal Hours { get; set; }
         public CodeEnum Code { get; set; }
-        
-        public ServiceTask()
+
+
+        public ServiceTask() {
+
+        }
+
+        public ServiceTask(CodeEnum code)
         {
             ID = Guid.NewGuid();
+            UpdateInfo(code);
         }
 
         // TODO: Method to update description and hours from Code

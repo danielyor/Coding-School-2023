@@ -174,9 +174,9 @@ namespace Session_11 {
 
 
         public void CreateMonthlyLedger() {
-            MonthlyLedger monthlyLedger1 = new MonthlyLedger();
-            monthlyLedger1.Month = DateTime.Parse(DateTime.Now.Month.ToString());
-            monthlyLedger1.Year = DateTime.Parse(DateTime.Now.Year.ToString());
+            
+            DateTime date = DateTime.Now;
+            MonthlyLedger monthlyLedger1 = new MonthlyLedger(date);
             //monthlyLedger1.Income
             //monthlyLedger1.Expenses    
             //monthlyLedger1.Total

@@ -14,7 +14,7 @@ namespace Session_11 {
         public List<ServiceTask> ServiceTasks { get; set; }
         public List<Engineer> Engineers { get; set; }
         public List<Transaction> Transactions { get; set; }
-        //public List<TransactionLine> TransactionLines { get; set; }
+        public List<MonthlyLedger> MonthlyLedger { get; set; }
         public Settings settings { get; set; }
 
 
@@ -33,14 +33,72 @@ namespace Session_11 {
         public void CreateTransaction(Customer customer, Car car, Manager manager) {
             // basic info
             Transaction transaction = new Transaction();
-            transaction.Date = DateTime.Now;
+            transaction.Date = DateTime.Now.Date;
             transaction.CustomerObj = customer;
             transaction.CarObj = car;
             transaction.ManagerObj = manager;
         }
 
-        
+        public void AddServiceTask(ServiceTask serviceTask) {
+            int engineersSum = Engineers.Count;
 
+            List<Transaction> transactionsToday = Transactions.FindAll(c => c.Date.Date == DateTime.Today).ToList();
+            // Engineer count check
+            int tasksToday = 0;
+            foreach(Transaction transaction in transactionsToday) {
+                tasksToday += transaction.Lines.Count;
+            } 
+
+            // Maximum Daily Workload check
+            // read today's tasks, can't be more than 8 hrs
+            int maxDailyWorkload = Engineers.Count * 8;
+            decimal todaysWorkload = 0;
+            foreach(Transaction transaction in transactionsToday) {
+                foreach(TransactionLine line in transaction.Lines) {
+                    todaysWorkload += line.Hours;
+                }
+            }
+
+            if (todaysWorkload + serviceTask.Hours > maxDailyWorkload) {
+                // backlog: fail because of hours
+            }
+            else if (tasksToday >= engineersSum) {
+                // backlog: fail because of engineers
+            }
+            else {
+                ServiceTasks.Add(serviceTask);
+            }
+            // by @danielyor <3
+
+        }
+
+        // method: calc expenses
+        public decimal CalculateMonthlyExpenses() {
+            decimal expensesSum = 0;
+            foreach(Engineer engineer in Engineers) {
+                expensesSum += engineer.SalaryPerMonth;
+            }
+            foreach(Manager manager in Managers) {
+                expensesSum += manager.SalaryPerMonth;
+            }
+
+            return expensesSum;
+
+        }
+
+        // method: calc incomes
+        public decimal CalculateMontlyIncome(DateTime date) {
+            int month = date.Month;
+            decimal incomeSum = 0;
+
+            List<Transaction> transactionsThisMonth = Transactions.FindAll(c => c.Date.Month == month).ToList();
+
+            foreach(Transaction transaction in transactionsThisMonth) {
+                incomeSum += transaction.TotalPrice;
+            }
+
+            return incomeSum;
+        }
 
     }
 }
