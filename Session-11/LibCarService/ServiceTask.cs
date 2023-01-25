@@ -10,11 +10,18 @@ namespace LibCarService
     {
         public Guid ID { get; set; }
 
-        public enum Code
+        public enum Tasks
         {
-            //prepei na doume pos tha doulepsei to enum me to code
-
+            ChangeAirFilter,
+            ChangeTires,
+            ChangeBattery,
+            ChangeOil,
+            FullService,
+            RegularMaintenance,
+            ReplaceSparkPlugs
         }
+
+        public Tasks Code { get; set; }
 
         public string Description { get; set; }
 
