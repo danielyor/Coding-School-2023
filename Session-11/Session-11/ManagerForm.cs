@@ -1,4 +1,5 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Utils;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using LibCarService;
@@ -39,7 +40,7 @@ namespace Session_11 {
             BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.serviceTasks);
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
 
-            BindingList<Transaction> transactions = new BindingList<Transaction>(data.transactions);
+            BindingList<LibCarService.Transaction> transactions = new BindingList<LibCarService.Transaction>(data.transactions);
             grdTransactions.DataSource = new BindingSource() { DataSource = transactions };
 
             BindingList<Car> cars = new BindingList<Car>(data.cars);
@@ -122,6 +123,16 @@ namespace Session_11 {
 
 
             }
+        }
+
+        private void repTransactionLinesViewBtn_Click(object sender, EventArgs e) {
+
+            List<TransactionLine> allTransactionLines = new List<TransactionLine>(data.transactionLines);
+            int row = grvTransactions.GetFocusedDataSourceRowIndex();
+            Guid currentTranstactionID = (Guid)grvTransactions.GetRowCellValue(row, "ID");
+            List<TransactionLine> currentTransactionLines = new List<TransactionLine>();
+            currentTransactionLines = allTransactionLines.FindAll(c =>
+                        c.TransactionID == currentTranstactionID).ToList();
         }
     }
 }
