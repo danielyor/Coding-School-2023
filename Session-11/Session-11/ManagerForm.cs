@@ -47,7 +47,7 @@ namespace Session_11 {
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
 
             repManagers.DataSource = new BindingSource() { DataSource = managers };
-            //repManagers.DisplayMember = "Name";
+            repManagers.DisplayMember = "Manager.Name";
             repManagers.ValueMember = "ID";
             repManagersView.Assign(grdManagers.MainView, false);
 
