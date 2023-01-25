@@ -124,15 +124,17 @@ namespace Session_11 {
 
             }
         }
+        
 
         private void repTransactionLinesViewBtn_Click(object sender, EventArgs e) {
-
+            /*
             List<TransactionLine> allTransactionLines = new List<TransactionLine>(data.TransactionLines);
             int row = grvTransactions.GetFocusedDataSourceRowIndex();
             Guid currentTranstactionID = (Guid)grvTransactions.GetRowCellValue(row, "ID");
             List<TransactionLine> currentTransactionLines = new List<TransactionLine>();
             currentTransactionLines = allTransactionLines.FindAll(c =>
                         c.TransactionID == currentTranstactionID).ToList();
+            */
         }
     }
 }

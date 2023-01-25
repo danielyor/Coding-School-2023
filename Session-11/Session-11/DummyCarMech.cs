@@ -9,7 +9,6 @@ using static LibCarService.ServiceTask;
 namespace Session_11 {
     public partial class DummyCarMech : CarServiceCenter {
 
- 
         public DummyCarMech() {
             PopulateCustomers();
             PopulateManagers();
@@ -36,6 +35,7 @@ namespace Session_11 {
             customer2.TIN = "8575896865";
             Customers.Add(customer2);
         }
+
         public void PopulateManagers() {
             Manager manager1 = new Manager();
             manager1.Name = "Jack";
@@ -50,7 +50,6 @@ namespace Session_11 {
             Managers.Add(manager2);
         }
 
-
         public void PopulateServiceTasks() {
             ServiceTask serviceTask1 = new ServiceTask();
             serviceTask1.Description = "Brakes Change";
@@ -62,7 +61,7 @@ namespace Session_11 {
             serviceTask1.Description = "Tires Change";
             serviceTask1.Hours = 1.5M;
             serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
-            ServiceTasks.Add(serviceTask1);
+            ServiceTasks.Add(serviceTask2);
             //Propably in a function
             switch (serviceTask1.Code)
             {
@@ -150,6 +149,7 @@ namespace Session_11 {
             Transactions.Add(transaction2);
 
         }
+
         //Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours
         public void TransactionLine() {
             TransactionLine transactionLine1 = new TransactionLine();
@@ -158,7 +158,7 @@ namespace Session_11 {
             transactionLine1.PricePerHour = 45.5M;
             transactionLine1.EngineerID = Engineers[0].ID;
             transactionLine1.ServiceTaskID = ServiceTasks[0].ID;
-            TransactionLines.Add(transactionLine1);
+            //TransactionLines.Add(transactionLine1);
 
             TransactionLine transactionLine2 = new TransactionLine();
             transactionLine1.TransactionID = Transactions[0].ID;
@@ -166,7 +166,10 @@ namespace Session_11 {
             transactionLine1.PricePerHour = 45.5M;
             transactionLine1.EngineerID = Engineers[0].ID;
             transactionLine1.ServiceTaskID = ServiceTasks[1].ID;
-            TransactionLines.Add(transactionLine2);
+            //TransactionLines.Add(transactionLine2);
+
+            Transactions[0].Lines.Add(transactionLine1);
+            Transactions[0].Lines.Add(transactionLine2);
         }
 
 
