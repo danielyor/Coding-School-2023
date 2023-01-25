@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LibCarService.ServiceTask;
 
 namespace Session_11 {
     public partial class DummyCarMech {
@@ -16,19 +17,18 @@ namespace Session_11 {
         public List<Transaction> transactions = new List<Transaction>();
         public List<TransactionLine> transactionLines = new List<TransactionLine>();
 
+        
+        
+
 
         public DummyCarMech() {
             PopulateCustomers();
             PopulateManagers();
-
             PopulateCars();
             PopulateEngineers();
             PopulateServiceTasks();
-
-
-            //Code?
-            //CreateTransaction(customerID,managerID,carID);
-            //CreateTransactionLine(Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours)
+            Transaction();
+            TransactionLine();
         }
         public void PopulateCustomers() {
             Customer customer1 = new Customer();
@@ -64,13 +64,47 @@ namespace Session_11 {
             ServiceTask serviceTask1 = new ServiceTask();
             serviceTask1.Description = "Brakes Change";
             serviceTask1.Hours = 2.3M;
+            serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
             serviceTasks.Add(serviceTask1);
 
             ServiceTask serviceTask2 = new ServiceTask();
             serviceTask1.Description = "Tires Change";
             serviceTask1.Hours = 1.5M;
+            serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
             serviceTasks.Add(serviceTask1);
-            //serviceTask1.Code = "";
+            //Propably in a function
+            switch (serviceTask1.Code)
+            {
+                case CodeEnum.OilChange:
+                    serviceTask1.Description = "Change the oils";
+                    serviceTask1.Hours = 1.5M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.OilChange;
+                    break;
+                case CodeEnum.TireChange:
+                    serviceTask1.Description = "Change the tire";
+                    serviceTask1.Hours = 2.5M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
+                    break;
+                case CodeEnum.BrokenWindow:
+                    serviceTask1.Description = "Fix the broken window";
+                    serviceTask1.Hours = 1.25M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
+                    break;
+                case CodeEnum.EngineChange:
+                    serviceTask1.Description = "Change the engine";
+                    serviceTask1.Hours = 2;
+                    serviceTask1.Code = ServiceTask.CodeEnum.EngineChange;
+                    break;
+                case CodeEnum.MirrorReplacement:
+                    serviceTask1.Description = "Replace the mirror";
+                    serviceTask1.Hours = 0.5M;
+                    serviceTask1.Code = ServiceTask.CodeEnum.MirrorReplacement;
+                    break;
+                default:
+                    break;
+            }
+
+           
         }
 
         public void PopulateCars() {
@@ -92,13 +126,15 @@ namespace Session_11 {
             engineer1.Surname = "Nikou";
             engineer1.Name = "Nikos";
             engineer1.ManagerID = managers[0].ID;
+            engineer1.SalaryPerMonth = 1000;
             engineers.Add(engineer1);
 
             Engineer engineer2 = new Engineer();
-            engineer1.Surname = "Xariton";
-            engineer1.Name = "Giotis";
-            engineer1.ManagerID = managers[0].ID;
-            engineers.Add(engineer1);
+            engineer2.Surname = "Xariton";
+            engineer2.Name = "Giotis";
+            engineer2.ManagerID = managers[0].ID;
+            engineer2.SalaryPerMonth = 1100;
+            engineers.Add(engineer2);
 
         }
 
@@ -109,9 +145,19 @@ namespace Session_11 {
             transaction1.CustomerID = customers[0].ID;
             transaction1.ManagerID = managers[0].ID;
             transaction1.CarID = cars[0].ID;
-            //transaction1.CustomerID = customerID;
-            //transaction1.ManagerID = managerID;
-            //transaction1.CarID = carID;
+            transaction1.TotalPrice = 91;
+
+            transactions.Add(transaction1);
+
+            Transaction transaction2 = new Transaction();
+            transaction2.Date = DateTime.Now;
+            transaction2.CustomerID = customers[1].ID;
+            transaction2.ManagerID = managers[1].ID;
+            transaction2.CarID = cars[1].ID;
+            transaction2.TotalPrice = 0;
+
+            transactions.Add(transaction2);
+
         }
         //Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours
         public void TransactionLine() {
@@ -142,7 +188,7 @@ namespace Session_11 {
             //monthlyLedger1.Total
 
         }
-
+        
         //public TransactionLine CalculatePrice(TransactionLine transactionline)
         //{
         //    transactionLine.Price = transactionLine.PricePerHour * TransactionLine.Hours;

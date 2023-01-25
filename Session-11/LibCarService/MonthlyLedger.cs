@@ -22,6 +22,20 @@ namespace LibCarService
         public decimal Total { get; set; }
 
         // TODO: implement Update() method to update the monthly ledger
+       //constructor to calculate total
+        //public MonthlyLedger(DateTime year, DateTime month, decimal income, decimal expenses)
+        //{
+        //    Year = year;
+        //    Month = month;
+        //    Income = income;
+        //    Expenses = expenses;
+        //    Total = Income - Expenses;
+        //}
+        ////class to calculate total
+        //public void CalculateTotal()
+        //{
+        //    Total= Income - Expenses;
+        //}
     }
 }
 
