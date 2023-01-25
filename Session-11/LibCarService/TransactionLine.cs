@@ -9,9 +9,9 @@ namespace LibCarService
     public class TransactionLine
     {
         public Guid ID { get; set; }
-        public Transaction TransactionObj { get; set; }
-        public ServiceTask ServiceTaskObj { get; set; }
-        public Engineer EngineerObj { get; set; }
+        public Guid TransactionID { get; set; }
+        public Guid ServiceTaskID { get; set; }
+        public Guid EngineerID { get; set; }
         public decimal Hours { get; set; }
         public decimal PricePerHour { get; set; }
         public decimal Price { get; set; }
