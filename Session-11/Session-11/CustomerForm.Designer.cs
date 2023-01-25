@@ -31,25 +31,9 @@
             this.colCustomerSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomerPhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomerTIN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dgv2CustomerOrder = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
-            this.dgv2Cars = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carRegistrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsCars = new System.Windows.Forms.BindingSource(this.components);
-            this.dgv2ServiceTask = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsServiceTask = new System.Windows.Forms.BindingSource(this.components);
             this.grdCars = new DevExpress.XtraGrid.GridControl();
             this.gcvCars = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -64,10 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomerOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv2CustomerOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv2Cars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv2ServiceTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsServiceTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcvCars)).BeginInit();
@@ -78,10 +59,10 @@
             // grdCustomers
             // 
             this.grdCustomers.DataSource = this.bsCustomerOrder;
-            this.grdCustomers.Location = new System.Drawing.Point(21, 23);
+            this.grdCustomers.Location = new System.Drawing.Point(21, 4);
             this.grdCustomers.MainView = this.grvCustomers;
             this.grdCustomers.Name = "grdCustomers";
-            this.grdCustomers.Size = new System.Drawing.Size(748, 97);
+            this.grdCustomers.Size = new System.Drawing.Size(748, 207);
             this.grdCustomers.TabIndex = 0;
             this.grdCustomers.UseEmbeddedNavigator = true;
             this.grdCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -143,66 +124,6 @@
             this.colCustomerTIN.VisibleIndex = 3;
             this.colCustomerTIN.Width = 94;
             // 
-            // dgv2CustomerOrder
-            // 
-            this.dgv2CustomerOrder.AutoGenerateColumns = false;
-            this.dgv2CustomerOrder.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv2CustomerOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv2CustomerOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.tINDataGridViewTextBoxColumn,
-            this.iDDataGridViewTextBoxColumn});
-            this.dgv2CustomerOrder.DataSource = this.bsCustomerOrder;
-            this.dgv2CustomerOrder.Location = new System.Drawing.Point(35, 445);
-            this.dgv2CustomerOrder.Name = "dgv2CustomerOrder";
-            this.dgv2CustomerOrder.RowHeadersWidth = 51;
-            this.dgv2CustomerOrder.RowTemplate.Height = 29;
-            this.dgv2CustomerOrder.Size = new System.Drawing.Size(748, 135);
-            this.dgv2CustomerOrder.TabIndex = 1;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // surnameDataGridViewTextBoxColumn
-            // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-            this.surnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // tINDataGridViewTextBoxColumn
-            // 
-            this.tINDataGridViewTextBoxColumn.DataPropertyName = "TIN";
-            this.tINDataGridViewTextBoxColumn.HeaderText = "TIN";
-            this.tINDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tINDataGridViewTextBoxColumn.Name = "tINDataGridViewTextBoxColumn";
-            this.tINDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            this.iDDataGridViewTextBoxColumn.Width = 125;
-            // 
             // btnSend
             // 
             this.btnSend.Location = new System.Drawing.Point(835, 91);
@@ -223,113 +144,9 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // dgv2Cars
-            // 
-            this.dgv2Cars.AutoGenerateColumns = false;
-            this.dgv2Cars.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv2Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv2Cars.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn1,
-            this.brandDataGridViewTextBoxColumn,
-            this.modelDataGridViewTextBoxColumn,
-            this.carRegistrationNumberDataGridViewTextBoxColumn});
-            this.dgv2Cars.DataSource = this.bsCars;
-            this.dgv2Cars.Location = new System.Drawing.Point(152, 446);
-            this.dgv2Cars.Name = "dgv2Cars";
-            this.dgv2Cars.RowHeadersWidth = 51;
-            this.dgv2Cars.RowTemplate.Height = 29;
-            this.dgv2Cars.Size = new System.Drawing.Size(748, 134);
-            this.dgv2Cars.TabIndex = 4;
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.Visible = false;
-            this.iDDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            this.modelDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // carRegistrationNumberDataGridViewTextBoxColumn
-            // 
-            this.carRegistrationNumberDataGridViewTextBoxColumn.DataPropertyName = "CarRegistrationNumber";
-            this.carRegistrationNumberDataGridViewTextBoxColumn.HeaderText = "CarRegistrationNumber";
-            this.carRegistrationNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.carRegistrationNumberDataGridViewTextBoxColumn.Name = "carRegistrationNumberDataGridViewTextBoxColumn";
-            this.carRegistrationNumberDataGridViewTextBoxColumn.Width = 180;
-            // 
             // bsCars
             // 
             this.bsCars.DataSource = typeof(LibCarService.Car);
-            // 
-            // dgv2ServiceTask
-            // 
-            this.dgv2ServiceTask.AutoGenerateColumns = false;
-            this.dgv2ServiceTask.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv2ServiceTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv2ServiceTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn2,
-            this.colCode,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.hoursDataGridViewTextBoxColumn});
-            this.dgv2ServiceTask.DataSource = this.bsServiceTask;
-            this.dgv2ServiceTask.Location = new System.Drawing.Point(35, 499);
-            this.dgv2ServiceTask.Name = "dgv2ServiceTask";
-            this.dgv2ServiceTask.RowHeadersWidth = 51;
-            this.dgv2ServiceTask.RowTemplate.Height = 29;
-            this.dgv2ServiceTask.Size = new System.Drawing.Size(748, 142);
-            this.dgv2ServiceTask.TabIndex = 5;
-            // 
-            // iDDataGridViewTextBoxColumn2
-            // 
-            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
-            this.iDDataGridViewTextBoxColumn2.Visible = false;
-            this.iDDataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // colCode
-            // 
-            this.colCode.DataPropertyName = "Code";
-            this.colCode.HeaderText = "Service Task";
-            this.colCode.MinimumWidth = 6;
-            this.colCode.Name = "colCode";
-            this.colCode.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colCode.Width = 125;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // hoursDataGridViewTextBoxColumn
-            // 
-            this.hoursDataGridViewTextBoxColumn.DataPropertyName = "Hours";
-            this.hoursDataGridViewTextBoxColumn.HeaderText = "Hours";
-            this.hoursDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hoursDataGridViewTextBoxColumn.Name = "hoursDataGridViewTextBoxColumn";
-            this.hoursDataGridViewTextBoxColumn.Width = 125;
             // 
             // bsServiceTask
             // 
@@ -337,10 +154,10 @@
             // 
             // grdCars
             // 
-            this.grdCars.Location = new System.Drawing.Point(21, 138);
+            this.grdCars.Location = new System.Drawing.Point(21, 213);
             this.grdCars.MainView = this.gcvCars;
             this.grdCars.Name = "grdCars";
-            this.grdCars.Size = new System.Drawing.Size(721, 188);
+            this.grdCars.Size = new System.Drawing.Size(748, 207);
             this.grdCars.TabIndex = 6;
             this.grdCars.UseEmbeddedNavigator = true;
             this.grdCars.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -354,6 +171,7 @@
             this.colCarsRegistration});
             this.gcvCars.GridControl = this.grdCars;
             this.gcvCars.Name = "gcvCars";
+            this.gcvCars.OptionsView.ShowGroupPanel = false;
             // 
             // colCarsBrand
             // 
@@ -387,10 +205,10 @@
             // 
             // grdServiceTasks
             // 
-            this.grdServiceTasks.Location = new System.Drawing.Point(21, 332);
+            this.grdServiceTasks.Location = new System.Drawing.Point(20, 426);
             this.grdServiceTasks.MainView = this.grvServiceTasks;
             this.grdServiceTasks.Name = "grdServiceTasks";
-            this.grdServiceTasks.Size = new System.Drawing.Size(713, 207);
+            this.grdServiceTasks.Size = new System.Drawing.Size(748, 207);
             this.grdServiceTasks.TabIndex = 7;
             this.grdServiceTasks.UseEmbeddedNavigator = true;
             this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -404,6 +222,7 @@
             this.colServiceTasksHours});
             this.grvServiceTasks.GridControl = this.grdServiceTasks;
             this.grvServiceTasks.Name = "grvServiceTasks";
+            this.grvServiceTasks.OptionsView.ShowGroupPanel = false;
             this.grvServiceTasks.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvServiceTasks_CellValueChanging);
             // 
             // colServiceTasksCode
@@ -445,11 +264,8 @@
             this.ClientSize = new System.Drawing.Size(974, 636);
             this.Controls.Add(this.grdServiceTasks);
             this.Controls.Add(this.grdCars);
-            this.Controls.Add(this.dgv2ServiceTask);
-            this.Controls.Add(this.dgv2Cars);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.dgv2CustomerOrder);
             this.Controls.Add(this.grdCustomers);
             this.Name = "CustomerForm";
             this.Text = "Customer Form";
@@ -457,10 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomerOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv2CustomerOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv2Cars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv2ServiceTask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsServiceTask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcvCars)).EndInit();
@@ -479,26 +292,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCustomerPhone;
         private DevExpress.XtraGrid.Columns.GridColumn colCustomerTIN;
         private BindingSource bsCustomerOrder;
-        private DataGridView dgv2CustomerOrder;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tINDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private Button btnSend;
         private Button btnLoad;
-        private DataGridView dgv2Cars;
-        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn carRegistrationNumberDataGridViewTextBoxColumn;
         private BindingSource bsCars;
-        private DataGridView dgv2ServiceTask;
         private BindingSource bsServiceTask;
-        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn2;
-        private DataGridViewComboBoxColumn colCode;
-        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn hoursDataGridViewTextBoxColumn;
         private DevExpress.XtraGrid.GridControl grdCars;
         private DevExpress.XtraGrid.Views.Grid.GridView gcvCars;
         private DevExpress.XtraGrid.Columns.GridColumn colCarsBrand;

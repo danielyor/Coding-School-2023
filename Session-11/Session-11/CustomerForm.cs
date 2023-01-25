@@ -15,8 +15,6 @@ using static LibCarService.ServiceTask;
 namespace Session_11 {
     public partial class CustomerForm : Form {
 
-        List<Customer> customers;
-        public Customer customer;
         CarServiceCenter carServiceCenter;
         public CustomerForm() {
             InitializeComponent();
@@ -28,7 +26,7 @@ namespace Session_11 {
 
         public void CustomerForm_Load_1(object sender, EventArgs e) {
 
-            PopulateCarCenter();
+           // PopulateCarCenter();
             
         }
 
@@ -73,26 +71,19 @@ namespace Session_11 {
             ServiceTask serviceTask1 = new ServiceTask() {
                 Description = "Change Tires",
                 Hours = 2.3M,
-                Code = ServiceTask.CodeEnum.MirrorReplacement
+                Code = ServiceTask.CodeEnum.TireChange
 
             };
             
             carServiceCenter.ServiceTasks.Add(serviceTask1);
 
             ServiceTask serviceTask2 = new ServiceTask() {
-                Description = "Full Service",
+                Description = "Change the engine",
                 Hours = 1.5M,
                 Code = ServiceTask.CodeEnum.EngineChange
             };
 
             carServiceCenter.ServiceTasks.Add(serviceTask2);
-
-
-            DataGridViewComboBoxColumn colCode = dgv2ServiceTask.Columns["colCode"] as DataGridViewComboBoxColumn;
-            colCode.Items.Add(ServiceTask.CodeEnum.MirrorReplacement);
-            colCode.Items.Add(ServiceTask.CodeEnum.TireChange);
-            colCode.Items.Add(ServiceTask.CodeEnum.OilChange);
-            
 
             PrintDataToGrid();
 
@@ -101,19 +92,19 @@ namespace Session_11 {
         private void btnSend_Click(object sender, EventArgs e) {
             
             Serializer serializer = new Serializer();
-            serializer.SerializeToFile(carServiceCenter, "customers.json");
+            serializer.SerializeToFile(carServiceCenter, "carServiceCenter.json");
 
-            MessageBox.Show("Order Sent!");
+            MessageBox.Show("Data Saved!");
         }
 
         private void btnLoad_Click(object sender, EventArgs e) {
 
             Serializer serializer = new Serializer();
-            carServiceCenter = serializer.Deserialize<CarServiceCenter>("customers.json");
+            carServiceCenter = serializer.Deserialize<CarServiceCenter>("carServiceCenter.json");
 
             PrintDataToGrid();
 
-            MessageBox.Show("Customers Loaded!");
+            MessageBox.Show("Data Loaded!");
         }
 
         public void PrintDataToGrid() {
@@ -125,16 +116,6 @@ namespace Session_11 {
 
             BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(carServiceCenter.ServiceTasks);
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
-
-
-            bsCustomerOrder.DataSource = carServiceCenter.Customers;
-            dgv2CustomerOrder.DataSource = bsCustomerOrder;
-
-            bsCars.DataSource = carServiceCenter.Cars;
-            dgv2Cars.DataSource = bsCars;
-
-            bsServiceTask.DataSource = carServiceCenter.ServiceTasks;
-            dgv2ServiceTask.DataSource = bsServiceTask;
         }
 
         private void grvServiceTasks_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e) {
