@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.grvManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,6 +67,10 @@
             this.grvTransactionLines = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTransactionLineTransaction = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTransactionLinesServiceTask = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTransactionLineEngineer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTransactionLinesHours = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTransactionLinePricePerHour = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTransactionLinePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnPopulate = new DevExpress.XtraEditors.SimpleButton();
@@ -79,10 +83,16 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.colTransactionLineEngineer = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTransactionLinesHours = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTransactionLinePricePerHour = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTransactionLinePrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.grdMonthlyLedger = new DevExpress.XtraGrid.GridControl();
+            this.grvMonthlyLedger = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.colMonthlyYear = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMonthlyMonth = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMonthlyIncome = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMonthlyExpenses = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMonthlyTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
@@ -102,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repTransactionLinesViewBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMonthlyLedger)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvMonthlyLedger)).BeginInit();
             this.SuspendLayout();
             // 
             // grvManagers
@@ -437,7 +449,7 @@
             this.repTransactionLinesViewBtn.AdvancedModeOptions.Label = "Details";
             this.repTransactionLinesViewBtn.AutoHeight = false;
             this.repTransactionLinesViewBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repTransactionLinesViewBtn.Name = "repTransactionLinesViewBtn";
             this.repTransactionLinesViewBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTransactionLinesViewBtn.Click += new System.EventHandler(this.repTransactionLinesViewBtn_Click);
@@ -487,6 +499,50 @@
             this.colTransactionLinesServiceTask.Visible = true;
             this.colTransactionLinesServiceTask.VisibleIndex = 1;
             this.colTransactionLinesServiceTask.Width = 94;
+            // 
+            // colTransactionLineEngineer
+            // 
+            this.colTransactionLineEngineer.Caption = "Engineer";
+            this.colTransactionLineEngineer.FieldName = "EngineerID";
+            this.colTransactionLineEngineer.MinWidth = 25;
+            this.colTransactionLineEngineer.Name = "colTransactionLineEngineer";
+            this.colTransactionLineEngineer.OptionsColumn.AllowEdit = false;
+            this.colTransactionLineEngineer.Visible = true;
+            this.colTransactionLineEngineer.VisibleIndex = 2;
+            this.colTransactionLineEngineer.Width = 94;
+            // 
+            // colTransactionLinesHours
+            // 
+            this.colTransactionLinesHours.Caption = "Hours";
+            this.colTransactionLinesHours.FieldName = "Hours";
+            this.colTransactionLinesHours.MinWidth = 25;
+            this.colTransactionLinesHours.Name = "colTransactionLinesHours";
+            this.colTransactionLinesHours.OptionsColumn.AllowEdit = false;
+            this.colTransactionLinesHours.Visible = true;
+            this.colTransactionLinesHours.VisibleIndex = 3;
+            this.colTransactionLinesHours.Width = 94;
+            // 
+            // colTransactionLinePricePerHour
+            // 
+            this.colTransactionLinePricePerHour.Caption = "PricePerHour";
+            this.colTransactionLinePricePerHour.FieldName = "PricePerHour";
+            this.colTransactionLinePricePerHour.MinWidth = 25;
+            this.colTransactionLinePricePerHour.Name = "colTransactionLinePricePerHour";
+            this.colTransactionLinePricePerHour.OptionsColumn.AllowEdit = false;
+            this.colTransactionLinePricePerHour.Visible = true;
+            this.colTransactionLinePricePerHour.VisibleIndex = 4;
+            this.colTransactionLinePricePerHour.Width = 94;
+            // 
+            // colTransactionLinePrice
+            // 
+            this.colTransactionLinePrice.Caption = "Price";
+            this.colTransactionLinePrice.FieldName = "Price";
+            this.colTransactionLinePrice.MinWidth = 25;
+            this.colTransactionLinePrice.Name = "colTransactionLinePrice";
+            this.colTransactionLinePrice.OptionsColumn.AllowEdit = false;
+            this.colTransactionLinePrice.Visible = true;
+            this.colTransactionLinePrice.VisibleIndex = 5;
+            this.colTransactionLinePrice.Width = 94;
             // 
             // btnLoad
             // 
@@ -618,55 +674,124 @@
             this.textBox9.Text = "Insert transaction info";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // colTransactionLineEngineer
+            // dateTimePicker1
             // 
-            this.colTransactionLineEngineer.Caption = "Engineer";
-            this.colTransactionLineEngineer.FieldName = "EngineerID";
-            this.colTransactionLineEngineer.MinWidth = 25;
-            this.colTransactionLineEngineer.Name = "colTransactionLineEngineer";
-            this.colTransactionLineEngineer.OptionsColumn.AllowEdit = false;
-            this.colTransactionLineEngineer.Visible = true;
-            this.colTransactionLineEngineer.VisibleIndex = 2;
-            this.colTransactionLineEngineer.Width = 94;
+            this.dateTimePicker1.CustomFormat = "MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(1212, 586);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(111, 27);
+            this.dateTimePicker1.TabIndex = 19;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // colTransactionLinesHours
+            // grdMonthlyLedger
             // 
-            this.colTransactionLinesHours.Caption = "Hours";
-            this.colTransactionLinesHours.FieldName = "Hours";
-            this.colTransactionLinesHours.MinWidth = 25;
-            this.colTransactionLinesHours.Name = "colTransactionLinesHours";
-            this.colTransactionLinesHours.OptionsColumn.AllowEdit = false;
-            this.colTransactionLinesHours.Visible = true;
-            this.colTransactionLinesHours.VisibleIndex = 3;
-            this.colTransactionLinesHours.Width = 94;
+            this.grdMonthlyLedger.Location = new System.Drawing.Point(1086, 330);
+            this.grdMonthlyLedger.MainView = this.grvMonthlyLedger;
+            this.grdMonthlyLedger.Name = "grdMonthlyLedger";
+            this.grdMonthlyLedger.Size = new System.Drawing.Size(588, 250);
+            this.grdMonthlyLedger.TabIndex = 20;
+            this.grdMonthlyLedger.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvMonthlyLedger});
             // 
-            // colTransactionLinePricePerHour
+            // grvMonthlyLedger
             // 
-            this.colTransactionLinePricePerHour.Caption = "PricePerHour";
-            this.colTransactionLinePricePerHour.FieldName = "PricePerHour";
-            this.colTransactionLinePricePerHour.MinWidth = 25;
-            this.colTransactionLinePricePerHour.Name = "colTransactionLinePricePerHour";
-            this.colTransactionLinePricePerHour.OptionsColumn.AllowEdit = false;
-            this.colTransactionLinePricePerHour.Visible = true;
-            this.colTransactionLinePricePerHour.VisibleIndex = 4;
-            this.colTransactionLinePricePerHour.Width = 94;
+            this.grvMonthlyLedger.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMonthlyYear,
+            this.colMonthlyMonth,
+            this.colMonthlyIncome,
+            this.colMonthlyExpenses,
+            this.colMonthlyTotal});
+            this.grvMonthlyLedger.GridControl = this.grdMonthlyLedger;
+            this.grvMonthlyLedger.Name = "grvMonthlyLedger";
+            this.grvMonthlyLedger.OptionsView.ShowGroupPanel = false;
             // 
-            // colTransactionLinePrice
+            // textBox10
             // 
-            this.colTransactionLinePrice.Caption = "Price";
-            this.colTransactionLinePrice.FieldName = "Price";
-            this.colTransactionLinePrice.MinWidth = 25;
-            this.colTransactionLinePrice.Name = "colTransactionLinePrice";
-            this.colTransactionLinePrice.OptionsColumn.AllowEdit = false;
-            this.colTransactionLinePrice.Visible = true;
-            this.colTransactionLinePrice.VisibleIndex = 5;
-            this.colTransactionLinePrice.Width = 94;
+            this.textBox10.Location = new System.Drawing.Point(1319, 304);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(121, 27);
+            this.textBox10.TabIndex = 21;
+            this.textBox10.Text = "Statistics";
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(1086, 585);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(121, 27);
+            this.textBox11.TabIndex = 22;
+            this.textBox11.Text = "Select Month";
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colMonthlyYear
+            // 
+            this.colMonthlyYear.Caption = "Year";
+            this.colMonthlyYear.FieldName = "Year";
+            this.colMonthlyYear.MinWidth = 25;
+            this.colMonthlyYear.Name = "colMonthlyYear";
+            this.colMonthlyYear.OptionsColumn.AllowEdit = false;
+            this.colMonthlyYear.Visible = true;
+            this.colMonthlyYear.VisibleIndex = 0;
+            this.colMonthlyYear.Width = 94;
+            // 
+            // colMonthlyMonth
+            // 
+            this.colMonthlyMonth.Caption = "Month";
+            this.colMonthlyMonth.FieldName = "Month";
+            this.colMonthlyMonth.MinWidth = 25;
+            this.colMonthlyMonth.Name = "colMonthlyMonth";
+            this.colMonthlyMonth.OptionsColumn.AllowEdit = false;
+            this.colMonthlyMonth.Visible = true;
+            this.colMonthlyMonth.VisibleIndex = 1;
+            this.colMonthlyMonth.Width = 94;
+            // 
+            // colMonthlyIncome
+            // 
+            this.colMonthlyIncome.Caption = "Income";
+            this.colMonthlyIncome.FieldName = "Income";
+            this.colMonthlyIncome.MinWidth = 25;
+            this.colMonthlyIncome.Name = "colMonthlyIncome";
+            this.colMonthlyIncome.OptionsColumn.AllowEdit = false;
+            this.colMonthlyIncome.Visible = true;
+            this.colMonthlyIncome.VisibleIndex = 2;
+            this.colMonthlyIncome.Width = 94;
+            // 
+            // colMonthlyExpenses
+            // 
+            this.colMonthlyExpenses.Caption = "Expenses";
+            this.colMonthlyExpenses.FieldName = "Expenses";
+            this.colMonthlyExpenses.MinWidth = 25;
+            this.colMonthlyExpenses.Name = "colMonthlyExpenses";
+            this.colMonthlyExpenses.OptionsColumn.AllowEdit = false;
+            this.colMonthlyExpenses.Visible = true;
+            this.colMonthlyExpenses.VisibleIndex = 3;
+            this.colMonthlyExpenses.Width = 94;
+            // 
+            // colMonthlyTotal
+            // 
+            this.colMonthlyTotal.Caption = "Total";
+            this.colMonthlyTotal.FieldName = "Total";
+            this.colMonthlyTotal.MinWidth = 25;
+            this.colMonthlyTotal.Name = "colMonthlyTotal";
+            this.colMonthlyTotal.OptionsColumn.AllowEdit = false;
+            this.colMonthlyTotal.Visible = true;
+            this.colMonthlyTotal.VisibleIndex = 4;
+            this.colMonthlyTotal.Width = 94;
             // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1686, 658);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.grdMonthlyLedger);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -706,6 +831,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repTransactionLinesViewBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMonthlyLedger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvMonthlyLedger)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -769,5 +896,15 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTransactionLinesHours;
         private DevExpress.XtraGrid.Columns.GridColumn colTransactionLinePricePerHour;
         private DevExpress.XtraGrid.Columns.GridColumn colTransactionLinePrice;
+        private DateTimePicker dateTimePicker1;
+        private DevExpress.XtraGrid.GridControl grdMonthlyLedger;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvMonthlyLedger;
+        private TextBox textBox10;
+        private TextBox textBox11;
+        private DevExpress.XtraGrid.Columns.GridColumn colMonthlyYear;
+        private DevExpress.XtraGrid.Columns.GridColumn colMonthlyMonth;
+        private DevExpress.XtraGrid.Columns.GridColumn colMonthlyIncome;
+        private DevExpress.XtraGrid.Columns.GridColumn colMonthlyExpenses;
+        private DevExpress.XtraGrid.Columns.GridColumn colMonthlyTotal;
     }
 }

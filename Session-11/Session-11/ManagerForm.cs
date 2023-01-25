@@ -1,4 +1,5 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Office.Utils;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.BandedGrid;
@@ -153,6 +154,20 @@ namespace Session_11 {
         private void btnPopulate_Click(object sender, EventArgs e) {
             PopulateCarCenter();
             SetFormGrids();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
+            DateTime date = dateTimePicker1.Value;
+            MonthlyLedger monthlyLedger = new MonthlyLedger(date);
+
+            decimal monthIncome = carServiceCenter.CalculateMonthlyIncome(date);
+            decimal monthExpenses = carServiceCenter.CalculateMonthlyExpenses();
+            monthlyLedger.UpdateLedger(monthIncome, monthExpenses);
+            List<MonthlyLedger>  monthlyLedgerList = new List<MonthlyLedger>();
+            monthlyLedgerList.Add(monthlyLedger);
+
+            grdMonthlyLedger.DataSource = monthlyLedgerList;
+
         }
     }
 }

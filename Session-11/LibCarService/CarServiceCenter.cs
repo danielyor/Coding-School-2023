@@ -90,7 +90,7 @@ namespace Session_11 {
         }
 
         // method: calc incomes
-        public decimal CalculateMontlyIncome(DateTime date) {
+        public decimal CalculateMonthlyIncome(DateTime date) {
             int month = date.Month;
             decimal incomeSum = 0;
 
