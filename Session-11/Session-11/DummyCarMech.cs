@@ -7,20 +7,9 @@ using System.Threading.Tasks;
 using static LibCarService.ServiceTask;
 
 namespace Session_11 {
-    public partial class DummyCarMech {
+    public partial class DummyCarMech : CarServiceCenter {
 
-        public List<Manager> managers = new List<Manager>();
-        public List<Customer> customers = new List<Customer>();
-        public List<Car> cars = new List<Car>();
-        public List<ServiceTask> serviceTasks = new List<ServiceTask>();
-        public List<Engineer> engineers = new List<Engineer>();
-        public List<Transaction> transactions = new List<Transaction>();
-        public List<TransactionLine> transactionLines = new List<TransactionLine>();
-
-        
-        
-
-
+ 
         public DummyCarMech() {
             PopulateCustomers();
             PopulateManagers();
@@ -30,33 +19,35 @@ namespace Session_11 {
             Transaction();
             TransactionLine();
         }
+
+
         public void PopulateCustomers() {
             Customer customer1 = new Customer();
             customer1.Name = "Chris";
             customer1.Surname = "Typou";
             customer1.Phone = "6948192491";
             customer1.TIN = "123456789";
-            customers.Add(customer1);
+            Customers.Add(customer1);
 
             Customer customer2 = new Customer();
             customer2.Name = "Nick";
             customer2.Surname = "Pappas";
             customer2.Phone = "69284820582";
             customer2.TIN = "8575896865";
-            customers.Add(customer2);
+            Customers.Add(customer2);
         }
         public void PopulateManagers() {
             Manager manager1 = new Manager();
             manager1.Name = "Jack";
             manager1.Surname = "Daniels";
             manager1.SalaryPerMonth = 2500;
-            managers.Add(manager1);
+            Managers.Add(manager1);
 
             Manager manager2 = new Manager();
             manager2.Name = "Johnie";
             manager2.Surname = "Walker";
             manager2.SalaryPerMonth = 2200;
-            managers.Add(manager2);
+            Managers.Add(manager2);
         }
 
 
@@ -65,13 +56,13 @@ namespace Session_11 {
             serviceTask1.Description = "Brakes Change";
             serviceTask1.Hours = 2.3M;
             serviceTask1.Code = ServiceTask.CodeEnum.BrokenWindow;
-            serviceTasks.Add(serviceTask1);
+            ServiceTasks.Add(serviceTask1);
 
             ServiceTask serviceTask2 = new ServiceTask();
             serviceTask1.Description = "Tires Change";
             serviceTask1.Hours = 1.5M;
             serviceTask1.Code = ServiceTask.CodeEnum.TireChange;
-            serviceTasks.Add(serviceTask1);
+            ServiceTasks.Add(serviceTask1);
             //Propably in a function
             switch (serviceTask1.Code)
             {
@@ -112,29 +103,29 @@ namespace Session_11 {
             car1.Brand = "Ford";
             car1.Model = "Focus";
             car1.CarRegistrationNumber = "AI78839";
-            cars.Add(car1);
+            Cars.Add(car1);
 
             Car car2 = new Car();
             car2.Brand = "Audi";
             car2.Model = "A4";
             car2.CarRegistrationNumber = "PI78542";
-            cars.Add(car2);
+            Cars.Add(car2);
         }
 
         public void PopulateEngineers() {
             Engineer engineer1 = new Engineer();
             engineer1.Surname = "Nikou";
             engineer1.Name = "Nikos";
-            engineer1.ManagerID = managers[0].ID;
+            engineer1.ManagerID = Managers[0].ID;
             engineer1.SalaryPerMonth = 1000;
-            engineers.Add(engineer1);
+            Engineers.Add(engineer1);
 
             Engineer engineer2 = new Engineer();
             engineer2.Surname = "Xariton";
             engineer2.Name = "Giotis";
-            engineer2.ManagerID = managers[0].ID;
+            engineer2.ManagerID = Managers[0].ID;
             engineer2.SalaryPerMonth = 1100;
-            engineers.Add(engineer2);
+            Engineers.Add(engineer2);
 
         }
 
@@ -142,40 +133,40 @@ namespace Session_11 {
         public void Transaction() {
             Transaction transaction1 = new Transaction();
             transaction1.Date = DateTime.Now;
-            transaction1.CustomerID = customers[0].ID;
-            transaction1.ManagerID = managers[0].ID;
-            transaction1.CarID = cars[0].ID;
+            transaction1.CustomerID = Customers[0].ID;
+            transaction1.ManagerID = Managers[0].ID;
+            transaction1.CarID = Cars[0].ID;
             transaction1.TotalPrice = 91;
 
-            transactions.Add(transaction1);
+            Transactions.Add(transaction1);
 
             Transaction transaction2 = new Transaction();
             transaction2.Date = DateTime.Now;
-            transaction2.CustomerID = customers[1].ID;
-            transaction2.ManagerID = managers[1].ID;
-            transaction2.CarID = cars[1].ID;
+            transaction2.CustomerID = Customers[1].ID;
+            transaction2.ManagerID = Managers[1].ID;
+            transaction2.CarID = Cars[1].ID;
             transaction2.TotalPrice = 0;
 
-            transactions.Add(transaction2);
+            Transactions.Add(transaction2);
 
         }
         //Guid transactionID, Guid engineerID, Guid serviceTaskID, decimal hours
         public void TransactionLine() {
             TransactionLine transactionLine1 = new TransactionLine();
-            transactionLine1.TransactionID = transactions[0].ID;
-            transactionLine1.Hours = serviceTasks[0].Hours;
+            transactionLine1.TransactionID = Transactions[0].ID;
+            transactionLine1.Hours = ServiceTasks[0].Hours;
             transactionLine1.PricePerHour = 45.5M;
-            transactionLine1.EngineerID = engineers[0].ID;
-            transactionLine1.ServiceTaskID = serviceTasks[0].ID;
-            transactionLines.Add(transactionLine1);
+            transactionLine1.EngineerID = Engineers[0].ID;
+            transactionLine1.ServiceTaskID = ServiceTasks[0].ID;
+            TransactionLines.Add(transactionLine1);
 
             TransactionLine transactionLine2 = new TransactionLine();
-            transactionLine1.TransactionID = transactions[0].ID;
-            transactionLine1.Hours = serviceTasks[1].Hours;
+            transactionLine1.TransactionID = Transactions[0].ID;
+            transactionLine1.Hours = ServiceTasks[1].Hours;
             transactionLine1.PricePerHour = 45.5M;
-            transactionLine1.EngineerID = engineers[0].ID;
-            transactionLine1.ServiceTaskID = serviceTasks[1].ID;
-            transactionLines.Add(transactionLine2);
+            transactionLine1.EngineerID = Engineers[0].ID;
+            transactionLine1.ServiceTaskID = ServiceTasks[1].ID;
+            TransactionLines.Add(transactionLine2);
         }
 
 

@@ -26,10 +26,10 @@ namespace Session_11 {
 
         DummyCarMech data = new();
         private void SetControlProperties() {
-            BindingList<Manager> managers = new BindingList<Manager>(data.managers);
+            BindingList<Manager> managers = new BindingList<Manager>(data.Managers);
             grdManagers.DataSource = new BindingSource() { DataSource = managers };
             
-            BindingList<Engineer> engineers = new BindingList<Engineer>(data.engineers);
+            BindingList<Engineer> engineers = new BindingList<Engineer>(data.Engineers);
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
 
             repManagers.DataSource = new BindingSource() { DataSource = managers };
@@ -37,18 +37,18 @@ namespace Session_11 {
             repManagers.ValueMember = "ID";
             repManagersView.Assign(grdManagers.MainView, false);
 
-            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.serviceTasks);
+            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.ServiceTasks);
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
 
-            BindingList<LibCarService.Transaction> transactions = new BindingList<LibCarService.Transaction>(data.transactions);
+            BindingList<LibCarService.Transaction> transactions = new BindingList<LibCarService.Transaction>(data.Transactions);
             grdTransactions.DataSource = new BindingSource() { DataSource = transactions };
 
-            BindingList<Car> cars = new BindingList<Car>(data.cars);
+            BindingList<Car> cars = new BindingList<Car>(data.Cars);
             repCars.DataSource = new BindingSource() { DataSource = cars };
             repCars.DisplayMember = "Model";
             repCars.ValueMember = "ID";
 
-            BindingList<Customer> customers = new BindingList<Customer>(data.customers);
+            BindingList<Customer> customers = new BindingList<Customer>(data.Customers);
             repCustomers.DataSource = new BindingSource() { DataSource = customers };
             repCustomers.DisplayMember = "Surname";
             repCustomers.ValueMember = "ID";
@@ -127,7 +127,7 @@ namespace Session_11 {
 
         private void repTransactionLinesViewBtn_Click(object sender, EventArgs e) {
 
-            List<TransactionLine> allTransactionLines = new List<TransactionLine>(data.transactionLines);
+            List<TransactionLine> allTransactionLines = new List<TransactionLine>(data.TransactionLines);
             int row = grvTransactions.GetFocusedDataSourceRowIndex();
             Guid currentTranstactionID = (Guid)grvTransactions.GetRowCellValue(row, "ID");
             List<TransactionLine> currentTransactionLines = new List<TransactionLine>();

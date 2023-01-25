@@ -20,9 +20,9 @@ namespace Session_11 {
             DummyCarMech data = new();
 
            
-            BindingList<Engineer> engineers = new BindingList<Engineer>(data.engineers);
+            BindingList<Engineer> engineers = new BindingList<Engineer>(data.Engineers);
             grdEngineers.DataSource = new BindingSource() { DataSource = engineers };
-            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.serviceTasks);
+            BindingList<ServiceTask> serviceTasks = new BindingList<ServiceTask>(data.ServiceTasks);
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
         }
             private void EngineerForm_Load(object sender, EventArgs e)
