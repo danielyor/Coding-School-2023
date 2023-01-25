@@ -127,9 +127,9 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(835, 91);
+            this.btnSend.Location = new System.Drawing.Point(299, 669);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(94, 29);
+            this.btnSend.Size = new System.Drawing.Size(94, 36);
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -137,9 +137,9 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(835, 32);
+            this.btnLoad.Location = new System.Drawing.Point(199, 669);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(94, 29);
+            this.btnLoad.Size = new System.Drawing.Size(94, 36);
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             // 
             // btnPopulate
             // 
-            this.btnPopulate.Location = new System.Drawing.Point(835, 153);
+            this.btnPopulate.Location = new System.Drawing.Point(399, 669);
             this.btnPopulate.Name = "btnPopulate";
             this.btnPopulate.Size = new System.Drawing.Size(94, 36);
             this.btnPopulate.TabIndex = 8;
@@ -271,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 636);
+            this.ClientSize = new System.Drawing.Size(790, 717);
             this.Controls.Add(this.btnPopulate);
             this.Controls.Add(this.grdServiceTasks);
             this.Controls.Add(this.grdCars);
