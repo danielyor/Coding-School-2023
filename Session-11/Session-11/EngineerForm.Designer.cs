@@ -27,6 +27,9 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridEngineerName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridEngineerSurname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridTasks = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repTasks = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridSalaryPerMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdServiceTasks = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -39,6 +42,8 @@
             this.btnPopulate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTasks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +55,8 @@
             this.grdEngineers.MainView = this.gridView1;
             this.grdEngineers.Margin = new System.Windows.Forms.Padding(2);
             this.grdEngineers.Name = "grdEngineers";
+            this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repTasks});
             this.grdEngineers.Size = new System.Drawing.Size(539, 179);
             this.grdEngineers.TabIndex = 0;
             this.grdEngineers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -60,6 +67,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridEngineerName,
             this.gridEngineerSurname,
+            this.gridTasks,
             this.gridSalaryPerMonth});
             this.gridView1.GridControl = this.grdEngineers;
             this.gridView1.Name = "gridView1";
@@ -85,6 +93,32 @@
             this.gridEngineerSurname.Visible = true;
             this.gridEngineerSurname.VisibleIndex = 1;
             this.gridEngineerSurname.Width = 256;
+            // 
+            // gridTasks
+            // 
+            this.gridTasks.Caption = "Task";
+            this.gridTasks.ColumnEdit = this.repTasks;
+            this.gridTasks.FieldName = "TaskID";
+            this.gridTasks.MinWidth = 30;
+            this.gridTasks.Name = "gridTasks";
+            this.gridTasks.Visible = true;
+            this.gridTasks.VisibleIndex = 3;
+            this.gridTasks.Width = 112;
+            // 
+            // repTasks
+            // 
+            this.repTasks.AutoHeight = false;
+            this.repTasks.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repTasks.Name = "repTasks";
+            this.repTasks.PopupView = this.repositoryItemGridLookUpEdit1View;
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // gridSalaryPerMonth
             // 
@@ -176,7 +210,7 @@
             // btnLoad
             // 
             this.btnLoad.Location = new System.Drawing.Point(1005, 254);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(118, 45);
             this.btnLoad.TabIndex = 4;
@@ -186,7 +220,7 @@
             // btnPopulate
             // 
             this.btnPopulate.Location = new System.Drawing.Point(13, 254);
-            this.btnPopulate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPopulate.Margin = new System.Windows.Forms.Padding(4);
             this.btnPopulate.Name = "btnPopulate";
             this.btnPopulate.Size = new System.Drawing.Size(148, 45);
             this.btnPopulate.TabIndex = 6;
@@ -210,6 +244,8 @@
             this.Load += new System.EventHandler(this.EngineerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
@@ -233,5 +269,8 @@
         private TextBox textBoxServiceTaskTitle;
         private DevExpress.XtraEditors.SimpleButton btnLoad;
         private DevExpress.XtraEditors.SimpleButton btnPopulate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repTasks;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridTasks;
     }
 }
