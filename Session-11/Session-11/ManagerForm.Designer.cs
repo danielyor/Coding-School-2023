@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.grvManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,7 +91,6 @@
             this.colMonthlyExpenses = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMonthlyTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabManagers = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabEngineers = new DevExpress.XtraBars.Navigation.TabNavigationPage();
@@ -99,6 +98,8 @@
             this.tabTransactions = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.btnAddTransaction = new DevExpress.XtraEditors.SimpleButton();
             this.tabStatistics = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
@@ -462,7 +463,7 @@
             this.repTransactionLinesViewBtn.AdvancedModeOptions.Label = "Details";
             this.repTransactionLinesViewBtn.AutoHeight = false;
             this.repTransactionLinesViewBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repTransactionLinesViewBtn.Name = "repTransactionLinesViewBtn";
             this.repTransactionLinesViewBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTransactionLinesViewBtn.Click += new System.EventHandler(this.repTransactionLinesViewBtn_Click);
@@ -679,7 +680,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(223, 467);
+            this.dateTimePicker1.Location = new System.Drawing.Point(134, 468);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(111, 27);
             this.dateTimePicker1.TabIndex = 19;
@@ -773,17 +774,6 @@
             this.textBox10.Text = "Statistics";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(97, 467);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(121, 27);
-            this.textBox11.TabIndex = 22;
-            this.textBox11.Text = "Select Month";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tabPane1
             // 
             this.tabPane1.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -862,13 +852,33 @@
             // tabStatistics
             // 
             this.tabStatistics.Caption = "tabNavigationPage1";
+            this.tabStatistics.Controls.Add(this.label1);
+            this.tabStatistics.Controls.Add(this.simpleButton1);
             this.tabStatistics.Controls.Add(this.textBox10);
             this.tabStatistics.Controls.Add(this.dateTimePicker1);
-            this.tabStatistics.Controls.Add(this.textBox11);
             this.tabStatistics.Controls.Add(this.grdMonthlyLedger);
             this.tabStatistics.Name = "tabStatistics";
             this.tabStatistics.PageText = "Statistics";
             this.tabStatistics.Size = new System.Drawing.Size(789, 567);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(654, 468);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(118, 36);
+            this.simpleButton1.TabIndex = 24;
+            this.simpleButton1.Text = "All Months";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 470);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Specific Month:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ManagerForm
             // 
@@ -982,7 +992,6 @@
         private DevExpress.XtraGrid.GridControl grdMonthlyLedger;
         private DevExpress.XtraGrid.Views.Grid.GridView grvMonthlyLedger;
         private TextBox textBox10;
-        private TextBox textBox11;
         private DevExpress.XtraGrid.Columns.GridColumn colMonthlyYear;
         private DevExpress.XtraGrid.Columns.GridColumn colMonthlyMonth;
         private DevExpress.XtraGrid.Columns.GridColumn colMonthlyIncome;
@@ -995,5 +1004,7 @@
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabTransactions;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabStatistics;
         private DevExpress.XtraEditors.SimpleButton btnAddTransaction;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private Label label1;
     }
 }

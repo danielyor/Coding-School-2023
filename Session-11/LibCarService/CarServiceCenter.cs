@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -122,9 +123,10 @@ namespace Session_11 {
         // method: calc incomes
         public decimal CalculateMonthlyIncome(DateTime date) {
             int month = date.Month;
+            int year = date.Year;
             decimal incomeSum = 0;
 
-            List<Transaction> transactionsThisMonth = Transactions.FindAll(c => c.Date.Month == month).ToList();
+            List<Transaction> transactionsThisMonth = Transactions.FindAll(c => c.Date.Month == month).FindAll(c => c.Date.Year == year).ToList();
 
             foreach(Transaction transaction in transactionsThisMonth) {
                 incomeSum += transaction.TotalPrice;

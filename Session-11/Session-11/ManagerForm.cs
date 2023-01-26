@@ -198,7 +198,42 @@ namespace Session_11 {
             }
         }
 
-        
+        private void simpleButton1_Click(object sender, EventArgs e) {
+            int year = 2016;
+            int month = 1;
+
+            int monthNow = DateTime.Now.Month;
+            int yearNow = DateTime.Now.Year;
+
+            decimal monthIncome;
+            decimal monthExpenses;
+
+            List<MonthlyLedger> monthlyLedgerList = new List<MonthlyLedger>();
+
+            for (int i = year; i <= yearNow; i++) {
+
+                for (int j = 1; j <= 12; j++) {
+                    if(i == yearNow && j > monthNow) {
+                        break; 
+                    }
+                    DateTime date = new DateTime(i, j, 1);
+                    MonthlyLedger monthlyLedger = new MonthlyLedger(date);
+                    monthIncome = carServiceCenter.CalculateMonthlyIncome(date);
+                    monthExpenses = carServiceCenter.CalculateMonthlyExpenses();
+                    monthlyLedger.UpdateLedger(monthIncome, monthExpenses);
+                    monthlyLedgerList.Add(monthlyLedger);
+                }
+            }
+
+            grdMonthlyLedger.DataSource = monthlyLedgerList;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e) {
+
+        }
+
+
 
 
 
