@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.grvManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -97,6 +97,7 @@
             this.tabEngineers = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabTasks = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabTransactions = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btnAddTransaction = new DevExpress.XtraEditors.SimpleButton();
             this.tabStatistics = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
@@ -323,9 +324,8 @@
             this.repCustomers,
             this.repManagers2,
             this.repTransactionLinesViewBtn});
-            this.grdTransactions.Size = new System.Drawing.Size(757, 250);
+            this.grdTransactions.Size = new System.Drawing.Size(757, 223);
             this.grdTransactions.TabIndex = 5;
-            this.grdTransactions.UseEmbeddedNavigator = true;
             this.grdTransactions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTransactions});
             // 
@@ -440,6 +440,7 @@
             this.grdTotalPrice.FieldName = "TotalPrice";
             this.grdTotalPrice.MinWidth = 24;
             this.grdTotalPrice.Name = "grdTotalPrice";
+            this.grdTotalPrice.OptionsColumn.AllowEdit = false;
             this.grdTotalPrice.Visible = true;
             this.grdTotalPrice.VisibleIndex = 4;
             this.grdTotalPrice.Width = 90;
@@ -461,19 +462,18 @@
             this.repTransactionLinesViewBtn.AdvancedModeOptions.Label = "Details";
             this.repTransactionLinesViewBtn.AutoHeight = false;
             this.repTransactionLinesViewBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repTransactionLinesViewBtn.Name = "repTransactionLinesViewBtn";
             this.repTransactionLinesViewBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTransactionLinesViewBtn.Click += new System.EventHandler(this.repTransactionLinesViewBtn_Click);
             // 
             // grdTransactionLines
             // 
-            this.grdTransactionLines.Location = new System.Drawing.Point(15, 327);
+            this.grdTransactionLines.Location = new System.Drawing.Point(15, 344);
             this.grdTransactionLines.MainView = this.grvTransactionLines;
             this.grdTransactionLines.Name = "grdTransactionLines";
-            this.grdTransactionLines.Size = new System.Drawing.Size(757, 213);
+            this.grdTransactionLines.Size = new System.Drawing.Size(757, 175);
             this.grdTransactionLines.TabIndex = 6;
-            this.grdTransactionLines.UseEmbeddedNavigator = true;
             this.grdTransactionLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTransactionLines});
             // 
@@ -617,7 +617,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(309, 296);
+            this.textBox5.Location = new System.Drawing.Point(311, 315);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -840,6 +840,7 @@
             // tabTransactions
             // 
             this.tabTransactions.Caption = "tabNavigationPage1";
+            this.tabTransactions.Controls.Add(this.btnAddTransaction);
             this.tabTransactions.Controls.Add(this.grdTransactions);
             this.tabTransactions.Controls.Add(this.textBox9);
             this.tabTransactions.Controls.Add(this.textBox3);
@@ -848,6 +849,15 @@
             this.tabTransactions.Name = "tabTransactions";
             this.tabTransactions.PageText = "Transactions";
             this.tabTransactions.Size = new System.Drawing.Size(789, 567);
+            // 
+            // btnAddTransaction
+            // 
+            this.btnAddTransaction.Location = new System.Drawing.Point(335, 254);
+            this.btnAddTransaction.Name = "btnAddTransaction";
+            this.btnAddTransaction.Size = new System.Drawing.Size(118, 36);
+            this.btnAddTransaction.TabIndex = 24;
+            this.btnAddTransaction.Text = "New Transaction";
+            this.btnAddTransaction.Click += new System.EventHandler(this.btnAddTransaction_Click);
             // 
             // tabStatistics
             // 
@@ -982,5 +992,6 @@
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabTasks;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabTransactions;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabStatistics;
+        private DevExpress.XtraEditors.SimpleButton btnAddTransaction;
     }
 }

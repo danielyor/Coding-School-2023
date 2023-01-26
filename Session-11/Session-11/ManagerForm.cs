@@ -1,8 +1,12 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Office.Utils;
 using DevExpress.Utils;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.BandedGrid;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using LibCarService;
 using LibSerializer;
 using System;
@@ -17,6 +21,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using static LibCarService.ServiceTask;
+using GridView = DevExpress.XtraGrid.Views.Grid.GridView;
 using Transaction = LibCarService.Transaction;
 
 namespace Session_11 {
@@ -173,5 +178,35 @@ namespace Session_11 {
             grdMonthlyLedger.DataSource = monthlyLedgerList;
 
         }
+
+        private void btnAddTransaction_Click(object sender, EventArgs e) {
+            if(carServiceCenter == null) {
+                MessageBox.Show("No data");
+                return;
+            }
+            
+            if (carServiceCenter.DailyTasksAvailability()) {
+                grvTransactions.AddNewRow();
+            }
+            else {
+                MessageBox.Show("No engineer available today");
+            }
+        }
+
+
+
+        //private void grvTransactions_MouseDown(object sender, MouseEventArgs e) {
+        //    GridView view = sender as GridView;
+        //    GridHitInfo hitInfo = view.CalcHitInfo(e.Location);
+        //    DXMouseEventArgs.GetMouseArgs(e).Handled = view.ActiveEditor != null && view.FocusedRowHandle != hitInfo.RowHandle;
+        //}
+
+        //private void grdTransactions_ProcessGridKey(object sender, KeyEventArgs e) {
+        //    GridControl grid = sender as GridControl;
+        //    GridView view = grid.MainView as GridView;
+        //    if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down) {
+        //        e.Handled = view.ActiveEditor != null;
+        //    }
+        //}
     }
 }

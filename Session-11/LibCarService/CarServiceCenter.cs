@@ -75,6 +75,36 @@ namespace Session_11 {
 
         }
 
+        public bool DailyTasksAvailability() {
+            int engineersSum = Engineers.Count;
+
+            List<Transaction> transactionsToday = Transactions.FindAll(c => c.Date.Date == DateTime.Today).ToList();
+            // Engineer count check
+            int tasksToday = 0;
+            foreach (Transaction transaction in transactionsToday) {
+                tasksToday += transaction.Lines.Count;
+            }
+
+            bool checkBool = tasksToday < engineersSum;
+
+            return checkBool;
+
+        }
+
+        public bool WorkLoadAvailability(decimal taskHours) {
+            List<Transaction> transactionsToday = Transactions.FindAll(c => c.Date.Date == DateTime.Today).ToList();
+            int maxDailyWorkload = Engineers.Count * 8;
+            decimal todaysWorkload = 0;
+            foreach (Transaction transaction in transactionsToday) {
+                foreach (TransactionLine line in transaction.Lines) {
+                    todaysWorkload += line.Hours;
+                }
+            }
+            bool checkBool = (todaysWorkload + taskHours <= maxDailyWorkload);
+
+            return checkBool;
+        }
+
         // method: calc expenses
         public decimal CalculateMonthlyExpenses() {
             decimal expensesSum = 0;
