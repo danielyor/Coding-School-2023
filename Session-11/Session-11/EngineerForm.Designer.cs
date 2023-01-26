@@ -51,13 +51,13 @@
             // grdEngineers
             // 
             this.grdEngineers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.grdEngineers.Location = new System.Drawing.Point(13, 58);
+            this.grdEngineers.Location = new System.Drawing.Point(10, 46);
             this.grdEngineers.MainView = this.gridView1;
             this.grdEngineers.Margin = new System.Windows.Forms.Padding(2);
             this.grdEngineers.Name = "grdEngineers";
             this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repTasks});
-            this.grdEngineers.Size = new System.Drawing.Size(539, 179);
+            this.grdEngineers.Size = new System.Drawing.Size(431, 143);
             this.grdEngineers.TabIndex = 0;
             this.grdEngineers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -69,6 +69,7 @@
             this.gridEngineerSurname,
             this.gridTasks,
             this.gridSalaryPerMonth});
+            this.gridView1.DetailHeight = 280;
             this.gridView1.GridControl = this.grdEngineers;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.ReadOnly = true;
@@ -78,32 +79,32 @@
             // 
             this.gridEngineerName.Caption = "Name";
             this.gridEngineerName.FieldName = "Name";
-            this.gridEngineerName.MinWidth = 30;
+            this.gridEngineerName.MinWidth = 24;
             this.gridEngineerName.Name = "gridEngineerName";
             this.gridEngineerName.Visible = true;
             this.gridEngineerName.VisibleIndex = 0;
-            this.gridEngineerName.Width = 200;
+            this.gridEngineerName.Width = 160;
             // 
             // gridEngineerSurname
             // 
             this.gridEngineerSurname.Caption = "Surname";
             this.gridEngineerSurname.FieldName = "Surname";
-            this.gridEngineerSurname.MinWidth = 30;
+            this.gridEngineerSurname.MinWidth = 24;
             this.gridEngineerSurname.Name = "gridEngineerSurname";
             this.gridEngineerSurname.Visible = true;
             this.gridEngineerSurname.VisibleIndex = 1;
-            this.gridEngineerSurname.Width = 256;
+            this.gridEngineerSurname.Width = 205;
             // 
             // gridTasks
             // 
             this.gridTasks.Caption = "Task";
             this.gridTasks.ColumnEdit = this.repTasks;
             this.gridTasks.FieldName = "TaskID";
-            this.gridTasks.MinWidth = 30;
+            this.gridTasks.MinWidth = 24;
             this.gridTasks.Name = "gridTasks";
             this.gridTasks.Visible = true;
             this.gridTasks.VisibleIndex = 3;
-            this.gridTasks.Width = 112;
+            this.gridTasks.Width = 90;
             // 
             // repTasks
             // 
@@ -115,6 +116,7 @@
             // 
             // repositoryItemGridLookUpEdit1View
             // 
+            this.repositoryItemGridLookUpEdit1View.DetailHeight = 280;
             this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -124,20 +126,20 @@
             // 
             this.gridSalaryPerMonth.Caption = "Salary";
             this.gridSalaryPerMonth.FieldName = "SalaryPerMonth";
-            this.gridSalaryPerMonth.MinWidth = 30;
+            this.gridSalaryPerMonth.MinWidth = 24;
             this.gridSalaryPerMonth.Name = "gridSalaryPerMonth";
             this.gridSalaryPerMonth.Visible = true;
             this.gridSalaryPerMonth.VisibleIndex = 2;
-            this.gridSalaryPerMonth.Width = 80;
+            this.gridSalaryPerMonth.Width = 64;
             // 
             // grdServiceTasks
             // 
             this.grdServiceTasks.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.grdServiceTasks.Location = new System.Drawing.Point(584, 58);
+            this.grdServiceTasks.Location = new System.Drawing.Point(467, 46);
             this.grdServiceTasks.MainView = this.gridView2;
             this.grdServiceTasks.Margin = new System.Windows.Forms.Padding(2);
             this.grdServiceTasks.Name = "grdServiceTasks";
-            this.grdServiceTasks.Size = new System.Drawing.Size(539, 179);
+            this.grdServiceTasks.Size = new System.Drawing.Size(431, 143);
             this.grdServiceTasks.TabIndex = 1;
             this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -149,6 +151,7 @@
             this.gridCode,
             this.Description,
             this.gridHours});
+            this.gridView2.DetailHeight = 280;
             this.gridView2.GridControl = this.grdServiceTasks;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.ReadOnly = true;
@@ -158,50 +161,50 @@
             // 
             this.gridCode.Caption = "Code";
             this.gridCode.FieldName = "Code";
-            this.gridCode.MinWidth = 30;
+            this.gridCode.MinWidth = 24;
             this.gridCode.Name = "gridCode";
             this.gridCode.Visible = true;
             this.gridCode.VisibleIndex = 0;
-            this.gridCode.Width = 167;
+            this.gridCode.Width = 134;
             // 
             // Description
             // 
             this.Description.Caption = "Description";
             this.Description.FieldName = "Description";
-            this.Description.MinWidth = 30;
+            this.Description.MinWidth = 24;
             this.Description.Name = "Description";
             this.Description.Visible = true;
             this.Description.VisibleIndex = 1;
-            this.Description.Width = 167;
+            this.Description.Width = 134;
             // 
             // gridHours
             // 
             this.gridHours.Caption = "Hours";
             this.gridHours.FieldName = "Hours";
-            this.gridHours.MinWidth = 30;
+            this.gridHours.MinWidth = 24;
             this.gridHours.Name = "gridHours";
             this.gridHours.Visible = true;
             this.gridHours.VisibleIndex = 2;
-            this.gridHours.Width = 80;
+            this.gridHours.Width = 64;
             // 
             // textBoxEngineerTitle
             // 
-            this.textBoxEngineerTitle.Location = new System.Drawing.Point(190, 12);
+            this.textBoxEngineerTitle.Location = new System.Drawing.Point(152, 10);
             this.textBoxEngineerTitle.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEngineerTitle.Name = "textBoxEngineerTitle";
             this.textBoxEngineerTitle.ReadOnly = true;
-            this.textBoxEngineerTitle.Size = new System.Drawing.Size(212, 31);
+            this.textBoxEngineerTitle.Size = new System.Drawing.Size(170, 27);
             this.textBoxEngineerTitle.TabIndex = 2;
             this.textBoxEngineerTitle.Text = "Engineers";
             this.textBoxEngineerTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxServiceTaskTitle
             // 
-            this.textBoxServiceTaskTitle.Location = new System.Drawing.Point(757, 12);
+            this.textBoxServiceTaskTitle.Location = new System.Drawing.Point(606, 10);
             this.textBoxServiceTaskTitle.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxServiceTaskTitle.Name = "textBoxServiceTaskTitle";
             this.textBoxServiceTaskTitle.ReadOnly = true;
-            this.textBoxServiceTaskTitle.Size = new System.Drawing.Size(212, 31);
+            this.textBoxServiceTaskTitle.Size = new System.Drawing.Size(170, 27);
             this.textBoxServiceTaskTitle.TabIndex = 3;
             this.textBoxServiceTaskTitle.Text = "Service Tasks";
             this.textBoxServiceTaskTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -209,35 +212,34 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(1005, 254);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLoad.Location = new System.Drawing.Point(804, 203);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(118, 45);
+            this.btnLoad.Size = new System.Drawing.Size(94, 36);
             this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Load";
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnPopulate
             // 
-            this.btnPopulate.Location = new System.Drawing.Point(13, 254);
-            this.btnPopulate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPopulate.Location = new System.Drawing.Point(10, 203);
             this.btnPopulate.Name = "btnPopulate";
-            this.btnPopulate.Size = new System.Drawing.Size(148, 45);
+            this.btnPopulate.Size = new System.Drawing.Size(118, 36);
             this.btnPopulate.TabIndex = 6;
             this.btnPopulate.Text = "Populate";
             this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
             // 
             // EngineerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 450);
+            this.ClientSize = new System.Drawing.Size(916, 360);
             this.Controls.Add(this.btnPopulate);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.textBoxServiceTaskTitle);
             this.Controls.Add(this.textBoxEngineerTitle);
             this.Controls.Add(this.grdServiceTasks);
             this.Controls.Add(this.grdEngineers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EngineerForm";
             this.Text = "EngineerForm";

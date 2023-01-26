@@ -879,6 +879,7 @@
             this.Controls.Add(this.btnPopulate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ManagerForm";
             this.Text = "ManagerForm";
