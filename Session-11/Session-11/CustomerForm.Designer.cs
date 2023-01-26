@@ -66,10 +66,10 @@
             // grdCustomers
             // 
             this.grdCustomers.DataSource = this.bsCustomerOrder;
-            this.grdCustomers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdCustomers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.grdCustomers.Location = new System.Drawing.Point(26, 52);
             this.grdCustomers.MainView = this.grvCustomers;
-            this.grdCustomers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.grdCustomers.Name = "grdCustomers";
             this.grdCustomers.Size = new System.Drawing.Size(935, 216);
             this.grdCustomers.TabIndex = 0;
@@ -139,7 +139,7 @@
             // 
             this.btnSend.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSend.Location = new System.Drawing.Point(832, 804);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(118, 45);
             this.btnSend.TabIndex = 2;
@@ -151,7 +151,7 @@
             // 
             this.btnLoad.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLoad.Location = new System.Drawing.Point(668, 804);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(118, 45);
             this.btnLoad.TabIndex = 3;
@@ -169,10 +169,10 @@
             // 
             // grdCars
             // 
-            this.grdCars.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdCars.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.grdCars.Location = new System.Drawing.Point(26, 318);
             this.grdCars.MainView = this.gcvCars;
-            this.grdCars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdCars.Margin = new System.Windows.Forms.Padding(4);
             this.grdCars.Name = "grdCars";
             this.grdCars.Size = new System.Drawing.Size(935, 216);
             this.grdCars.TabIndex = 6;
@@ -190,6 +190,7 @@
             this.gcvCars.GridControl = this.grdCars;
             this.gcvCars.Name = "gcvCars";
             this.gcvCars.OptionsView.ShowGroupPanel = false;
+            this.gcvCars.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gcvCars_ValidateRow);
             // 
             // colCarsBrand
             // 
@@ -223,10 +224,10 @@
             // 
             // grdServiceTasks
             // 
-            this.grdServiceTasks.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdServiceTasks.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.grdServiceTasks.Location = new System.Drawing.Point(26, 580);
             this.grdServiceTasks.MainView = this.grvServiceTasks;
-            this.grdServiceTasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdServiceTasks.Margin = new System.Windows.Forms.Padding(4);
             this.grdServiceTasks.Name = "grdServiceTasks";
             this.grdServiceTasks.Size = new System.Drawing.Size(935, 216);
             this.grdServiceTasks.TabIndex = 7;
@@ -245,6 +246,7 @@
             this.grvServiceTasks.Name = "grvServiceTasks";
             this.grvServiceTasks.OptionsView.ShowGroupPanel = false;
             this.grvServiceTasks.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvServiceTasks_CellValueChanging);
+            this.grvServiceTasks.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvServiceTasks_ValidateRow);
             // 
             // colServiceTasksCode
             // 
@@ -281,7 +283,7 @@
             // btnPopulate
             // 
             this.btnPopulate.Location = new System.Drawing.Point(44, 804);
-            this.btnPopulate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPopulate.Margin = new System.Windows.Forms.Padding(4);
             this.btnPopulate.Name = "btnPopulate";
             this.btnPopulate.Size = new System.Drawing.Size(118, 45);
             this.btnPopulate.TabIndex = 8;
@@ -377,7 +379,7 @@
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.grdCustomers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomerForm";
             this.Text = "Customer Form";
             this.Load += new System.EventHandler(this.CustomerForm_Load_1);

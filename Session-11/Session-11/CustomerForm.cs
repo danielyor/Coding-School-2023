@@ -168,9 +168,52 @@ namespace Session_11
             if (colName == null || ColSurname == null || Colphone == null || Coltin == null)
             {
                 e.Valid = false;
-                //btnLoad.setEnabled(false);
                 btnSend.Enabled = false;
                 MessageBox.Show("Add all customer fields");
+            }
+            if (e.Valid)
+            {
+                btnSend.Enabled = true;
+            }
+        }
+
+        private void gcvCars_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            GridColumn model = view.Columns["Model"];
+            GridColumn brand = view.Columns["Brand"];
+            GridColumn registration = view.Columns["CarRegistrationNumber"];
+            string colModel = (string)view.GetRowCellValue(e.RowHandle, model);
+            string ColBrand = (string)view.GetRowCellValue(e.RowHandle, brand);
+            string ColRegistration = (string)view.GetRowCellValue(e.RowHandle, registration);
+
+            if (colModel == null || ColBrand == null || ColRegistration == null )
+            {
+                e.Valid = false;
+                btnSend.Enabled = false;
+                MessageBox.Show("Add all car fields");
+            }
+            if (e.Valid)
+            {
+                btnSend.Enabled = true;
+            }
+        }
+
+        private void grvServiceTasks_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            GridColumn code = view.Columns["Code"];
+            GridColumn description = view.Columns["Description"];
+            GridColumn hours = view.Columns["Hours"];
+            var colModel = view.GetRowCellValue(e.RowHandle, code);
+            string ColBrand = (string)view.GetRowCellValue(e.RowHandle, description);
+            var ColRegistration = view.GetRowCellValue(e.RowHandle, hours);
+
+            if (code == null || description== null || hours== null)
+            {
+                e.Valid = false;
+                btnSend.Enabled = false;
+                MessageBox.Show("Add all service fields");
             }
             if (e.Valid)
             {
