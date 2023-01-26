@@ -1,4 +1,6 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using LibCarService;
 using LibSerializer;
 using System;
@@ -13,25 +15,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LibCarService.ServiceTask;
 
-namespace Session_11 {
-    public partial class CustomerForm : Form {
+namespace Session_11
+{
+    public partial class CustomerForm : Form
+    {
 
         CarServiceCenter carServiceCenter;
-        public CustomerForm() {
+        public CustomerForm()
+        {
             InitializeComponent();
         }
 
-        private void CustomerForm_Load(object sender, EventArgs e) {
-            
+        private void CustomerForm_Load(object sender, EventArgs e)
+        {
+
 
         }
 
-        public void CustomerForm_Load_1(object sender, EventArgs e) {
+        public void CustomerForm_Load_1(object sender, EventArgs e)
+        {
             carServiceCenter = new CarServiceCenter();
             PrintDataToGrid();
+
         }
 
-        private void PopulateCarCenter() {
+        private void PopulateCarCenter()
+        {
 
             carServiceCenter = new CarServiceCenter();
             DummyCarMech data = new();
@@ -48,35 +57,42 @@ namespace Session_11 {
 
         }
 
-        private void btnSend_Click(object sender, EventArgs e) {
-            
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+
             Serializer serializer = new Serializer();
             serializer.SerializeToFile(carServiceCenter, "carServiceCenter.json");
 
             MessageBox.Show("Data Saved!");
         }
 
-        private void btnLoad_Click(object sender, EventArgs e) {
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
 
             string fileName = "carServiceCenter.json";
 
             Serializer serializer = new Serializer();
 
-            if (File.Exists(fileName)) {
+            if (File.Exists(fileName))
+            {
                 carServiceCenter = serializer.Deserialize<CarServiceCenter>("carServiceCenter.json");
-                if(carServiceCenter != null) {
+                if (carServiceCenter != null)
+                {
                     PrintDataToGrid();
                 }
-                else {
+                else
+                {
                     MessageBox.Show("File is empty");
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("File not Found");
             }
         }
 
-        public void PrintDataToGrid() {
+        public void PrintDataToGrid()
+        {
             BindingList<Customer> customers = new BindingList<Customer>(carServiceCenter.Customers);
             grdCustomers.DataSource = new BindingSource() { DataSource = customers };
 
@@ -87,11 +103,14 @@ namespace Session_11 {
             grdServiceTasks.DataSource = new BindingSource() { DataSource = serviceTasks };
         }
 
-        private void grvServiceTasks_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e) {
-            if (e.Column.Caption == "Code") {
+        private void grvServiceTasks_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.Caption == "Code")
+            {
                 //MessageBox.Show(e.Value.ToString());
 
-                switch (e.Value) {
+                switch (e.Value)
+                {
                     case CodeEnum.OilChange:
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Description", "Change the oils");
                         grvServiceTasks.SetRowCellValue(e.RowHandle, "Hours", 1.5M);
@@ -118,9 +137,10 @@ namespace Session_11 {
             }
         }
 
-        private void btnPopulate_Click(object sender, EventArgs e) {
+        private void btnPopulate_Click(object sender, EventArgs e)
+        {
             PopulateCarCenter();
-            
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -131,6 +151,31 @@ namespace Session_11 {
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void grvCustomers_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            GridColumn name = view.Columns["Name"];
+            GridColumn surname = view.Columns["Surname"];
+            GridColumn phone = view.Columns["Phone"];
+            GridColumn tin = view.Columns["TIN"];
+            string colName = (string)view.GetRowCellValue(e.RowHandle, name);
+            string ColSurname = (string)view.GetRowCellValue(e.RowHandle, surname);
+            string Colphone = (string)view.GetRowCellValue(e.RowHandle, phone);
+            string Coltin = (string)view.GetRowCellValue(e.RowHandle, tin);
+
+            if (colName == null || ColSurname == null || Colphone == null || Coltin == null)
+            {
+                e.Valid = false;
+                //btnLoad.setEnabled(false);
+                btnSend.Enabled = false;
+                MessageBox.Show("Add all customer fields");
+            }
+            if (e.Valid)
+            {
+                btnSend.Enabled = true;
+            }
         }
     }
 }
