@@ -32,7 +32,12 @@ namespace Session_11 {
             InitializeComponent();
 
         }
-       
+
+        private void ManagerForm_Load(object sender, EventArgs e) {
+            carServiceCenter = new CarServiceCenter();
+            SetFormGrids();
+        }
+
         private void PopulateCarCenter() {
 
             carServiceCenter = new CarServiceCenter();
@@ -192,6 +197,8 @@ namespace Session_11 {
                 MessageBox.Show("No engineer available today");
             }
         }
+
+        
 
 
 

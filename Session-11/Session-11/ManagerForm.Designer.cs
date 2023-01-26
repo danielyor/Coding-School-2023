@@ -883,6 +883,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ManagerForm";
             this.Text = "ManagerForm";
+            this.Load += new System.EventHandler(this.ManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).EndInit();
