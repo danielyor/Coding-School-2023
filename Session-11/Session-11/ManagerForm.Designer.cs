@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.grvManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -92,6 +92,12 @@
             this.colMonthlyTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tabManagers = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.tabEngineers = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.tabTasks = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.tabTransactions = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.tabStatistics = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
@@ -113,6 +119,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonthlyLedger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMonthlyLedger)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
+            this.tabPane1.SuspendLayout();
+            this.tabManagers.SuspendLayout();
+            this.tabEngineers.SuspendLayout();
+            this.tabTasks.SuspendLayout();
+            this.tabTransactions.SuspendLayout();
+            this.tabStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
             // grvManagers
@@ -157,10 +170,10 @@
             // 
             // grdManagers
             // 
-            this.grdManagers.Location = new System.Drawing.Point(19, 38);
+            this.grdManagers.Location = new System.Drawing.Point(19, 53);
             this.grdManagers.MainView = this.grvManagers;
             this.grdManagers.Name = "grdManagers";
-            this.grdManagers.Size = new System.Drawing.Size(500, 250);
+            this.grdManagers.Size = new System.Drawing.Size(753, 495);
             this.grdManagers.TabIndex = 1;
             this.grdManagers.UseEmbeddedNavigator = true;
             this.grdManagers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -168,12 +181,12 @@
             // 
             // grdEngineers
             // 
-            this.grdEngineers.Location = new System.Drawing.Point(19, 330);
+            this.grdEngineers.Location = new System.Drawing.Point(21, 47);
             this.grdEngineers.MainView = this.grvEngineers;
             this.grdEngineers.Name = "grdEngineers";
             this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repManagers});
-            this.grdEngineers.Size = new System.Drawing.Size(500, 250);
+            this.grdEngineers.Size = new System.Drawing.Size(751, 501);
             this.grdEngineers.TabIndex = 3;
             this.grdEngineers.UseEmbeddedNavigator = true;
             this.grdEngineers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -248,10 +261,10 @@
             // 
             // grdServiceTasks
             // 
-            this.grdServiceTasks.Location = new System.Drawing.Point(550, 38);
+            this.grdServiceTasks.Location = new System.Drawing.Point(15, 48);
             this.grdServiceTasks.MainView = this.grvServiceTasks;
             this.grdServiceTasks.Name = "grdServiceTasks";
-            this.grdServiceTasks.Size = new System.Drawing.Size(500, 250);
+            this.grdServiceTasks.Size = new System.Drawing.Size(757, 500);
             this.grdServiceTasks.TabIndex = 4;
             this.grdServiceTasks.UseEmbeddedNavigator = true;
             this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -301,7 +314,7 @@
             // grdTransactions
             // 
             this.grdTransactions.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.grdTransactions.Location = new System.Drawing.Point(550, 330);
+            this.grdTransactions.Location = new System.Drawing.Point(15, 28);
             this.grdTransactions.MainView = this.grvTransactions;
             this.grdTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.grdTransactions.Name = "grdTransactions";
@@ -310,7 +323,7 @@
             this.repCustomers,
             this.repManagers2,
             this.repTransactionLinesViewBtn});
-            this.grdTransactions.Size = new System.Drawing.Size(500, 250);
+            this.grdTransactions.Size = new System.Drawing.Size(757, 250);
             this.grdTransactions.TabIndex = 5;
             this.grdTransactions.UseEmbeddedNavigator = true;
             this.grdTransactions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -448,17 +461,17 @@
             this.repTransactionLinesViewBtn.AdvancedModeOptions.Label = "Details";
             this.repTransactionLinesViewBtn.AutoHeight = false;
             this.repTransactionLinesViewBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repTransactionLinesViewBtn.Name = "repTransactionLinesViewBtn";
             this.repTransactionLinesViewBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTransactionLinesViewBtn.Click += new System.EventHandler(this.repTransactionLinesViewBtn_Click);
             // 
             // grdTransactionLines
             // 
-            this.grdTransactionLines.Location = new System.Drawing.Point(1086, 38);
+            this.grdTransactionLines.Location = new System.Drawing.Point(15, 327);
             this.grdTransactionLines.MainView = this.grvTransactionLines;
             this.grdTransactionLines.Name = "grdTransactionLines";
-            this.grdTransactionLines.Size = new System.Drawing.Size(588, 250);
+            this.grdTransactionLines.Size = new System.Drawing.Size(757, 213);
             this.grdTransactionLines.TabIndex = 6;
             this.grdTransactionLines.UseEmbeddedNavigator = true;
             this.grdTransactionLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -533,7 +546,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(838, 607);
+            this.btnLoad.Location = new System.Drawing.Point(590, 640);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(94, 36);
             this.btnLoad.TabIndex = 7;
@@ -542,7 +555,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(955, 607);
+            this.btnSave.Location = new System.Drawing.Point(690, 640);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 36);
             this.btnSave.TabIndex = 8;
@@ -551,7 +564,7 @@
             // 
             // btnPopulate
             // 
-            this.btnPopulate.Location = new System.Drawing.Point(19, 607);
+            this.btnPopulate.Location = new System.Drawing.Point(31, 640);
             this.btnPopulate.Name = "btnPopulate";
             this.btnPopulate.Size = new System.Drawing.Size(118, 36);
             this.btnPopulate.TabIndex = 9;
@@ -560,29 +573,29 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 7);
+            this.textBox1.Location = new System.Drawing.Point(355, 23);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(121, 27);
             this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "Manager";
+            this.textBox1.Text = "Managers";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(212, 299);
+            this.textBox2.Location = new System.Drawing.Point(347, 15);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(121, 27);
             this.textBox2.TabIndex = 11;
-            this.textBox2.Text = "Engineer";
+            this.textBox2.Text = "Engineers";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(743, 299);
+            this.textBox3.Location = new System.Drawing.Point(322, 2);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -593,7 +606,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(743, 7);
+            this.textBox4.Location = new System.Drawing.Point(352, 16);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -604,7 +617,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(1252, 7);
+            this.textBox5.Location = new System.Drawing.Point(309, 296);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -615,8 +628,9 @@
             // 
             // textBox6
             // 
+            this.textBox6.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(402, 302);
+            this.textBox6.Location = new System.Drawing.Point(654, 15);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -628,7 +642,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(402, 9);
+            this.textBox7.Location = new System.Drawing.Point(654, 23);
             this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
@@ -640,7 +654,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox8.Location = new System.Drawing.Point(947, 10);
+            this.textBox8.Location = new System.Drawing.Point(669, 18);
             this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -652,7 +666,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox9.Location = new System.Drawing.Point(921, 302);
+            this.textBox9.Location = new System.Drawing.Point(642, 4);
             this.textBox9.Margin = new System.Windows.Forms.Padding(2);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
@@ -665,7 +679,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(1212, 586);
+            this.dateTimePicker1.Location = new System.Drawing.Point(223, 467);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(111, 27);
             this.dateTimePicker1.TabIndex = 19;
@@ -673,10 +687,10 @@
             // 
             // grdMonthlyLedger
             // 
-            this.grdMonthlyLedger.Location = new System.Drawing.Point(1086, 330);
+            this.grdMonthlyLedger.Location = new System.Drawing.Point(17, 45);
             this.grdMonthlyLedger.MainView = this.grvMonthlyLedger;
             this.grdMonthlyLedger.Name = "grdMonthlyLedger";
-            this.grdMonthlyLedger.Size = new System.Drawing.Size(588, 250);
+            this.grdMonthlyLedger.Size = new System.Drawing.Size(755, 417);
             this.grdMonthlyLedger.TabIndex = 20;
             this.grdMonthlyLedger.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMonthlyLedger});
@@ -750,7 +764,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(1319, 304);
+            this.textBox10.Location = new System.Drawing.Point(331, 13);
             this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
@@ -761,7 +775,7 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(1086, 585);
+            this.textBox11.Location = new System.Drawing.Point(97, 467);
             this.textBox11.Margin = new System.Windows.Forms.Padding(2);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
@@ -770,32 +784,91 @@
             this.textBox11.Text = "Select Month";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // tabPane1
+            // 
+            this.tabPane1.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPane1.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.tabPane1.Controls.Add(this.tabManagers);
+            this.tabPane1.Controls.Add(this.tabEngineers);
+            this.tabPane1.Controls.Add(this.tabTasks);
+            this.tabPane1.Controls.Add(this.tabTransactions);
+            this.tabPane1.Controls.Add(this.tabStatistics);
+            this.tabPane1.Location = new System.Drawing.Point(12, 12);
+            this.tabPane1.Name = "tabPane1";
+            this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tabManagers,
+            this.tabEngineers,
+            this.tabTasks,
+            this.tabTransactions,
+            this.tabStatistics});
+            this.tabPane1.RegularSize = new System.Drawing.Size(789, 608);
+            this.tabPane1.SelectedPage = this.tabManagers;
+            this.tabPane1.Size = new System.Drawing.Size(789, 608);
+            this.tabPane1.TabIndex = 23;
+            this.tabPane1.Text = "tabPane1";
+            // 
+            // tabManagers
+            // 
+            this.tabManagers.Caption = "tabNavigationPage1";
+            this.tabManagers.Controls.Add(this.grdManagers);
+            this.tabManagers.Controls.Add(this.textBox1);
+            this.tabManagers.Controls.Add(this.textBox7);
+            this.tabManagers.Name = "tabManagers";
+            this.tabManagers.PageText = "Managers";
+            this.tabManagers.Size = new System.Drawing.Size(789, 567);
+            // 
+            // tabEngineers
+            // 
+            this.tabEngineers.Caption = "tabNavigationPage2";
+            this.tabEngineers.Controls.Add(this.textBox2);
+            this.tabEngineers.Controls.Add(this.grdEngineers);
+            this.tabEngineers.Controls.Add(this.textBox6);
+            this.tabEngineers.Name = "tabEngineers";
+            this.tabEngineers.PageText = "Engineers";
+            this.tabEngineers.Size = new System.Drawing.Size(789, 567);
+            // 
+            // tabTasks
+            // 
+            this.tabTasks.Caption = "tabNavigationPage3";
+            this.tabTasks.Controls.Add(this.grdServiceTasks);
+            this.tabTasks.Controls.Add(this.textBox4);
+            this.tabTasks.Controls.Add(this.textBox8);
+            this.tabTasks.Name = "tabTasks";
+            this.tabTasks.PageText = "Tasks";
+            this.tabTasks.Size = new System.Drawing.Size(789, 567);
+            // 
+            // tabTransactions
+            // 
+            this.tabTransactions.Caption = "tabNavigationPage1";
+            this.tabTransactions.Controls.Add(this.grdTransactions);
+            this.tabTransactions.Controls.Add(this.textBox9);
+            this.tabTransactions.Controls.Add(this.textBox3);
+            this.tabTransactions.Controls.Add(this.textBox5);
+            this.tabTransactions.Controls.Add(this.grdTransactionLines);
+            this.tabTransactions.Name = "tabTransactions";
+            this.tabTransactions.PageText = "Transactions";
+            this.tabTransactions.Size = new System.Drawing.Size(789, 567);
+            // 
+            // tabStatistics
+            // 
+            this.tabStatistics.Caption = "tabNavigationPage1";
+            this.tabStatistics.Controls.Add(this.textBox10);
+            this.tabStatistics.Controls.Add(this.dateTimePicker1);
+            this.tabStatistics.Controls.Add(this.textBox11);
+            this.tabStatistics.Controls.Add(this.grdMonthlyLedger);
+            this.tabStatistics.Name = "tabStatistics";
+            this.tabStatistics.PageText = "Statistics";
+            this.tabStatistics.Size = new System.Drawing.Size(789, 567);
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1686, 658);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.grdMonthlyLedger);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(823, 688);
+            this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.btnPopulate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.grdTransactionLines);
-            this.Controls.Add(this.grdTransactions);
-            this.Controls.Add(this.grdServiceTasks);
-            this.Controls.Add(this.grdEngineers);
-            this.Controls.Add(this.grdManagers);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ManagerForm";
             this.Text = "ManagerForm";
@@ -820,8 +893,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonthlyLedger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMonthlyLedger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
+            this.tabPane1.ResumeLayout(false);
+            this.tabManagers.ResumeLayout(false);
+            this.tabManagers.PerformLayout();
+            this.tabEngineers.ResumeLayout(false);
+            this.tabEngineers.PerformLayout();
+            this.tabTasks.ResumeLayout(false);
+            this.tabTasks.PerformLayout();
+            this.tabTransactions.ResumeLayout(false);
+            this.tabTransactions.PerformLayout();
+            this.tabStatistics.ResumeLayout(false);
+            this.tabStatistics.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -892,5 +976,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMonthlyIncome;
         private DevExpress.XtraGrid.Columns.GridColumn colMonthlyExpenses;
         private DevExpress.XtraGrid.Columns.GridColumn colMonthlyTotal;
+        private DevExpress.XtraBars.Navigation.TabPane tabPane1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabManagers;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabEngineers;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabTasks;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabTransactions;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabStatistics;
     }
 }
