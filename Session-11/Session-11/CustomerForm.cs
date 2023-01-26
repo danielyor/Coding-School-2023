@@ -22,11 +22,13 @@ namespace Session_11 {
         }
 
         private void CustomerForm_Load(object sender, EventArgs e) {
+            
 
         }
 
         public void CustomerForm_Load_1(object sender, EventArgs e) {
-
+            carServiceCenter = new CarServiceCenter();
+            PrintDataToGrid();
         }
 
         private void PopulateCarCenter() {
