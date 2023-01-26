@@ -134,7 +134,8 @@ namespace Session_11 {
             transactionLine2.ServiceTaskID = ServiceTasks[1].ID;
             TransactionLines.Add(transactionLine2);
 
-
+            Transactions[0].Lines.Add(transactionLine1);
+            Transactions[0].Lines.Add(transactionLine2);
             //Transactions[0].Lines = new List<TransactionLine>();
             //Transactions[0].Lines.
             //Transactions[0].Lines.Add(transactionLine1);

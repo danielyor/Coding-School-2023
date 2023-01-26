@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using static LibCarService.ServiceTask;
+using Transaction = LibCarService.Transaction;
 
 namespace Session_11 {
     public partial class ManagerForm : Form {
@@ -115,12 +116,15 @@ namespace Session_11 {
         
 
         private void repTransactionLinesViewBtn_Click(object sender, EventArgs e) {
+            //Gets All Transaction Lines of a Transaction
             
-            List<TransactionLine> allTransactionLines = new List<TransactionLine>(carServiceCenter.TransactionLines);
+            //List<TransactionLine> allTransactionLines = new List<TransactionLine>(carServiceCenter.TransactionLines);
             int row = grvTransactions.GetFocusedDataSourceRowIndex();
             Guid currentTranstactionID = (Guid)grvTransactions.GetRowCellValue(row, "ID");
             List<TransactionLine> currentTransactionLines = new List<TransactionLine>();
-            currentTransactionLines = allTransactionLines.FindAll(c =>c.TransactionID == currentTranstactionID).ToList();
+            //currentTransactionLines = allTransactionLines.FindAll(c =>c.TransactionID == currentTranstactionID).ToList();
+            Transaction curremtTransaction = carServiceCenter.Transactions.Find(c => c.ID == currentTranstactionID);
+            currentTransactionLines = curremtTransaction.Lines;
 
             grdTransactionLines.DataSource = currentTransactionLines;
         }
