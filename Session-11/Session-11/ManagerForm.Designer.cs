@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.grvManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +66,11 @@
             this.grdTransactionLines = new DevExpress.XtraGrid.GridControl();
             this.grvTransactionLines = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTransactionLinesServiceTask = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repTransactionLinesTasks = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTransactionLineEngineer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repTransactionLineEngineers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTransactionLinesHours = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTransactionLinePricePerHour = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTransactionLinePrice = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,10 +100,11 @@
             this.tabEngineers = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabTasks = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabTransactions = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btnAddLine = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTransaction = new DevExpress.XtraEditors.SimpleButton();
             this.tabStatistics = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
@@ -119,6 +124,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.repTransactionLinesViewBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTransactionLinesTasks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTransactionLineEngineers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonthlyLedger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMonthlyLedger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -463,7 +472,7 @@
             this.repTransactionLinesViewBtn.AdvancedModeOptions.Label = "Details";
             this.repTransactionLinesViewBtn.AutoHeight = false;
             this.repTransactionLinesViewBtn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Details", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repTransactionLinesViewBtn.Name = "repTransactionLinesViewBtn";
             this.repTransactionLinesViewBtn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTransactionLinesViewBtn.Click += new System.EventHandler(this.repTransactionLinesViewBtn_Click);
@@ -473,6 +482,9 @@
             this.grdTransactionLines.Location = new System.Drawing.Point(15, 344);
             this.grdTransactionLines.MainView = this.grvTransactionLines;
             this.grdTransactionLines.Name = "grdTransactionLines";
+            this.grdTransactionLines.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repTransactionLinesTasks,
+            this.repTransactionLineEngineers});
             this.grdTransactionLines.Size = new System.Drawing.Size(757, 175);
             this.grdTransactionLines.TabIndex = 6;
             this.grdTransactionLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -489,28 +501,60 @@
             this.grvTransactionLines.GridControl = this.grdTransactionLines;
             this.grvTransactionLines.Name = "grvTransactionLines";
             this.grvTransactionLines.OptionsView.ShowGroupPanel = false;
+            this.grvTransactionLines.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvTransactionLines_CellValueChanging);
             // 
             // colTransactionLinesServiceTask
             // 
             this.colTransactionLinesServiceTask.Caption = "Task";
+            this.colTransactionLinesServiceTask.ColumnEdit = this.repTransactionLinesTasks;
             this.colTransactionLinesServiceTask.FieldName = "ServiceTaskID";
             this.colTransactionLinesServiceTask.MinWidth = 25;
             this.colTransactionLinesServiceTask.Name = "colTransactionLinesServiceTask";
-            this.colTransactionLinesServiceTask.OptionsColumn.AllowEdit = false;
             this.colTransactionLinesServiceTask.Visible = true;
             this.colTransactionLinesServiceTask.VisibleIndex = 0;
             this.colTransactionLinesServiceTask.Width = 94;
             // 
+            // repTransactionLinesTasks
+            // 
+            this.repTransactionLinesTasks.AutoHeight = false;
+            this.repTransactionLinesTasks.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repTransactionLinesTasks.Name = "repTransactionLinesTasks";
+            this.repTransactionLinesTasks.PopupView = this.gridView3;
+            // 
+            // gridView3
+            // 
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            this.gridView3.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView3_CellValueChanging);
+            // 
             // colTransactionLineEngineer
             // 
             this.colTransactionLineEngineer.Caption = "Engineer";
+            this.colTransactionLineEngineer.ColumnEdit = this.repTransactionLineEngineers;
             this.colTransactionLineEngineer.FieldName = "EngineerID";
             this.colTransactionLineEngineer.MinWidth = 25;
             this.colTransactionLineEngineer.Name = "colTransactionLineEngineer";
-            this.colTransactionLineEngineer.OptionsColumn.AllowEdit = false;
             this.colTransactionLineEngineer.Visible = true;
             this.colTransactionLineEngineer.VisibleIndex = 1;
             this.colTransactionLineEngineer.Width = 94;
+            // 
+            // repTransactionLineEngineers
+            // 
+            this.repTransactionLineEngineers.AutoHeight = false;
+            this.repTransactionLineEngineers.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repTransactionLineEngineers.Name = "repTransactionLineEngineers";
+            this.repTransactionLineEngineers.PopupView = this.gridView4;
+            // 
+            // gridView4
+            // 
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
             // 
             // colTransactionLinesHours
             // 
@@ -830,6 +874,7 @@
             // tabTransactions
             // 
             this.tabTransactions.Caption = "tabNavigationPage1";
+            this.tabTransactions.Controls.Add(this.btnAddLine);
             this.tabTransactions.Controls.Add(this.btnAddTransaction);
             this.tabTransactions.Controls.Add(this.grdTransactions);
             this.tabTransactions.Controls.Add(this.textBox9);
@@ -839,6 +884,15 @@
             this.tabTransactions.Name = "tabTransactions";
             this.tabTransactions.PageText = "Transactions";
             this.tabTransactions.Size = new System.Drawing.Size(789, 567);
+            // 
+            // btnAddLine
+            // 
+            this.btnAddLine.Location = new System.Drawing.Point(335, 525);
+            this.btnAddLine.Name = "btnAddLine";
+            this.btnAddLine.Size = new System.Drawing.Size(118, 36);
+            this.btnAddLine.TabIndex = 25;
+            this.btnAddLine.Text = "New Line";
+            this.btnAddLine.Click += new System.EventHandler(this.btnAddLine_Click);
             // 
             // btnAddTransaction
             // 
@@ -861,15 +915,6 @@
             this.tabStatistics.PageText = "Statistics";
             this.tabStatistics.Size = new System.Drawing.Size(789, 567);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(654, 468);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(118, 36);
-            this.simpleButton1.TabIndex = 24;
-            this.simpleButton1.Text = "All Months";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -879,6 +924,15 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Specific Month:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(654, 468);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(118, 36);
+            this.simpleButton1.TabIndex = 24;
+            this.simpleButton1.Text = "All Months";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // ManagerForm
             // 
@@ -913,6 +967,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.repTransactionLinesViewBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTransactionLinesTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTransactionLineEngineers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonthlyLedger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMonthlyLedger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
@@ -1006,5 +1064,10 @@
         private DevExpress.XtraEditors.SimpleButton btnAddTransaction;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private Label label1;
+        private DevExpress.XtraEditors.SimpleButton btnAddLine;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repTransactionLinesTasks;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repTransactionLineEngineers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
     }
 }

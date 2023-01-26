@@ -17,7 +17,7 @@ namespace Session_11 {
         public List<Transaction> Transactions { get; set; }
         public List<TransactionLine> TransactionLines { get; set; }
         public List<MonthlyLedger> MonthlyLedger { get; set; }
-        public Settings settings { get; set; }
+        public Settings Settings { get; set; }
 
 
         public CarServiceCenter() {
@@ -133,6 +133,11 @@ namespace Session_11 {
             }
 
             return incomeSum;
+        }
+
+        public decimal CalcPrice(decimal hours, decimal pricePerHour) {
+
+            return hours * pricePerHour;
         }
 
     }
