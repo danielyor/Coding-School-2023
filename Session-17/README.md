@@ -1,15 +1,15 @@
 ﻿**1. Πως μπορούμε να κάνουμε ένα Request σε ένα εξωτερικό API χωρίς να γνωρίζει ολόκληρο το url μας;**  
-Χρησιμοποιώντας το header `Referrer-Policy: no-referrer`.
+Χρησιμοποιώντας το header `Referrer-Policy: no-referrer`.  
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 
 **2. Αν κάνω ενα GET request και ζητήσω ενα jpeg image, το response τι content-type πρεπει να εχει;**  
-Ο server οφήλει ιδανικά να γυρίσει response με `Content-Type: image/jpeg`.
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept
+Ο server οφήλει ιδανικά να γυρίσει response με `Content-Type: image/jpeg`.  
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept  
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
 
 **3. Πως μπορώ να κάνω ένα GET request και το περιεχόμενο του να κρατηθεί στην cache για 1 μέρα;**  
-Με τη χρήση του header `Cache-Control: max-age=86400` στο request.
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+Με τη χρήση του header `Cache-Control: max-age=86400` στο request.  
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control  
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age
 
 **4. Μπορώ να έχω μια εφαρμογή που κάνει μόνο GET requests;**  
@@ -19,7 +19,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#fresh_and_stale_based_
 Ναι. Ένα παράδειγμα θα ήταν μια εφαρμογή που μόνο θέλει να ανεβάζει δεδομένα κάπου.
 
 **6. Τι status code περιμένω από ένα API αν δεν έχω στείλει ένα υποχρεωτικό πεδίο;**  
-`400 Bad Request`.
+`400 Bad Request`.  
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
 
 **7. Τι status code περιμένω από ένα API αν δεν υπάρχει επικοινωνία με τη βάση;**  
