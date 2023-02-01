@@ -3,7 +3,7 @@
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 
 **2. Αν κάνω ενα GET request και ζητήσω ενα jpeg image, το response τι content-type πρεπει να εχει;**  
-Ο server οφήλει ιδανικά να γυρίσει response με `Content-Type: image/jpeg`.  
+Ο server οφείλει ιδανικά να γυρίσει response με `Content-Type: image/jpeg`.  
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept  
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
 
