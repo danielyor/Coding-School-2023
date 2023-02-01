@@ -18,6 +18,11 @@ namespace Session_11 {
             InitializeComponent();
         }
 
+        private void EngineerForm_Load(object sender, EventArgs e) {
+            carServiceCenter = new CarServiceCenter();
+            SetGridProperties();
+        }
+
         private void PopulateCarCenter() {
 
             carServiceCenter = new CarServiceCenter();
@@ -48,10 +53,7 @@ namespace Session_11 {
             //repTasks.DisplayMember = "Description";
             //repTasks.ValueMember = "ID";
         }
-            private void EngineerForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void textBoxServiceTaskTitle_TextChanged(object sender, EventArgs e)
         {
