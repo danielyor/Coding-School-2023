@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeShop.Blazor.Client", "CoffeeShop.Blazor\Client\CoffeeShop.Blazor.Client.csproj", "{DBF7F740-F24D-458D-AA18-6D5342AFAECF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeShop.Blazor.Shared", "CoffeeShop.Blazor\Shared\CoffeeShop.Blazor.Shared.csproj", "{0A4A812C-F698-4BEA-BCCC-B1CDA858F8A4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C5B05E5-6AAD-4491-B932-7599FB6255FA} = {3C5B05E5-6AAD-4491-B932-7599FB6255FA}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeShop.EF", "CoffeeShop.EF\CoffeeShop.EF.csproj", "{7A97E055-11C5-47D9-BEE5-692F28A0433B}"
 EndProject

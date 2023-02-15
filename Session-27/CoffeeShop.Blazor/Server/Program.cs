@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using CoffeeShop.EF;
 
 var builder = WebApplication.CreateBuilder(args);
 
