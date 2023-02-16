@@ -1,0 +1,46 @@
+﻿@page "/productlist/edit/{Id:int?}"
+@using CoffeeShop.Blazor.Shared;
+@using CoffeeShop.Model;
+@using CoffeeShop.Model.Enums;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Product Editor</h3>
+
+@*@if (Product == null) {
+        <p>Loading ...</p>
+}
+else {
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Code</label>
+            <input class="form-control" @bind="@Product.Code" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Description</label>
+            <input class="form-control" @bind="@Product.Description" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Product Type</label>
+            <select class="form-control" @bind="Product.ProductType">
+                @foreach (var enumValue in Enum.GetValues<ProductType>()) {
+                            <option value="@enumValue">@enumValue</option>
+                }
+            </select>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <button class="btn btn-success" @onclick="OnSave">Save</button>
+                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+            </div>
+
+        </div>
+}
+*@
+@code {
+    
+    [Parameter] public int? Id { get; set; }
+    ProductEditDto? Product { get; set; }
+
+}
