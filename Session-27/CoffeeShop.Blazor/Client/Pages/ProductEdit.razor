@@ -4,6 +4,7 @@
 @using CoffeeShop.Model.Enums;
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
+@inject IJSRuntime jsRuntime
 
 <h3>Product Editor</h3>
 
@@ -14,23 +15,23 @@ else {
     <div class="row">
         <div class="col-md-6">
             <label class="form-label">Code</label>
-            <InputText class="form-control" @bind-Value="@product.Code"/>
+            <input class="form-control" @bind="@Product.Code" />
         </div>
         <div class="col-md-6">
             <label class="form-label">Description</label>
-            <input class="form-control" @bind="@product.Description" />
+            <input class="form-control" @bind="@Product.Description" />
         </div>
         <div class="col-md-6">
             <label class="form-label">Cost</label>
-            <input class="form-control" @bind="@product.Cost" />
+            <input class="form-control" @bind="@Product.Cost" />
         </div>
         <div class="col-md-6">
             <label class="form-label">Price</label>
-            <InputNumber class="form-control" @bind-Value="@product.Price" />
+            <input class="form-control" @bind="@Product.Price" />
         </div>
         <div class="col-md-6">
             <label class="form-label">Product Category</label>
-            <select class="form-control" @bind="product.ProductCategoryId">
+            <select class="form-control" @bind="Product.ProductCategoryId">
                 @foreach (var productCategory in productCategoryList) {
                     <option value="@productCategory.Id">@productCategory.Code - @productCategory.Description</option>
                 }
@@ -47,18 +48,18 @@ else {
 }
 
 @code {
-    
+
     [Parameter] public int? Id { get; set; }
-    private ProductEditDto product { get; set; } = null!;
+    ProductEditDto? Product { get; set; } = null!;
     private List<ProductCategoryListDto> productCategoryList = new();
     bool isLoading { get; set; } = true;
 
     protected override async Task OnInitializedAsync() {
         if (Id == null) {
-            product = new();
+            Product = new();
         }
         else {
-            product = await httpClient.GetFromJsonAsync<ProductEditDto>($"product/{Id}");
+            Product = await httpClient.GetFromJsonAsync<ProductEditDto>($"product/{Id}");
         }
         var tempProductCategoryList = await httpClient.GetFromJsonAsync<List<ProductCategoryListDto>>("productCategory");
         if (tempProductCategoryList is not null) {
@@ -71,20 +72,20 @@ else {
     }
 
     private void OnCancel() {
-        navigationManager.NavigateTo("productList");
+        navigationManager.NavigateTo("productlist");
     }
 
     private async Task OnSave() {
         HttpResponseMessage? response = null;
         if (Id == null) {
-            response = await httpClient.PostAsJsonAsync("product", product);
+            response = await httpClient.PostAsJsonAsync("product", Product);
         }
         else {
-            response = await httpClient.PutAsJsonAsync("product", product);
+            response = await httpClient.PutAsJsonAsync("product", Product);
         }
 
         response.EnsureSuccessStatusCode();
-        navigationManager.NavigateTo("productList");
+        navigationManager.NavigateTo("/productlist");
     }
 
 }

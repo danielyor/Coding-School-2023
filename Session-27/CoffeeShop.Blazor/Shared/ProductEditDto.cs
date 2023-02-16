@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CoffeeShop.Blazor.Shared {
     public class ProductEditDto {
 
-        [Required]
+       
         public int Id { get; set; }
 
         [Required]

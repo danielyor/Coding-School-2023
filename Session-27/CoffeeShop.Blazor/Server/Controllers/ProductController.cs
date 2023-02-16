@@ -52,12 +52,13 @@ namespace CoffeeShop.Blazor.Server.Controllers {
 
         [HttpPut]
         public async Task Put(ProductEditDto product) {
-            var taskUpdate = _productRepo.GetById(product.Id);
+            var taskUpdate = _productRepo.GetById(product.Id); 
             taskUpdate.Code = product.Code;
             taskUpdate.Description = product.Description;
             taskUpdate.Cost = product.Cost;
             taskUpdate.Price = product.Price;
             taskUpdate.ProductCategoryId = product.ProductCategoryId;
+            taskUpdate.ProductCategory = null!;
             _productRepo.Update(product.Id, taskUpdate);
         }
 

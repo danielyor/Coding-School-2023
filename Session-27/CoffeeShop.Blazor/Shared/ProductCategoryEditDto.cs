@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace CoffeeShop.Blazor.Shared {
     public class ProductCategoryEditDto {
 
-        [Required]
+       
         public int Id { get; set; }
 
         [Required]
