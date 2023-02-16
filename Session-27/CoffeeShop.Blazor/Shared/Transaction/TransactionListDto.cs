@@ -13,6 +13,6 @@ namespace CoffeeShop.Blazor.Shared.Transaction
         // Relations
         public int CustomerId { get; set; }
         public int EmployeeId { get; set; }
-        public List<TransactionLine> TransactionLines { get; set; } = null!;
+       // public List<TransactionLine> TransactionLines { get; set; } = null!;
     }
 }
