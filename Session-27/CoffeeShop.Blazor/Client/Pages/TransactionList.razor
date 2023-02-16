@@ -1,0 +1,79 @@
+﻿@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject IJSRuntime jsRuntime
+@page "/transactions"
+@using CoffeeShop.Blazor.Shared.Transaction;
+
+
+<h1>Transactions</h1>
+
+@if (isLoading) {
+    <p>Loading ...</p>
+}
+else {
+    <button class="btn btn-primary" @onclick="CreateItem">Create</button>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Total Price</th>
+                <th>Payment Method</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in transactionList) {
+                <tr>
+                    <td>@transaction.Date</td>
+                    <td>@transaction.TotalPrice</td>
+                    <td>@transaction.PaymentMethod</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="()=> EditItem(transaction)">Edit</button>
+                        <button class="btn btn-danger" @onclick="()=> DeleteItem(transaction)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    
+    bool isLoading { get; set; } = true;
+    private List<TransactionListDto> transactionList = new();
+    string errorMessage = null;
+
+
+    protected override async Task OnInitializedAsync() {
+        await LoadItemsFromServer();
+        isLoading = false;
+    }
+
+    private async Task LoadItemsFromServer() {
+       transactionList = await httpClient.GetFromJsonAsync<List<TransactionListDto>>("transaction");
+    }
+
+    private void CreateItem() {
+        navigationManager.NavigateTo("transactions/edit");
+    }
+
+    private void EditItem(TransactionListDto transaction) {
+        navigationManager.NavigateTo($"transactions/edit/{transaction.Id}");
+    }
+
+    private async Task DeleteItem(TransactionListDto transaction) {
+        errorMessage = null;
+        var comfirm = await jsRuntime.InvokeAsync<bool>("confirm", "Delete Item. Are you sure?");
+        if (comfirm) {
+            var response = await httpClient.DeleteAsync($"transaction/{transaction.Id}");
+            if (response.IsSuccessStatusCode) {
+                await LoadItemsFromServer();
+            }
+            else {
+                errorMessage = await response.Content.ReadAsStringAsync();
+                //await jsRuntime.InvokeVoidAsync("alert", error);
+            }
+        }
+    }
+}
