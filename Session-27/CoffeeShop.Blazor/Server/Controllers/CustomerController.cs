@@ -41,10 +41,10 @@ namespace CoffeeShop.Blazor.Server.Controllers
             var result = _customerRepo.GetById(id);
             return new CustomerEditDto
             {
-
-                Id = id,
+                Id = result.Id,
                 Code = result.Code,
-                Description = result.Description
+                Description = result.Description,
+                Transactions = result.Transactions
             };
 
         }
@@ -53,7 +53,6 @@ namespace CoffeeShop.Blazor.Server.Controllers
         public async Task Post(CustomerEditDto customer)
         {
             var newCustomer = new Customer(customer.Code, customer.Description);
-            newCustomer.Transactions = new();
             _customerRepo.Create(newCustomer);
 
         }
@@ -61,11 +60,10 @@ namespace CoffeeShop.Blazor.Server.Controllers
         public async Task Put(CustomerEditDto customer)
         {
             var itemToUpdate = _customerRepo.GetById(customer.Id);
-            itemToUpdate.Id = customer.Id;
+            itemToUpdate.Id= customer.Id;
             itemToUpdate.Code = customer.Code;
             itemToUpdate.Description = customer.Description;
-
-
+            itemToUpdate.Transactions = customer.Transactions;
             _customerRepo.Update(customer.Id, itemToUpdate);
         }
 

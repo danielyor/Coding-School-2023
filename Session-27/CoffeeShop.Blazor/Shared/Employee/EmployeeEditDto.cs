@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeShop.Blazor.Shared.Employee
 {
-    public class EmployeeListDto
+    public class EmployeeEditDto
     {
         public int Id { get; set; }
         public string? Name { get; set; }

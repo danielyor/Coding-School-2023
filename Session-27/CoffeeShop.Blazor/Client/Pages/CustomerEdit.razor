@@ -2,61 +2,63 @@
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
 @using CoffeeShop.Blazor.Shared.Customer
+@using CoffeeShop.Model
 
 
-<h3>Customer Edit</h3> 
+<h3>Customer Edit</h3>
 
- @if (Customer==null)
+@if (customer == null)
 {
     <p>Loading ... </p>
 }
 else
 {
+    <div class="col-md-6">
+    <input type="hidden" class="form-control" id="id" @bind="customer.Id" />
+    </div>
 
     <div class="row">
         <div class="col-md-6">
-       
-    
-   
-    <label class="form-label">Code</label>
-        <input class="form-control" @bind="@Customer.Code"/>
+
+            <label class="form-label">Code</label>
+            <input class="form-control" @bind="@customer.Code" />
 
         </div>
 
-           
-            
-            <div class="col-md-6">
+
+        <div class=" col-md-6">
             <label class="form-label">Description</label>
-            <select class="form-control" @bind="Customer.Description"/>     
-        
-</div>
-               
-</div>
-}
-<div class="row mt-2">
+            <input class="form-control" @bind="@customer.Description" />
+        </div>
+
+    </div>
+
+    <div class="row mt-2">
         <div class="col">
             <button class="btn btn-success" @onclick="OnSave">Save</button>
             <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
         </div>
 
     </div>
+}
+@code {
 
-     @code{
 
+    [Parameter] public int? Id { get; set; }
+    CustomerEditDto customer { get; set; }
+    bool isLoading = true;
 
-    [Parameter] public int? Id{ get; set; }
-    CustomerEditDto? Customer { get; set; }
- 
     protected override async Task OnInitializedAsync()
     {
-        if (Id !=null)
+        if (!Id.HasValue)
         {
-            Customer = new();
+            customer = new();
         }
         else
         {
-            Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
+            customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
         }
+        bool isLoading = false;
     }
 
     private void OnCancel()
@@ -66,19 +68,20 @@ else
 
     private async Task OnSave()
     {
-        HttpResponseMessage? response = null;
+        HttpResponseMessage? response;
         if (Id == null)
         {
-            response = await httpClient.PostAsJsonAsync("customer", Customer);
+            response = await httpClient.PostAsJsonAsync("customer", customer);
+            response.EnsureSuccessStatusCode();
         }
         else
         {
-            response = await httpClient.PutAsJsonAsync("customer", Customer);
+            response = await httpClient.PutAsJsonAsync("customer", customer);
+            response.EnsureSuccessStatusCode();
         }
-        response.EnsureSuccessStatusCode();
+        
         navigationManager.NavigateTo("customerList");
     }
 
 }
 
-    

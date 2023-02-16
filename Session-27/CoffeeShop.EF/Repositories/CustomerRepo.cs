@@ -1,5 +1,6 @@
 ﻿using CoffeeShop.EF.Context;
 using CoffeeShop.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace CoffeeShop.EF.Repositories
         public Customer? GetById(int id)
         {
             using var context = new CoffeeShopDbContext();
-            return context.Customers.Where(customer => customer.Id == id).SingleOrDefault();
+            return context.Customers.Where(customer => customer.Id == id).Include(customer => customer.Transactions).SingleOrDefault();
 
         }
 
