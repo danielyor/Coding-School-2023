@@ -3,6 +3,7 @@
 @inject IJSRuntime jsRuntime
 @page "/transactions"
 @using CoffeeShop.Blazor.Shared.Transaction;
+@using CoffeeShop.Model;
 
 
 <h1>Transactions</h1>
@@ -11,7 +12,6 @@
     <p>Loading ...</p>
 }
 else {
-    <button class="btn btn-primary" @onclick="CreateItem">Create</button>
 
     <table class="table table-striped table-hover">
         <thead>
@@ -38,8 +38,41 @@ else {
     </table>
 }
 
+<h1>Transaction Line</h1>
+
+
+ <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+                <th>Code</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (TransactionLine transactionLine in transactionLines)
+        {
+                    <tr>
+                        <td> <input type="text" placeholder="Code" @bind="transactionLine.Product.Code"></td>
+                        <td><input type="text" placeholder="Quantity" @bind="transactionLine.Quantity"></td>
+                        <td><input type="text" placeholder="Price" @bind="transactionLine.Price" readonly></td>
+                        <td><input type="text" placeholder="Total Price" @bind="transactionLine.TotalPrice" readonly></td>
+                        <td>
+                            <button class="btn btn-primary"  >Edit</button>
+                            <button class="btn btn-danger" >Delete</button>
+                        </td>
+                    </tr>
+        }
+        </tbody>
+    </table>
+
+        <button class="btn btn-primary" @onclick="CreateItem">Create</button>
+
 @code {
-    
+    List<TransactionLine> transactionLines = new List<TransactionLine>();
+
     bool isLoading { get; set; } = true;
     private List<TransactionListDto> transactionList = new();
     string errorMessage = null;
@@ -76,4 +109,5 @@ else {
             }
         }
     }
+ 
 }
