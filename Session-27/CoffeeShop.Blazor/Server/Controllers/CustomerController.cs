@@ -10,7 +10,7 @@ using Microsoft.Identity.Client;
 namespace CoffeeShop.Blazor.Server.Controllers
 {
     [Route("[controller]")]
-    //[ApiController]
+    [ApiController]
     public class CustomerController : ControllerBase
     {
         private readonly IEntityRepo<Customer> _customerRepo;
