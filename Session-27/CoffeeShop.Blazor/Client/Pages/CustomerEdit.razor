@@ -43,7 +43,7 @@ else
 
 
     [Parameter] public int? Id { get; set; }
-    CustomerEditDto? customer { get; set; }
+    CustomerEditDto customer { get; set; }
 
 
     protected override async Task OnInitializedAsync()
@@ -67,15 +67,15 @@ else
     private async Task OnSave()
     {
         HttpResponseMessage? response=null;
-        CustomerEditDto c1 = new CustomerEditDto() { Id = customer.Id, Code = customer.Code, Description = customer.Description };
+       // CustomerEditDto c1 = new CustomerEditDto() { Id = customer.Id, Code = customer.Code, Description = customer.Description };
         if (Id == null)
         {
-            response = await httpClient.PostAsJsonAsync("customer", c1);
+            response = await httpClient.PostAsJsonAsync("customer", customer);
           
         }
         else
         {
-            response = await httpClient.PutAsJsonAsync("customer", c1);
+            response = await httpClient.PutAsJsonAsync("customer", customer);
             
         }
         response.EnsureSuccessStatusCode();

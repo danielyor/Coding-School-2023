@@ -44,7 +44,7 @@ namespace CoffeeShop.Blazor.Server.Controllers
                 Id = result.Id,
                 Code = result.Code,
                 Description = result.Description,
-              //  Transactions = result.Transactions
+             //  Transactions = result.Transactions
             };
 
         }
@@ -53,8 +53,10 @@ namespace CoffeeShop.Blazor.Server.Controllers
         public async Task Post(CustomerEditDto customer)
         {
             var newCustomer = new Customer(customer.Code, customer.Description);
-            _customerRepo.Create(newCustomer);
+            
+                _customerRepo.Create(newCustomer);
 
+            
         }
         [HttpPut]
         public async Task Put(CustomerEditDto customer)

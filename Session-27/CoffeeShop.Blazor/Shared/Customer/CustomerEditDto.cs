@@ -10,9 +10,9 @@ namespace CoffeeShop.Blazor.Shared.Customer
     public class CustomerEditDto
     {
         public int Id { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
+        public string Code { get; set; } = null!;
+        public string Description { get; set; }=null!;
 
-     //   public List<Transaction> Transactions { get; set; } = new List<Transaction>();
+       // public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }
