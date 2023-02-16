@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoffeeShop.Blazor.Server.Controllers
 {
     [Route("[controller]")]
-    //[ApiController]
+    [ApiController]
     public class TransactionController : ControllerBase
     {
         private readonly IEntityRepo<Transaction> _transactionRepo;
