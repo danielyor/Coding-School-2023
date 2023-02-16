@@ -20,10 +20,10 @@ namespace CoffeeShop.EF.Repositories
         public void Delete(int id)
         {
             using var context = new CoffeeShopDbContext();
-            var foundProdCat = context.ProductCategories.SingleOrDefault(prodCat => prodCat.Id == id);
-            if (foundProdCat is null)
+            var dbProductCategory = context.ProductCategories.Where(productCategory => productCategory.Id == id).SingleOrDefault();
+            if (dbProductCategory is null)
                 return;
-            context.ProductCategories.Remove(foundProdCat);
+            context.ProductCategories.Remove(dbProductCategory);
             context.SaveChanges();
         }
 
@@ -37,18 +37,19 @@ namespace CoffeeShop.EF.Repositories
         {
             using var context = new CoffeeShopDbContext();
             return context.ProductCategories.
-                Where(prodCat => prodCat.Id == id).SingleOrDefault();
+                Where(productCategory => productCategory.Id == id).SingleOrDefault();
         }
 
         public void Update(int id, ProductCategory entity)
         {
             using var context = new CoffeeShopDbContext();
-            var foundProductCat = context.ProductCategories.SingleOrDefault(prodCat => prodCat.Id == id);
-            if (foundProductCat is null)
+            var dbProductCategory = context.ProductCategories.SingleOrDefault(productCategory => productCategory.Id == id);
+            if (dbProductCategory is null)
                 return;
-            foundProductCat.Code = entity.Code;
-            foundProductCat.Description = entity.Description;
-            foundProductCat.ProductType = entity.ProductType;
+            dbProductCategory.Code = entity.Code;
+            dbProductCategory.Description = entity.Description;
+            dbProductCategory.ProductType = entity.ProductType;
+            dbProductCategory.Products = entity.Products;
             context.SaveChanges();
         }
     }
