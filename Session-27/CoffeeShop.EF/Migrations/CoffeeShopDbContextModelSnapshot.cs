@@ -88,8 +88,8 @@ namespace CoffeeShop.EF.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<decimal>("Cost")
-                        .HasPrecision(3, 2)
-                        .HasColumnType("decimal(3,2)");
+                        .HasPrecision(8, 2)
+                        .HasColumnType("decimal(8,2)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -97,8 +97,8 @@ namespace CoffeeShop.EF.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<decimal>("Price")
-                        .HasPrecision(3, 2)
-                        .HasColumnType("decimal(3,2)");
+                        .HasPrecision(8, 2)
+                        .HasColumnType("decimal(8,2)");
 
                     b.Property<int>("ProductCategoryId")
                         .HasColumnType("int");

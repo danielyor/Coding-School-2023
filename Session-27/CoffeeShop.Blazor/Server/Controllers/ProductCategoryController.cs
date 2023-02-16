@@ -41,8 +41,6 @@ namespace CoffeeShop.Blazor.Server.Controllers {
             };
         }
 
-        //get from product controller
-
 
         [HttpPost]
         public async Task Post(ProductCategoryEditDto productCategory) {
