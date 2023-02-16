@@ -44,7 +44,7 @@ namespace CoffeeShop.Blazor.Server.Controllers
                 Id = result.Id,
                 Code = result.Code,
                 Description = result.Description,
-                Transactions = result.Transactions
+              //  Transactions = result.Transactions
             };
 
         }
@@ -59,12 +59,17 @@ namespace CoffeeShop.Blazor.Server.Controllers
         [HttpPut]
         public async Task Put(CustomerEditDto customer)
         {
-            var itemToUpdate = _customerRepo.GetById(customer.Id);
-            itemToUpdate.Id= customer.Id;
-            itemToUpdate.Code = customer.Code;
-            itemToUpdate.Description = customer.Description;
-            itemToUpdate.Transactions = customer.Transactions;
-            _customerRepo.Update(customer.Id, itemToUpdate);
+            var dbCustomer = await Task.Run(()=> { return _customerRepo.GetById(customer.Id); });
+            
+                
+                if (dbCustomer is null) { 
+                return;
+            }
+            
+            dbCustomer.Code = customer.Code;
+            dbCustomer.Description = customer.Description;
+         //   dbCustomer.Transactions = customer.Transactions;
+            _customerRepo.Update(customer.Id, dbCustomer);
         }
 
         [HttpDelete("{id}")]

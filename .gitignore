@@ -396,3 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/Session-27/CoffeeShop.EF/Repositories/ProductCategoryRepo.cs
+/Session-27/CoffeeShop.Blazor/Client/Pages/ProductCategoryList.razor
+/Session-27/CoffeeShop.Blazor/Server/Controllers/ProductCategoryController.cs
+/Session-27/CoffeeShop.Blazor/Shared/ProductCategoryEditDto.cs
+/Session-27/CoffeeShop.Blazor/Shared/ProductCategoryListDto.cs
+/Session-27/CoffeeShop.Blazor/Client/Pages/FetchData.razor
+/Session-27/CoffeeShop.Blazor/Client/Pages/Counter.razor
+/Session-27/CoffeeShop.Blazor/Server/Controllers/WeatherForecastController.cs

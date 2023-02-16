@@ -5,9 +5,13 @@
 @inject NavigationManager navigationManager
 
 
-<h3>Employee Ed</h3>
-@*</div>
+<h3>Employee Edit</h3>
 
+@if(Employee==null){
+
+    <p>isLoading ...</p>
+}
+else
 }
      <div class="row">
         <div class="col-md-6">
@@ -24,15 +28,25 @@
     </div>
     <div class="col-md-6">
         <label class="form-label">Employee Type</label>
-        <select class="form-control" @bind="@Employee.EmployeeType" />
-        @foreach(var enumValue in Enum.GetValues<EmployeeType>())
-        {
-            <option value="@employeeType">@employeeType</option>
-        }
-        </select>
-    </div>*@
+        <select class="form-control" @bind="@Employee.EmployeeType">
+            @foreach (var enumValue in Enum.GetValues<EmployeeType>())
+            {
+                <option value="@enumValue">@enumValue</option>
+            }
 
-@*@code {
+        </select>
+        
+    </div>
+    </div>
+<div class="row mt-2">
+    <div class="col">
+        <button class="btn btn-success" @onclick="OnSave">Save</button>
+        <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+    </div>
+
+</div>
+
+@code {
     [Parameter] public int? Id {get;set;}
     EmployeeEditDto Employee { get; set; }
 
@@ -68,7 +82,7 @@
         response.EnsureSuccessStatusCode();
         navigationManager.NavigateTo("employeeList");
     }
-*@
+
    
 }
-}
+

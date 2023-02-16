@@ -15,13 +15,8 @@
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            <NavLink class="nav-link" href="ProductCategoryList">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Product Categories
             </NavLink>
         </div>
         <div class="nav-item px-3">
@@ -36,16 +31,8 @@
 
             </NavLink>
         </div>
-        
-         
-        <div class="row">
 
-            <div class="col-md-6">
-                <label class="form-label">Code</label>
-                <input class="form-control" />
-
-            </div>
-        </div>
+      
     </nav>
 </div>
 
@@ -54,8 +41,7 @@
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
-    {
+    private void ToggleNavMenu() {
         collapseNavMenu = !collapseNavMenu;
     }
 }

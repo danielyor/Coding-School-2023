@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using CoffeeShop.EF;
-using CoffeeShop.Model;
 using CoffeeShop.EF.Repositories;
+using CoffeeShop.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
+builder.Services.AddScoped<IEntityRepo<Product>, ProductRepo>();
+builder.Services.AddScoped<IEntityRepo<ProductCategory>, ProductCategoryRepo>();
 builder.Services.AddScoped<IEntityRepo<Employee>, EmployeeRepo>();
 
 var app = builder.Build();

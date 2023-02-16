@@ -1,8 +1,8 @@
 ﻿@page "/customerList/edit/{Id:int?}"
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
-@using CoffeeShop.Blazor.Shared.Customer
-@using CoffeeShop.Model
+@using CoffeeShop.Blazor.Shared.Customer;
+@using CoffeeShop.Model;
 
 
 <h3>Customer Edit</h3>
@@ -13,9 +13,7 @@
 }
 else
 {
-    <div class="col-md-6">
-    <input type="hidden" class="form-control" id="id" @bind="customer.Id" />
-    </div>
+   
 
     <div class="row">
         <div class="col-md-6">
@@ -45,12 +43,12 @@ else
 
 
     [Parameter] public int? Id { get; set; }
-    CustomerEditDto customer { get; set; }
-    bool isLoading = true;
+    CustomerEditDto? customer { get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
-        if (!Id.HasValue)
+        if (Id==null)
         {
             customer = new();
         }
@@ -58,7 +56,7 @@ else
         {
             customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
         }
-        bool isLoading = false;
+
     }
 
     private void OnCancel()
@@ -68,18 +66,19 @@ else
 
     private async Task OnSave()
     {
-        HttpResponseMessage? response;
+        HttpResponseMessage? response=null;
+        CustomerEditDto c1 = new CustomerEditDto() { Id = customer.Id, Code = customer.Code, Description = customer.Description };
         if (Id == null)
         {
-            response = await httpClient.PostAsJsonAsync("customer", customer);
-            response.EnsureSuccessStatusCode();
+            response = await httpClient.PostAsJsonAsync("customer", c1);
+          
         }
         else
         {
-            response = await httpClient.PutAsJsonAsync("customer", customer);
-            response.EnsureSuccessStatusCode();
+            response = await httpClient.PutAsJsonAsync("customer", c1);
+            
         }
-        
+        response.EnsureSuccessStatusCode();
         navigationManager.NavigateTo("customerList");
     }
 

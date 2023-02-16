@@ -4,10 +4,11 @@ using CoffeeShop.EF.Repositories;
 using CoffeeShop.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeShop.Blazor.Server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
@@ -64,6 +65,7 @@ namespace CoffeeShop.Blazor.Server.Controllers
             var itemToUpdate = _employeeRepo.GetById(employee.Id);
             itemToUpdate.Id = employee.Id;
             itemToUpdate.Name = employee.Name;
+            itemToUpdate.Surname = employee.Surname;
             itemToUpdate.SalaryPerMonth = employee.SalaryPerMonth;
             itemToUpdate.EmployeeType = employee.EmployeeType;
 
@@ -71,16 +73,28 @@ namespace CoffeeShop.Blazor.Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            try
+            {
+                _employeeRepo.Delete(id);
+                return Ok();
 
-            _employeeRepo.Delete(id);
+            }
+            catch (DbUpdateException ex) {
+                return BadRequest("This Employee cannot be deleted");
+            }
+            catch (KeyNotFoundException ex) {
+                return BadRequest($"Todo with id {id} not found!");
 
+               }
+            }
+           
         }
 
     }
 
-}
+
 
     
 

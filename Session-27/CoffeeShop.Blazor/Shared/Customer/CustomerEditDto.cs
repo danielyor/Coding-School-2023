@@ -13,6 +13,6 @@ namespace CoffeeShop.Blazor.Shared.Customer
         public string Code { get; set; }
         public string Description { get; set; }
 
-        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
+     //   public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }
