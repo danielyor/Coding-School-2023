@@ -42,8 +42,6 @@ namespace CoffeeShop.Blazor.Server.Controllers {
             };
         }
 
-        //get from product category controller
-
         [HttpPost]
         public async Task Post(ProductEditDto product) {
             var newProduct = new Product(product.Code, product.Description, product.Cost, product.Price) { 
@@ -62,6 +60,7 @@ namespace CoffeeShop.Blazor.Server.Controllers {
             taskUpdate.ProductCategoryId = product.ProductCategoryId;
             _productRepo.Update(product.Id, taskUpdate);
         }
+
 
 
         [HttpDelete("{id}")]
