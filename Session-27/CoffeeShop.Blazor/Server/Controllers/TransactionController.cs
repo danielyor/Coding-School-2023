@@ -35,53 +35,56 @@ namespace CoffeeShop.Blazor.Server.Controllers
 
         }
 
-        /*
+        
         [HttpGet("{Id}")]
-        public async Task<CustomerEditDto?> GetById(int id)
+        public async Task<TransactionEditDto?> GetById(int id)
         {
-            var result = _customerRepo.GetById(id);
-            return new CustomerEditDto
+            var result = _transactionRepo.GetById(id);
+            return new TransactionEditDto
             {
-
                 Id = id,
-                Code = result.Code,
-                Description = result.Description
+                Date = result.Date,
+                TotalPrice = result.TotalPrice,
+                PaymentMethod = result.PaymentMethod,
+                CustomerId = result.CustomerId,
+                EmployeeId = result.EmployeeId,
+                // transaction lines
             };
 
         }
 
         [HttpPost]
-        public async Task Post(CustomerEditDto customer)
+        public async Task Post(TransactionEditDto transaction)
         {
-            var newCustomer = new Customer(customer.Code, customer.Description);
-            newCustomer.Transactions = new();
-            _customerRepo.Create(newCustomer);
+            var newTransaction = new Transaction(transaction.TotalPrice, transaction.PaymentMethod);
+            //newCustomer.Transactions = new();
+            _transactionRepo.Create(newTransaction);
 
         }
 
         [HttpPut]
-        public async Task Put(CustomerEditDto customer)
+        public async Task Put(TransactionEditDto transaction)
         {
-            var itemToUpdate = _customerRepo.GetById(customer.Id);
-            itemToUpdate.Id = customer.Id;
-            itemToUpdate.Code = customer.Code;
-            itemToUpdate.Description = customer.Description;
+            var itemToUpdate = _transactionRepo.GetById(transaction.Id);
+            itemToUpdate.Date = transaction.Date;
+            itemToUpdate.TotalPrice = transaction.TotalPrice;
+            itemToUpdate.PaymentMethod = transaction.PaymentMethod;
+            itemToUpdate.CustomerId = transaction.CustomerId;
+            itemToUpdate.EmployeeId = transaction.EmployeeId;
+            // transaction lines
 
-
-            _customerRepo.Update(customer.Id, itemToUpdate);
+            _transactionRepo.Update(transaction.Id, itemToUpdate);
         }
 
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
 
-            _customerRepo.Delete(id);
+            _transactionRepo.Delete(id);
 
         }
-        */
+        
     }
 
 }
-
-
 
