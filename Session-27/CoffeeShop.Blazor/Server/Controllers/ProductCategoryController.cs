@@ -34,12 +34,14 @@ namespace CoffeeShop.Blazor.Server.Controllers {
         public async Task<ProductCategoryEditDto> GetById(int id) {
             var productCategory = _productCategoryRepo.GetById(id);
             return new ProductCategoryEditDto {
-                Id = productCategory.Id,
+                Id = id,
                 Code = productCategory.Code,
                 Description = productCategory.Description,
                 ProductType = productCategory.ProductType,
             };
         }
+
+        //get from product controller
 
 
         [HttpPost]
@@ -69,10 +71,10 @@ namespace CoffeeShop.Blazor.Server.Controllers {
                 return Ok();
             }
             catch (DbUpdateException ex) {
-                return BadRequest("This todo cannot be deleted!");
+                return BadRequest("This Product Category cannot be deleted!");
             }
             catch (KeyNotFoundException ex) {
-                return BadRequest($"Todo with id {id} not found!");
+                return BadRequest($"ProductCategory with id {id} not found!");
             }
         }
     }
