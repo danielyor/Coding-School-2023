@@ -1,0 +1,58 @@
+﻿@page "/monthlyledger"
+@using CoffeeShop.Model;
+
+<h3>Monthly Ledger</h3>
+
+<PageTitle>To Do List</PageTitle>
+
+@if (monthlyLedgers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<table>
+    <tr>
+        <th>
+            Year:
+        </th>
+        <th>
+            Month:
+        </th>
+        <th>
+            Income:
+        </th>
+        <th>
+            Expenses:
+        </th>
+        <th>
+            Total:
+        </th>
+    </tr>
+    @foreach (MonthlyLedger monthlyLedger in monthlyLedgers)
+    {
+        <tr>
+            <td>
+                <input type="text" placeholder="Year" @bind="monthlyLedger.Year" readonly>
+            </td>
+            <td>
+                <input type="text" placeholder="Month" @bind="monthlyLedger.Month" readonly>
+            </td>
+            <td>
+                <input type="text" placeholder="Income" @bind="monthlyLedger.Income" readonly>
+            </td>
+            <td>
+                <input type="text" placeholder="Expenses" @bind="monthlyLedger.Expenses" readonly>
+            </td>
+            <td>
+                <input type="text" placeholder="Total" @bind="monthlyLedger.Total" readonly>
+            </td>
+        </tr>
+    }
+</table>
+}
+
+
+@code {
+    private IList<MonthlyLedger> monthlyLedgers = new List<MonthlyLedger>();
+}
