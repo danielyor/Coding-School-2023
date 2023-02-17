@@ -17,8 +17,24 @@ else {
             <input class="form-control" @bind="@transaction.Date" />
         </div>
         <div class="col-md-6">
+            <label class="form-label">Customer</label>
+            <select class="form-control" @bind="transaction.CustomerId">
+                @foreach (var customer in customerList) {
+                    <option value="@customer.Id">@customer.Code - @customer.Description</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Employeee</label>
+            <select class="form-control" @bind="transaction.EmployeeId">
+                    @foreach (var employee in employeeList) {
+                        <option value="@employee.Id">@employee.Name - @employee.Surname</option>
+                    }
+                </select>
+        </div>
+        <div class="col-md-6">
             <label class="form-label">Total Price</label>
-            <input class="form-control" @bind="@transaction.TotalPrice" readonly />
+            <input class="form-control" @bind="@transaction.TotalPrice" disabled />
         </div>
         <div class="col-md-6">
             <label class="form-label">Payment Method</label>
@@ -34,13 +50,35 @@ else {
             <button class="btn btn-success" @onclick="OnSave">Save</button>
             <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
         </div>
+     </div>
+    <br>
+    <br>
+    <h3>Transaction Lines</h3>
+    <button class="btn btn-success" @onclick="AddLine">Add Line</button>
 
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price(&euro;)</th>
+                <th>Discount(%)</th>
+                <th>Total Price(&euro;)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
 }
 
 @code {
     [Parameter] public int? Id { get; set; }
     TransactionEditDto? transaction { get; set; }
+    private List<Blazor.Shared.Customer.CustomerListDto> customerList = new();
+    private List<Blazor.Shared.Employee.EmployeeListDto> employeeList = new();
 
     bool isLoading = true;
 
@@ -68,5 +106,9 @@ else {
 
         response.EnsureSuccessStatusCode();
         navigationManager.NavigateTo("transactions");
+    }
+
+    private void AddLine() {
+        transaction.TransactionLines.Add(new Blazor.Shared.TransactionLine.TransactionLineEditDto());
     }
 }

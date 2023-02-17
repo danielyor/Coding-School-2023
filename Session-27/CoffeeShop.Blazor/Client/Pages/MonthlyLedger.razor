@@ -1,11 +1,15 @@
 ﻿@page "/monthlyledger"
 @using CoffeeShop.Model;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject IJSRuntime jsRuntime
+@using CoffeeShop.Blazor.Shared;
 
 <h3>Monthly Ledger</h3>
 
 <PageTitle>Monthly Ledger</PageTitle>
 
-@if (monthlyLedgers == null)
+@if (isLoading == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -29,8 +33,7 @@ else
             Total:
         </th>
     </tr>
-    @foreach (MonthlyLedger monthlyLedger in monthlyLedgers)
-    {
+        @foreach (var monthlyLedger in MonthlyLedgers) {
         <tr>
             <td>
                 <input type="text" placeholder="Year" @bind="monthlyLedger.Year" readonly>
@@ -54,5 +57,21 @@ else
 
 
 @code {
-    private IList<MonthlyLedger> monthlyLedgers = new List<MonthlyLedger>();
+    private List<MonthlyLedgerDto> MonthlyLedgers = new();
+    bool isLoading { get; set; } = true;
+
+    protected override async Task OnInitializedAsync() {
+        await LoadItemsFromServer();
+        isLoading = false;
+    }
+
+    private async Task LoadItemsFromServer() {
+        var tempMonthlyLedgers = await httpClient.GetFromJsonAsync<List<MonthlyLedgerDto>>("monthlyledger");
+        if (tempMonthlyLedgers is not null) {
+            MonthlyLedgers = tempMonthlyLedgers;
+        }
+        else {
+            // TODO: if tempCustomerList is null
+        }
+    }
 }

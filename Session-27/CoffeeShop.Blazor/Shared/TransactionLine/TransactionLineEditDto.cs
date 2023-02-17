@@ -15,9 +15,9 @@ namespace CoffeeShop.Blazor.Shared.TransactionLine
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
 
-    }
+    
     //relations
-    //public int TransactionId { get; set; }
-    //public int ProductId { get; set; }
-
+    public int TransactionId { get; set; }
+    public int ProductId { get; set; }
+    }
 }
