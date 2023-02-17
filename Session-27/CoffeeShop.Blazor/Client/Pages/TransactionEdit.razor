@@ -18,7 +18,7 @@ else {
         </div>
         <div class="col-md-6">
             <label class="form-label">Total Price</label>
-            <input class="form-control" @bind="@transaction.TotalPrice" />
+            <input class="form-control" @bind="@transaction.TotalPrice" readonly />
         </div>
         <div class="col-md-6">
             <label class="form-label">Payment Method</label>
@@ -41,6 +41,8 @@ else {
 @code {
     [Parameter] public int? Id { get; set; }
     TransactionEditDto? transaction { get; set; }
+
+    bool isLoading = true;
 
     protected override async Task OnInitializedAsync() {
         if (Id == null) {
