@@ -5,20 +5,25 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Server", "FuelStation\Server\FuelStation.Server.csproj", "{F580B35A-A53A-4567-9ECD-5B61ADFDC48E}"
 	ProjectSection(ProjectDependencies) = postProject
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224} = {5BE707B3-5BE0-4C6B-9684-4AF07477C224}
 		{E0F02AB9-694D-4BB9-9CDD-137ED078C519} = {E0F02AB9-694D-4BB9-9CDD-137ED078C519}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Client", "FuelStation\Client\FuelStation.Client.csproj", "{C66B4883-6A1B-4292-9D0C-D778A049B6FF}"
 	ProjectSection(ProjectDependencies) = postProject
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224} = {5BE707B3-5BE0-4C6B-9684-4AF07477C224}
 		{E0F02AB9-694D-4BB9-9CDD-137ED078C519} = {E0F02AB9-694D-4BB9-9CDD-137ED078C519}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Shared", "FuelStation\Shared\FuelStation.Shared.csproj", "{77F16A9F-103D-4554-A199-AB840C2116F4}"
 	ProjectSection(ProjectDependencies) = postProject
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224} = {5BE707B3-5BE0-4C6B-9684-4AF07477C224}
 		{E0F02AB9-694D-4BB9-9CDD-137ED078C519} = {E0F02AB9-694D-4BB9-9CDD-137ED078C519}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Model", "FuelStation\Model\FuelStation.Model.csproj", "{E0F02AB9-694D-4BB9-9CDD-137ED078C519}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.EF", "FuelStation\EF\FuelStation.EF.csproj", "{5BE707B3-5BE0-4C6B-9684-4AF07477C224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +47,10 @@ Global
 		{E0F02AB9-694D-4BB9-9CDD-137ED078C519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0F02AB9-694D-4BB9-9CDD-137ED078C519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0F02AB9-694D-4BB9-9CDD-137ED078C519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE707B3-5BE0-4C6B-9684-4AF07477C224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

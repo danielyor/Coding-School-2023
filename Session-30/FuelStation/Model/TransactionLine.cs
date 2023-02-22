@@ -2,6 +2,7 @@
 {
     public class TransactionLine
     {
+        public TransactionLine() { }
         public TransactionLine(int quantity, decimal itemPrice)
         {
             Quantity = quantity;

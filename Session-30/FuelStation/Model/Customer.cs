@@ -2,6 +2,8 @@
 {
     public class Customer
     {
+        public Customer() { }
+
         public Customer(string name, string surname, string cardnum) {
             Name = name;
             Surname = surname;

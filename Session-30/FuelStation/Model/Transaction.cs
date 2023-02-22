@@ -4,6 +4,7 @@ namespace FuelStation.Model
 {
     public class Transaction
     {
+        public Transaction() { }
         public Transaction(decimal totalValue, PaymentMethod paymentMethod)
         {
             Date = DateTime.Now;

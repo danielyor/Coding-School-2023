@@ -4,6 +4,7 @@ namespace FuelStation.Model
 {
     public class Item
     {
+        public Item() { }
         public Item(string code, string description, ItemType itemType, decimal price, decimal cost)
         {
             Code = code;
