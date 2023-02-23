@@ -1,9 +1,15 @@
 ﻿@inherits LayoutComponentBase
+@implements IDisposable
+@inject FuelStation.Shared.LoginState loginState;
 
 <div class="page">
+    
     <div class="sidebar">
+    @if (loginState.IsLoggedIn != null) {
         <NavMenu />
+    }
     </div>
+
 
     <main>
         <div class="top-row px-4">
@@ -15,3 +21,12 @@
         </article>
     </main>
 </div>
+
+@code {
+    protected override void OnInitialized() {
+        loginState.OnChange += StateHasChanged;
+    }
+    public void Dispose() {
+        loginState.OnChange -= StateHasChanged;
+    }
+}

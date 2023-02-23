@@ -1,7 +1,32 @@
 ﻿@page "/"
+@using FuelStation.Model.Enums;
+@inject FuelStation.Shared.LoginState loginState;
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+@if (loginState.IsLoggedIn == null) {
+    <h1>Welcome, please log in.</h1>
+    <button type="submit" @onclick="@(e => HandleLogin("Manager"))">Manager</button>
+    <button type="submit" @onclick="@(e => HandleLogin("Cashier"))">Cashier</button>
+    <button type="submit" @onclick="@(e => HandleLogin("Staff"))">Staff</button>
+}
+else {
+    <p>You are currently logged in as: @loginState.IsLoggedIn</p>
+    <button type="submit" @onclick=@HandleLogout>Logout</button>
+}
 
-Welcome to your new app.
+@code {
+    string username = "FuelBoss42";
+    //string password = "123";
+    //string correctPassword = "123";
+
+    void HandleLogin(string input) {
+        Enum.TryParse(input, out EmployeeType type);
+        loginState.SetLogin(type, username);
+    }
+    void HandleLogout() {
+        username = "";
+        //password = "";
+        loginState.SetLogin(null, username);
+    }
+}
