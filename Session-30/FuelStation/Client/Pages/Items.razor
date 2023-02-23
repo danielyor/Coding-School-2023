@@ -1,0 +1,16 @@
+﻿@page "/items"
+@using FuelStation.Model.Enums;
+@inject FuelStation.Shared.LoginState loginState;
+
+@if (loginState.IsLoggedIn == EmployeeType.Manager || loginState.IsLoggedIn == EmployeeType.Staff) {
+    <h3>Items</h3>
+
+
+}
+else {
+    <p>Access Unauthorized!</p>
+}
+
+@code {
+
+}

@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using FuelStation.Model.Enums;
+@inject FuelStation.Shared.LoginState loginState;
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">FuelStation</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -14,6 +17,34 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
+        @if (loginState.IsLoggedIn == EmployeeType.Manager || loginState.IsLoggedIn == EmployeeType.Cashier) {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="customers">
+                    <span class="oi oi-person" aria-hidden="true"></span> Customers
+                </NavLink>
+            </div>
+        }
+        @if (loginState.IsLoggedIn == EmployeeType.Manager || loginState.IsLoggedIn == EmployeeType.Staff) {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="items">
+                    <span class="oi oi-cart" aria-hidden="true"></span> Items
+                </NavLink>
+            </div>
+        }
+        @if (loginState.IsLoggedIn == EmployeeType.Manager) {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="employees">
+                    <span class="oi oi-people" aria-hidden="true"></span> Employees
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="ledger">
+                    <span class="oi oi-book" aria-hidden="true"></span> Ledger
+                </NavLink>
+            </div>
+        }
+
+        
     </nav>
 </div>
 
