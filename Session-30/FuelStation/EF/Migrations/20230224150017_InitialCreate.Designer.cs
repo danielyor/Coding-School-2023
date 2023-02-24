@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FuelStation.EF.Migrations
 {
     [DbContext(typeof(FuelStationDbContext))]
-    [Migration("20230222151344_InitialCreate")]
+    [Migration("20230224150017_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
