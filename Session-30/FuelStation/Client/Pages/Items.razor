@@ -1,16 +1,83 @@
 ﻿@page "/items"
 @using FuelStation.Model.Enums;
+@using FuelStation.Shared;
 @inject FuelStation.Shared.LoginState loginState;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject IJSRuntime jsRuntime
 
 @if (loginState.IsLoggedIn == EmployeeType.Manager || loginState.IsLoggedIn == EmployeeType.Staff) {
     <h3>Items</h3>
-
-
+    @if (isLoading) {
+        <p>Loading...</p>
+    }
+    else {
+        <button class="btn btn-primary" @onclick="CreateItem">Create</button>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Item Type</th>
+                    <th>Price</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in itemList) {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Code</td>
+                        <td>@item.Description</td>
+                        <td>@item.Type</td>
+                        <td>@item.Price</td>
+                        <td>@item.Cost</td>
+                        <td>
+                            <button class="btn btn-primary" @onclick="()=> EditItem(item)">Edit</button>
+                            <button class="btn btn-danger" @onclick="()=> DeleteItem(item)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
 else {
     <p>Access Unauthorized!</p>
 }
 
 @code {
+    private List<ItemDto> itemList = new();
 
+    bool isLoading { get; set; } = true;
+
+
+    protected override async Task OnInitializedAsync() {
+        await LoadItemsFromServer();
+        isLoading = false;
+    }
+
+    private async Task LoadItemsFromServer() {
+        itemList = await httpClient.GetFromJsonAsync<List<ItemDto>>("api/item");
+    }
+
+    private void CreateItem() {
+        navigationManager.NavigateTo("items/edit");
+    }
+
+    private void EditItem(ItemDto item) {
+        navigationManager.NavigateTo($"items/edit/{item.Id}");
+    }
+
+    private async Task DeleteItem(ItemDto item) {
+        bool confirm = await jsRuntime.InvokeAsync<bool>("confirm", "Delete Item. Are you sure?");
+
+        if (confirm) {
+            var response = await httpClient.DeleteAsync($"api/item/{item.Id}");
+            response.EnsureSuccessStatusCode();
+
+            await LoadItemsFromServer();
+        }
+    }
 }

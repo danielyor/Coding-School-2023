@@ -1,0 +1,83 @@
+﻿@page "/items/edit/{Id:int?}"
+@using FuelStation.Model.Enums;
+@using FuelStation.Shared;
+@inject FuelStation.Shared.LoginState loginState;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+@if (loginState.IsLoggedIn == EmployeeType.Manager) {
+    <h3>Items</h3>
+    @if (item == null) {
+        <p>Loading...</p>
+    }
+    else {
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Code</label>
+                <input class="form-control" @bind="@item.Code" />
+            </div>
+            <div class=" col-md-6">
+                <label class="form-label">Description</label>
+                <input class="form-control" @bind="@item.Description" />
+            </div>
+            <div class=" col-md-6">
+                <label class="form-label">Type</label>
+                <input class="form-control" @bind="@item.Type" />
+            </div>
+            <div class=" col-md-6">
+                <label class="form-label">Price</label>
+                <input class="form-control" @bind="@item.Price" />
+            </div>
+            <div class=" col-md-6">
+                <label class="form-label">Cost</label>
+                <input class="form-control" @bind="@item.Cost" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <button class="btn btn-success" @onclick="OnSave">Save</button>
+                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+            </div>
+        </div>
+    }
+}
+else {
+    <p>Access Unauthorized!</p>
+}
+
+@code {
+    [Parameter] public int? Id { get; set; }
+    ItemDto item { get; set; }
+
+
+    protected override async Task OnInitializedAsync() {
+        if (Id == null) {
+            item = new();
+        }
+        else {
+            item = await httpClient.GetFromJsonAsync<ItemDto>($"api/item/{Id}");
+        }
+
+    }
+
+    private void OnCancel() {
+        navigationManager.NavigateTo("items");
+    }
+
+    private async Task OnSave() {
+        HttpResponseMessage? response = null;
+        
+        if (Id == null) {
+            response = await httpClient.PostAsJsonAsync("api/item", item);
+
+        }
+        else {
+            response = await httpClient.PutAsJsonAsync("api/item", item);
+
+        }
+        response.EnsureSuccessStatusCode();
+        navigationManager.NavigateTo("items");
+    }
+
+}
+
