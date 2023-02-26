@@ -12,5 +12,15 @@ namespace WinForms {
             ManagerForm managerForm = new();
             managerForm.ShowDialog();
         }
+
+        private void CashierLoginBtn_Click(object sender, EventArgs e) {
+            CashierForm cashierForm = new();
+            cashierForm.ShowDialog();
+        }
+
+        private void StaffLoginBtn_Click(object sender, EventArgs e) {
+            StaffForm staffForm = new();
+            staffForm.ShowDialog();
+        }
     }
 }

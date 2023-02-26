@@ -13,6 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\CashierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>

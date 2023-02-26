@@ -30,7 +30,7 @@
             // 
             // ManagerLoginBtn
             // 
-            this.ManagerLoginBtn.Location = new System.Drawing.Point(197, 238);
+            this.ManagerLoginBtn.Location = new System.Drawing.Point(295, 240);
             this.ManagerLoginBtn.Name = "ManagerLoginBtn";
             this.ManagerLoginBtn.Size = new System.Drawing.Size(75, 23);
             this.ManagerLoginBtn.TabIndex = 0;
@@ -40,21 +40,23 @@
             // 
             // CashierLoginBtn
             // 
-            this.CashierLoginBtn.Location = new System.Drawing.Point(374, 240);
+            this.CashierLoginBtn.Location = new System.Drawing.Point(376, 240);
             this.CashierLoginBtn.Name = "CashierLoginBtn";
             this.CashierLoginBtn.Size = new System.Drawing.Size(75, 23);
             this.CashierLoginBtn.TabIndex = 1;
             this.CashierLoginBtn.Text = "Cashier";
             this.CashierLoginBtn.UseVisualStyleBackColor = true;
+            this.CashierLoginBtn.Click += new System.EventHandler(this.CashierLoginBtn_Click);
             // 
             // StaffLoginBtn
             // 
-            this.StaffLoginBtn.Location = new System.Drawing.Point(554, 255);
+            this.StaffLoginBtn.Location = new System.Drawing.Point(457, 240);
             this.StaffLoginBtn.Name = "StaffLoginBtn";
             this.StaffLoginBtn.Size = new System.Drawing.Size(75, 23);
             this.StaffLoginBtn.TabIndex = 2;
             this.StaffLoginBtn.Text = "Staff";
             this.StaffLoginBtn.UseVisualStyleBackColor = true;
+            this.StaffLoginBtn.Click += new System.EventHandler(this.StaffLoginBtn_Click);
             // 
             // LoginForm
             // 
