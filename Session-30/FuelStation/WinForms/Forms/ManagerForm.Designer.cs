@@ -26,8 +26,14 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CustomersTab = new System.Windows.Forms.TabPage();
+            this.deleteCustomerBtn = new System.Windows.Forms.Button();
+            this.editCustomerBtn = new System.Windows.Forms.Button();
+            this.addCustomerBtn = new System.Windows.Forms.Button();
             this.customersGrd = new System.Windows.Forms.DataGridView();
             this.ItemsTab = new System.Windows.Forms.TabPage();
+            this.deleteItemBtn = new System.Windows.Forms.Button();
+            this.editItemBtn = new System.Windows.Forms.Button();
+            this.addItemBtn = new System.Windows.Forms.Button();
             this.itemsGrd = new System.Windows.Forms.DataGridView();
             this.TransactionsTab = new System.Windows.Forms.TabPage();
             this.transactionsGrd = new System.Windows.Forms.DataGridView();
@@ -63,6 +69,9 @@
             // 
             // CustomersTab
             // 
+            this.CustomersTab.Controls.Add(this.deleteCustomerBtn);
+            this.CustomersTab.Controls.Add(this.editCustomerBtn);
+            this.CustomersTab.Controls.Add(this.addCustomerBtn);
             this.CustomersTab.Controls.Add(this.customersGrd);
             this.CustomersTab.Location = new System.Drawing.Point(4, 24);
             this.CustomersTab.Name = "CustomersTab";
@@ -72,20 +81,57 @@
             this.CustomersTab.Text = "Customers";
             this.CustomersTab.UseVisualStyleBackColor = true;
             // 
+            // deleteCustomerBtn
+            // 
+            this.deleteCustomerBtn.Location = new System.Drawing.Point(168, 390);
+            this.deleteCustomerBtn.Name = "deleteCustomerBtn";
+            this.deleteCustomerBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteCustomerBtn.TabIndex = 3;
+            this.deleteCustomerBtn.Text = "Delete";
+            this.deleteCustomerBtn.UseVisualStyleBackColor = true;
+            this.deleteCustomerBtn.Click += new System.EventHandler(this.deleteCustomerBtn_Click);
+            // 
+            // editCustomerBtn
+            // 
+            this.editCustomerBtn.Location = new System.Drawing.Point(87, 390);
+            this.editCustomerBtn.Name = "editCustomerBtn";
+            this.editCustomerBtn.Size = new System.Drawing.Size(75, 23);
+            this.editCustomerBtn.TabIndex = 2;
+            this.editCustomerBtn.Text = "Edit";
+            this.editCustomerBtn.UseVisualStyleBackColor = true;
+            this.editCustomerBtn.Click += new System.EventHandler(this.editCustomerBtn_Click);
+            // 
+            // addCustomerBtn
+            // 
+            this.addCustomerBtn.Location = new System.Drawing.Point(6, 390);
+            this.addCustomerBtn.Name = "addCustomerBtn";
+            this.addCustomerBtn.Size = new System.Drawing.Size(75, 23);
+            this.addCustomerBtn.TabIndex = 1;
+            this.addCustomerBtn.Text = "Add";
+            this.addCustomerBtn.UseVisualStyleBackColor = true;
+            this.addCustomerBtn.Click += new System.EventHandler(this.addCustomerBtn_Click);
+            // 
             // customersGrd
             // 
+            this.customersGrd.AllowUserToAddRows = false;
+            this.customersGrd.AllowUserToDeleteRows = false;
             this.customersGrd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.customersGrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customersGrd.Location = new System.Drawing.Point(3, 3);
             this.customersGrd.Name = "customersGrd";
+            this.customersGrd.ReadOnly = true;
             this.customersGrd.RowTemplate.Height = 25;
-            this.customersGrd.Size = new System.Drawing.Size(765, 413);
+            this.customersGrd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.customersGrd.Size = new System.Drawing.Size(765, 381);
             this.customersGrd.TabIndex = 0;
             // 
             // ItemsTab
             // 
+            this.ItemsTab.Controls.Add(this.deleteItemBtn);
+            this.ItemsTab.Controls.Add(this.editItemBtn);
+            this.ItemsTab.Controls.Add(this.addItemBtn);
             this.ItemsTab.Controls.Add(this.itemsGrd);
             this.ItemsTab.Location = new System.Drawing.Point(4, 24);
             this.ItemsTab.Name = "ItemsTab";
@@ -95,16 +141,50 @@
             this.ItemsTab.Text = "Items";
             this.ItemsTab.UseVisualStyleBackColor = true;
             // 
+            // deleteItemBtn
+            // 
+            this.deleteItemBtn.Location = new System.Drawing.Point(168, 390);
+            this.deleteItemBtn.Name = "deleteItemBtn";
+            this.deleteItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteItemBtn.TabIndex = 4;
+            this.deleteItemBtn.Text = "Delete";
+            this.deleteItemBtn.UseVisualStyleBackColor = true;
+            this.deleteItemBtn.Click += new System.EventHandler(this.deleteItemBtn_Click);
+            // 
+            // editItemBtn
+            // 
+            this.editItemBtn.Location = new System.Drawing.Point(87, 390);
+            this.editItemBtn.Name = "editItemBtn";
+            this.editItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.editItemBtn.TabIndex = 3;
+            this.editItemBtn.Text = "Edit";
+            this.editItemBtn.UseVisualStyleBackColor = true;
+            this.editItemBtn.Click += new System.EventHandler(this.editItemBtn_Click);
+            // 
+            // addItemBtn
+            // 
+            this.addItemBtn.Location = new System.Drawing.Point(6, 390);
+            this.addItemBtn.Name = "addItemBtn";
+            this.addItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.addItemBtn.TabIndex = 2;
+            this.addItemBtn.Text = "Add";
+            this.addItemBtn.UseVisualStyleBackColor = true;
+            this.addItemBtn.Click += new System.EventHandler(this.addItemBtn_Click);
+            // 
             // itemsGrd
             // 
+            this.itemsGrd.AllowUserToAddRows = false;
+            this.itemsGrd.AllowUserToDeleteRows = false;
             this.itemsGrd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.itemsGrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemsGrd.Location = new System.Drawing.Point(3, 3);
             this.itemsGrd.Name = "itemsGrd";
+            this.itemsGrd.ReadOnly = true;
             this.itemsGrd.RowTemplate.Height = 25;
-            this.itemsGrd.Size = new System.Drawing.Size(765, 413);
+            this.itemsGrd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.itemsGrd.Size = new System.Drawing.Size(765, 381);
             this.itemsGrd.TabIndex = 1;
             // 
             // TransactionsTab
@@ -176,5 +256,11 @@
         private DataGridView transactionsGrd;
         private BindingSource itemsBS;
         private BindingSource transactionsBS;
+        private Button deleteCustomerBtn;
+        private Button editCustomerBtn;
+        private Button addCustomerBtn;
+        private Button deleteItemBtn;
+        private Button editItemBtn;
+        private Button addItemBtn;
     }
 }

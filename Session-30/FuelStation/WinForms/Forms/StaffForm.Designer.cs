@@ -26,6 +26,9 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ItemsTab = new System.Windows.Forms.TabPage();
+            this.deleteItemBtn = new System.Windows.Forms.Button();
+            this.editItemBtn = new System.Windows.Forms.Button();
+            this.addItemBtn = new System.Windows.Forms.Button();
             this.itemsGrd = new System.Windows.Forms.DataGridView();
             this.identityLabel = new System.Windows.Forms.Label();
             this.itemsBS = new System.Windows.Forms.BindingSource(this.components);
@@ -49,6 +52,9 @@
             // 
             // ItemsTab
             // 
+            this.ItemsTab.Controls.Add(this.deleteItemBtn);
+            this.ItemsTab.Controls.Add(this.editItemBtn);
+            this.ItemsTab.Controls.Add(this.addItemBtn);
             this.ItemsTab.Controls.Add(this.itemsGrd);
             this.ItemsTab.Location = new System.Drawing.Point(4, 24);
             this.ItemsTab.Name = "ItemsTab";
@@ -58,16 +64,50 @@
             this.ItemsTab.Text = "Items";
             this.ItemsTab.UseVisualStyleBackColor = true;
             // 
+            // deleteItemBtn
+            // 
+            this.deleteItemBtn.Location = new System.Drawing.Point(168, 390);
+            this.deleteItemBtn.Name = "deleteItemBtn";
+            this.deleteItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteItemBtn.TabIndex = 7;
+            this.deleteItemBtn.Text = "Delete";
+            this.deleteItemBtn.UseVisualStyleBackColor = true;
+            this.deleteItemBtn.Click += new System.EventHandler(this.deleteItemBtn_Click);
+            // 
+            // editItemBtn
+            // 
+            this.editItemBtn.Location = new System.Drawing.Point(87, 390);
+            this.editItemBtn.Name = "editItemBtn";
+            this.editItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.editItemBtn.TabIndex = 6;
+            this.editItemBtn.Text = "Edit";
+            this.editItemBtn.UseVisualStyleBackColor = true;
+            this.editItemBtn.Click += new System.EventHandler(this.editItemBtn_Click);
+            // 
+            // addItemBtn
+            // 
+            this.addItemBtn.Location = new System.Drawing.Point(6, 390);
+            this.addItemBtn.Name = "addItemBtn";
+            this.addItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.addItemBtn.TabIndex = 5;
+            this.addItemBtn.Text = "Add";
+            this.addItemBtn.UseVisualStyleBackColor = true;
+            this.addItemBtn.Click += new System.EventHandler(this.addItemBtn_Click);
+            // 
             // itemsGrd
             // 
+            this.itemsGrd.AllowUserToAddRows = false;
+            this.itemsGrd.AllowUserToDeleteRows = false;
             this.itemsGrd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.itemsGrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemsGrd.Location = new System.Drawing.Point(3, 3);
             this.itemsGrd.Name = "itemsGrd";
+            this.itemsGrd.ReadOnly = true;
             this.itemsGrd.RowTemplate.Height = 25;
-            this.itemsGrd.Size = new System.Drawing.Size(765, 413);
+            this.itemsGrd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.itemsGrd.Size = new System.Drawing.Size(765, 381);
             this.itemsGrd.TabIndex = 1;
             // 
             // identityLabel
@@ -105,5 +145,8 @@
         private Label identityLabel;
         private DataGridView itemsGrd;
         private BindingSource itemsBS;
+        private Button deleteItemBtn;
+        private Button editItemBtn;
+        private Button addItemBtn;
     }
 }
