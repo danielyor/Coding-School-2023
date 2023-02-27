@@ -68,5 +68,44 @@ namespace WinForms {
                 }
             }
         }
+
+
+        // Transactions Buttons
+        private async void addTransactionBtn_Click(object sender, EventArgs e) {
+            TransactionCreateForm form = new();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK) {
+                LoadTransactions();
+            }
+        }
+
+        private async void editTransactionsBtn_Click(object sender, EventArgs e) {
+            DataGridViewRow row = transactionsGrd.SelectedRows[0];
+            var rowId = row.Cells["Id"].Value;
+            if (transactionsGrd.SelectedRows.Count == 1 && rowId is int) {
+                TransactionEditForm form = new((int)rowId);
+                form.ShowDialog();
+                if (form.DialogResult == DialogResult.OK) {
+                    LoadTransactions();
+                }
+            }
+        }
+
+        private async void deleteTransactionsBtn_Click(object sender, EventArgs e) {
+            DataGridViewRow row = transactionsGrd.SelectedRows[0];
+            var rowId = row.Cells["Id"].Value;
+            if (transactionsGrd.SelectedRows.Count == 1 && rowId is int) {
+                DialogResult result = MessageBox.Show("Selected Transaction will be deleted!", "Delete Item", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK) {
+                    var response = await Program.httpClient.DeleteAsync($"api/transaction/{rowId}");
+                    if (response.StatusCode == HttpStatusCode.OK) {
+                        transactionsGrd.Rows.Remove(row);
+                    }
+                    else {
+                        MessageBox.Show("Something went wrong! Delete failed.", "Alert");
+                    }
+                }
+            }
+        }
     }
 }

@@ -66,6 +66,7 @@
             // 
             // deleteItemBtn
             // 
+            this.deleteItemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteItemBtn.Location = new System.Drawing.Point(168, 390);
             this.deleteItemBtn.Name = "deleteItemBtn";
             this.deleteItemBtn.Size = new System.Drawing.Size(75, 23);
@@ -76,6 +77,7 @@
             // 
             // editItemBtn
             // 
+            this.editItemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editItemBtn.Location = new System.Drawing.Point(87, 390);
             this.editItemBtn.Name = "editItemBtn";
             this.editItemBtn.Size = new System.Drawing.Size(75, 23);
@@ -86,6 +88,7 @@
             // 
             // addItemBtn
             // 
+            this.addItemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addItemBtn.Location = new System.Drawing.Point(6, 390);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);

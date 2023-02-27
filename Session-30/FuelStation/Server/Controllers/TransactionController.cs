@@ -22,8 +22,10 @@ namespace FuelStation.Server.Controllers {
             return transactionList.Select(transaction => new TransactionDto {
                 Id = transaction.Id,
                 Date = transaction.Date,
-                TotalValue = transaction.TotalValue,
-                PayMethod = transaction.PayMethod
+                EmployeeId = transaction.EmployeeId,
+                CustomerId = transaction.CustomerId,
+                PayMethod = transaction.PayMethod,
+                TotalValue = transaction.TotalValue
             });
         }
 
@@ -34,15 +36,17 @@ namespace FuelStation.Server.Controllers {
             return new TransactionDto {
                 Id = result.Id,
                 Date = result.Date,
-                TotalValue = result.TotalValue,
-                PayMethod = result.PayMethod
+                EmployeeId = result.EmployeeId,
+                CustomerId = result.CustomerId,
+                PayMethod = result.PayMethod,
+                TotalValue = result.TotalValue
             };
 
         }
 
         [HttpPost]
         public async Task Post(TransactionDto transaction) {
-            var newTransaction = new Transaction(transaction.TotalValue, transaction.PayMethod);
+            var newTransaction = new Transaction(transaction.EmployeeId, transaction.CustomerId, transaction.PayMethod, transaction.TotalValue);
 
             _transactionRepo.Create(newTransaction);
         }

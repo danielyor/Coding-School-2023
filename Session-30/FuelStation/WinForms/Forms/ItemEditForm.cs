@@ -39,8 +39,5 @@ namespace FuelStation.WinForms.Forms {
             Close();
         }
 
-        private void ItemEditForm_Load_1(object sender, EventArgs e) {
-
-        }
     }
 }

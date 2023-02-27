@@ -5,11 +5,13 @@ namespace FuelStation.Model
     public class Transaction
     {
         public Transaction() { }
-        public Transaction(decimal totalValue, PaymentMethod paymentMethod)
+        public Transaction(int empId, int cusId, PaymentMethod paymentMethod, decimal totalValue)
         {
             Date = DateTime.Now;
-            TotalValue = totalValue;
+            EmployeeId = empId;
+            CustomerId = cusId;
             PayMethod = paymentMethod;
+            TotalValue = totalValue;
         }
 
         public int Id { get; set; }

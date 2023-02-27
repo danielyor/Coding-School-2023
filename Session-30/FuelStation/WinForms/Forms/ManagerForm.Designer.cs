@@ -36,6 +36,9 @@
             this.addItemBtn = new System.Windows.Forms.Button();
             this.itemsGrd = new System.Windows.Forms.DataGridView();
             this.TransactionsTab = new System.Windows.Forms.TabPage();
+            this.deleteTransactionBtn = new System.Windows.Forms.Button();
+            this.editTransactionBtn = new System.Windows.Forms.Button();
+            this.addTransactionBtn = new System.Windows.Forms.Button();
             this.transactionsGrd = new System.Windows.Forms.DataGridView();
             this.identityLabel = new System.Windows.Forms.Label();
             this.customersBS = new System.Windows.Forms.BindingSource(this.components);
@@ -83,6 +86,7 @@
             // 
             // deleteCustomerBtn
             // 
+            this.deleteCustomerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteCustomerBtn.Location = new System.Drawing.Point(168, 390);
             this.deleteCustomerBtn.Name = "deleteCustomerBtn";
             this.deleteCustomerBtn.Size = new System.Drawing.Size(75, 23);
@@ -93,6 +97,7 @@
             // 
             // editCustomerBtn
             // 
+            this.editCustomerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editCustomerBtn.Location = new System.Drawing.Point(87, 390);
             this.editCustomerBtn.Name = "editCustomerBtn";
             this.editCustomerBtn.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +108,7 @@
             // 
             // addCustomerBtn
             // 
+            this.addCustomerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addCustomerBtn.Location = new System.Drawing.Point(6, 390);
             this.addCustomerBtn.Name = "addCustomerBtn";
             this.addCustomerBtn.Size = new System.Drawing.Size(75, 23);
@@ -143,6 +149,7 @@
             // 
             // deleteItemBtn
             // 
+            this.deleteItemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteItemBtn.Location = new System.Drawing.Point(168, 390);
             this.deleteItemBtn.Name = "deleteItemBtn";
             this.deleteItemBtn.Size = new System.Drawing.Size(75, 23);
@@ -153,6 +160,7 @@
             // 
             // editItemBtn
             // 
+            this.editItemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editItemBtn.Location = new System.Drawing.Point(87, 390);
             this.editItemBtn.Name = "editItemBtn";
             this.editItemBtn.Size = new System.Drawing.Size(75, 23);
@@ -163,6 +171,7 @@
             // 
             // addItemBtn
             // 
+            this.addItemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addItemBtn.Location = new System.Drawing.Point(6, 390);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);
@@ -189,6 +198,9 @@
             // 
             // TransactionsTab
             // 
+            this.TransactionsTab.Controls.Add(this.deleteTransactionBtn);
+            this.TransactionsTab.Controls.Add(this.editTransactionBtn);
+            this.TransactionsTab.Controls.Add(this.addTransactionBtn);
             this.TransactionsTab.Controls.Add(this.transactionsGrd);
             this.TransactionsTab.Location = new System.Drawing.Point(4, 24);
             this.TransactionsTab.Name = "TransactionsTab";
@@ -197,16 +209,53 @@
             this.TransactionsTab.Text = "Transactions";
             this.TransactionsTab.UseVisualStyleBackColor = true;
             // 
+            // deleteTransactionBtn
+            // 
+            this.deleteTransactionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteTransactionBtn.Location = new System.Drawing.Point(168, 390);
+            this.deleteTransactionBtn.Name = "deleteTransactionBtn";
+            this.deleteTransactionBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteTransactionBtn.TabIndex = 7;
+            this.deleteTransactionBtn.Text = "Delete";
+            this.deleteTransactionBtn.UseVisualStyleBackColor = true;
+            this.deleteTransactionBtn.Click += new System.EventHandler(this.deleteTransactionsBtn_Click);
+            // 
+            // editTransactionBtn
+            // 
+            this.editTransactionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editTransactionBtn.Location = new System.Drawing.Point(87, 390);
+            this.editTransactionBtn.Name = "editTransactionBtn";
+            this.editTransactionBtn.Size = new System.Drawing.Size(75, 23);
+            this.editTransactionBtn.TabIndex = 6;
+            this.editTransactionBtn.Text = "Edit";
+            this.editTransactionBtn.UseVisualStyleBackColor = true;
+            this.editTransactionBtn.Click += new System.EventHandler(this.editTransactionsBtn_Click);
+            // 
+            // addTransactionBtn
+            // 
+            this.addTransactionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addTransactionBtn.Location = new System.Drawing.Point(6, 390);
+            this.addTransactionBtn.Name = "addTransactionBtn";
+            this.addTransactionBtn.Size = new System.Drawing.Size(75, 23);
+            this.addTransactionBtn.TabIndex = 5;
+            this.addTransactionBtn.Text = "Add";
+            this.addTransactionBtn.UseVisualStyleBackColor = true;
+            this.addTransactionBtn.Click += new System.EventHandler(this.addTransactionBtn_Click);
+            // 
             // transactionsGrd
             // 
+            this.transactionsGrd.AllowUserToAddRows = false;
+            this.transactionsGrd.AllowUserToDeleteRows = false;
             this.transactionsGrd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.transactionsGrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionsGrd.Location = new System.Drawing.Point(3, 3);
             this.transactionsGrd.Name = "transactionsGrd";
+            this.transactionsGrd.ReadOnly = true;
             this.transactionsGrd.RowTemplate.Height = 25;
-            this.transactionsGrd.Size = new System.Drawing.Size(765, 413);
+            this.transactionsGrd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.transactionsGrd.Size = new System.Drawing.Size(765, 381);
             this.transactionsGrd.TabIndex = 1;
             // 
             // identityLabel
@@ -262,5 +311,8 @@
         private Button deleteItemBtn;
         private Button editItemBtn;
         private Button addItemBtn;
+        private Button deleteTransactionBtn;
+        private Button editTransactionBtn;
+        private Button addTransactionBtn;
     }
 }

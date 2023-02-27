@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Forms\StaffForm.resx~RF1f6cea0c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Shared\FuelStation.Shared.csproj" />
   </ItemGroup>
 
