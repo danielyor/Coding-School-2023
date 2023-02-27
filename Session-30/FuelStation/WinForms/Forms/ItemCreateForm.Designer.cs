@@ -31,11 +31,13 @@
             this.itemDescriptionLabel = new System.Windows.Forms.Label();
             this.itemCodeLabel = new System.Windows.Forms.Label();
             this.editLabel = new System.Windows.Forms.Label();
-            this.itemPriceTextBox = new System.Windows.Forms.TextBox();
             this.itemPriceLabel = new System.Windows.Forms.Label();
-            this.itemCostTextBox = new System.Windows.Forms.TextBox();
             this.itemCostLabel = new System.Windows.Forms.Label();
             this.itemTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.priceUpDown = new System.Windows.Forms.NumericUpDown();
+            this.costUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.priceUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // itemDescriptionTextBox
@@ -108,13 +110,6 @@
             this.editLabel.TabIndex = 9;
             this.editLabel.Text = "You are creating a new Customer entity. ";
             // 
-            // itemPriceTextBox
-            // 
-            this.itemPriceTextBox.Location = new System.Drawing.Point(100, 132);
-            this.itemPriceTextBox.Name = "itemPriceTextBox";
-            this.itemPriceTextBox.Size = new System.Drawing.Size(200, 23);
-            this.itemPriceTextBox.TabIndex = 19;
-            // 
             // itemPriceLabel
             // 
             this.itemPriceLabel.AutoSize = true;
@@ -123,13 +118,6 @@
             this.itemPriceLabel.Size = new System.Drawing.Size(36, 15);
             this.itemPriceLabel.TabIndex = 18;
             this.itemPriceLabel.Text = "Price:";
-            // 
-            // itemCostTextBox
-            // 
-            this.itemCostTextBox.Location = new System.Drawing.Point(100, 161);
-            this.itemCostTextBox.Name = "itemCostTextBox";
-            this.itemCostTextBox.Size = new System.Drawing.Size(200, 23);
-            this.itemCostTextBox.TabIndex = 21;
             // 
             // itemCostLabel
             // 
@@ -153,15 +141,39 @@
             this.itemTypeComboBox.Size = new System.Drawing.Size(200, 23);
             this.itemTypeComboBox.TabIndex = 22;
             // 
+            // priceUpDown
+            // 
+            this.priceUpDown.Location = new System.Drawing.Point(100, 132);
+            this.priceUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.priceUpDown.Name = "priceUpDown";
+            this.priceUpDown.Size = new System.Drawing.Size(200, 23);
+            this.priceUpDown.TabIndex = 23;
+            // 
+            // costUpDown
+            // 
+            this.costUpDown.Location = new System.Drawing.Point(100, 161);
+            this.costUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.costUpDown.Name = "costUpDown";
+            this.costUpDown.Size = new System.Drawing.Size(200, 23);
+            this.costUpDown.TabIndex = 24;
+            // 
             // ItemCreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 236);
+            this.Controls.Add(this.costUpDown);
+            this.Controls.Add(this.priceUpDown);
             this.Controls.Add(this.itemTypeComboBox);
-            this.Controls.Add(this.itemCostTextBox);
             this.Controls.Add(this.itemCostLabel);
-            this.Controls.Add(this.itemPriceTextBox);
             this.Controls.Add(this.itemPriceLabel);
             this.Controls.Add(this.itemDescriptionTextBox);
             this.Controls.Add(this.itemCodeTextBox);
@@ -174,6 +186,8 @@
             this.Name = "ItemCreateForm";
             this.Text = "Item Create";
             this.Load += new System.EventHandler(this.ItemCreateForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.priceUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,10 +202,10 @@
         private Label itemDescriptionLabel;
         private Label itemCodeLabel;
         private Label editLabel;
-        private TextBox itemPriceTextBox;
         private Label itemPriceLabel;
-        private TextBox itemCostTextBox;
         private Label itemCostLabel;
         private ComboBox itemTypeComboBox;
+        private NumericUpDown priceUpDown;
+        private NumericUpDown costUpDown;
     }
 }

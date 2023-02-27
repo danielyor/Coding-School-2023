@@ -56,7 +56,7 @@ namespace WinForms {
             DataGridViewRow row = customersGrd.SelectedRows[0];
             var rowId = row.Cells["Id"].Value;
             if (customersGrd.SelectedRows.Count == 1 && rowId is int) {
-                DialogResult result = MessageBox.Show("Selected Customer will be deleted!", "Delete Customer", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show("Selected Customer will be deleted!", "Delete Customer", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK) {
                     var response = await Program.httpClient.DeleteAsync($"api/customer/{rowId}");
                     if (response.StatusCode == HttpStatusCode.OK) {
@@ -95,7 +95,7 @@ namespace WinForms {
             DataGridViewRow row = transactionsGrd.SelectedRows[0];
             var rowId = row.Cells["Id"].Value;
             if (transactionsGrd.SelectedRows.Count == 1 && rowId is int) {
-                DialogResult result = MessageBox.Show("Selected Transaction will be deleted!", "Delete Item", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show("Selected Transaction will be deleted!", "Delete Item", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK) {
                     var response = await Program.httpClient.DeleteAsync($"api/transaction/{rowId}");
                     if (response.StatusCode == HttpStatusCode.OK) {

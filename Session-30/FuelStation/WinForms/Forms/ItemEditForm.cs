@@ -20,8 +20,8 @@ namespace FuelStation.WinForms.Forms {
             itemCodeTextBox.Text = item.Code;
             itemDescriptionTextBox.Text = item.Description;
             itemTypeComboBox.Text = item.Type.ToString();
-            itemPriceTextBox.Text = item.Price.ToString();
-            itemCostTextBox.Text = item.Cost.ToString();
+            priceUpDown.Text = item.Price.ToString();
+            costUpDown.Text = item.Cost.ToString();
         }
 
         private void ItemEditForm_Load(object sender, EventArgs e) {
@@ -29,21 +29,46 @@ namespace FuelStation.WinForms.Forms {
         }
 
         private async void okButton_Click(object sender, EventArgs e) {
-            Enum.TryParse(itemTypeComboBox.Text, out ItemType itemType);
-            item = new() {
+            bool enumCheck = Enum.TryParse(itemTypeComboBox.Text, out ItemType itemType);
+            bool priceCheck = decimal.TryParse(priceUpDown.Text, out decimal price);
+            bool costCheck = decimal.TryParse(costUpDown.Text, out decimal cost);
+            ItemDto item = new() {
                 Id = this.Id,
                 Code = itemCodeTextBox.Text,
                 Description = itemDescriptionTextBox.Text,
                 Type = itemType,
-                Price = decimal.Parse(itemPriceTextBox.Text),
-                Cost = decimal.Parse(itemCostTextBox.Text)
+                Price = price,
+                Cost = cost
             };
 
-            HttpResponseMessage? response = null;
-            response = await Program.httpClient.PutAsJsonAsync("api/item", item);
+            List<string> errorList = new();
+            if (item.Code == String.Empty) {
+                errorList.Add("- The Code field is required.");
+            }
+            if (item.Description == String.Empty) {
+                errorList.Add("- The Description field is required.");
+            }
+            if (enumCheck == false) {
+                errorList.Add("- The Item Type field is required.");
+            }
+            if (priceCheck == false) {
+                errorList.Add("- The Price field has invalid input.");
+            }
+            if (costCheck == false) {
+                errorList.Add("- The Cost field has invalid input.");
+            }
 
-            this.DialogResult = DialogResult.OK;
-            Close();
+            if (errorList.Count == 0) {
+                HttpResponseMessage? response = null;
+                response = await Program.httpClient.PutAsJsonAsync("api/item", item);
+
+                this.DialogResult = DialogResult.OK;
+                Close();
+            }
+            else {
+                string msg = string.Join("\n", errorList.ToArray());
+                MessageBox.Show(msg, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e) {
@@ -51,5 +76,8 @@ namespace FuelStation.WinForms.Forms {
             Close();
         }
 
+        private void ItemEditForm_Load_1(object sender, EventArgs e) {
+
+        }
     }
 }

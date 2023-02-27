@@ -25,9 +25,7 @@
         private void InitializeComponent() {
             this.editLabel = new System.Windows.Forms.Label();
             this.itemTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.itemCostTextBox = new System.Windows.Forms.TextBox();
             this.itemCostLabel = new System.Windows.Forms.Label();
-            this.itemPriceTextBox = new System.Windows.Forms.TextBox();
             this.itemPriceLabel = new System.Windows.Forms.Label();
             this.itemDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.itemCodeTextBox = new System.Windows.Forms.TextBox();
@@ -36,6 +34,10 @@
             this.itemTypeLabel = new System.Windows.Forms.Label();
             this.itemDescriptionLabel = new System.Windows.Forms.Label();
             this.itemCodeLabel = new System.Windows.Forms.Label();
+            this.costUpDown = new System.Windows.Forms.NumericUpDown();
+            this.priceUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.costUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // editLabel
@@ -60,13 +62,6 @@
             this.itemTypeComboBox.Size = new System.Drawing.Size(200, 23);
             this.itemTypeComboBox.TabIndex = 34;
             // 
-            // itemCostTextBox
-            // 
-            this.itemCostTextBox.Location = new System.Drawing.Point(100, 159);
-            this.itemCostTextBox.Name = "itemCostTextBox";
-            this.itemCostTextBox.Size = new System.Drawing.Size(200, 23);
-            this.itemCostTextBox.TabIndex = 33;
-            // 
             // itemCostLabel
             // 
             this.itemCostLabel.AutoSize = true;
@@ -75,13 +70,6 @@
             this.itemCostLabel.Size = new System.Drawing.Size(34, 15);
             this.itemCostLabel.TabIndex = 32;
             this.itemCostLabel.Text = "Cost:";
-            // 
-            // itemPriceTextBox
-            // 
-            this.itemPriceTextBox.Location = new System.Drawing.Point(100, 130);
-            this.itemPriceTextBox.Name = "itemPriceTextBox";
-            this.itemPriceTextBox.Size = new System.Drawing.Size(200, 23);
-            this.itemPriceTextBox.TabIndex = 31;
             // 
             // itemPriceLabel
             // 
@@ -153,15 +141,39 @@
             this.itemCodeLabel.TabIndex = 23;
             this.itemCodeLabel.Text = "Code:";
             // 
+            // costUpDown
+            // 
+            this.costUpDown.Location = new System.Drawing.Point(100, 159);
+            this.costUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.costUpDown.Name = "costUpDown";
+            this.costUpDown.Size = new System.Drawing.Size(200, 23);
+            this.costUpDown.TabIndex = 36;
+            // 
+            // priceUpDown
+            // 
+            this.priceUpDown.Location = new System.Drawing.Point(100, 130);
+            this.priceUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.priceUpDown.Name = "priceUpDown";
+            this.priceUpDown.Size = new System.Drawing.Size(200, 23);
+            this.priceUpDown.TabIndex = 35;
+            // 
             // ItemEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 236);
+            this.Controls.Add(this.costUpDown);
+            this.Controls.Add(this.priceUpDown);
             this.Controls.Add(this.itemTypeComboBox);
-            this.Controls.Add(this.itemCostTextBox);
             this.Controls.Add(this.itemCostLabel);
-            this.Controls.Add(this.itemPriceTextBox);
             this.Controls.Add(this.itemPriceLabel);
             this.Controls.Add(this.itemDescriptionTextBox);
             this.Controls.Add(this.itemCodeTextBox);
@@ -173,6 +185,9 @@
             this.Controls.Add(this.editLabel);
             this.Name = "ItemEditForm";
             this.Text = "Item Edit";
+            this.Load += new System.EventHandler(this.ItemEditForm_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.costUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,9 +196,7 @@
         #endregion
         private Label editLabel;
         private ComboBox itemTypeComboBox;
-        private TextBox itemCostTextBox;
         private Label itemCostLabel;
-        private TextBox itemPriceTextBox;
         private Label itemPriceLabel;
         private TextBox itemDescriptionTextBox;
         private TextBox itemCodeTextBox;
@@ -192,5 +205,7 @@
         private Label itemTypeLabel;
         private Label itemDescriptionLabel;
         private Label itemCodeLabel;
+        private NumericUpDown costUpDown;
+        private NumericUpDown priceUpDown;
     }
 }

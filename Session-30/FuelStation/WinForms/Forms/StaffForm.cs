@@ -47,7 +47,7 @@ namespace WinForms {
             DataGridViewRow row = itemsGrd.SelectedRows[0];
             var rowId = row.Cells["Id"].Value;
             if (itemsGrd.SelectedRows.Count == 1 && rowId is int) {
-                DialogResult result = MessageBox.Show("Selected Item will be deleted!", "Delete Item", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show("Selected Item will be deleted!", "Delete Item", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK) {
                     var response = await Program.httpClient.DeleteAsync($"api/item/{rowId}");
                     if (response.StatusCode == HttpStatusCode.OK) {
