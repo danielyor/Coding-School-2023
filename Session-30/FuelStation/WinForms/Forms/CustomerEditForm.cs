@@ -6,17 +6,27 @@ using WinForms;
 namespace FuelStation.WinForms.Forms {
     public partial class CustomerEditForm : Form {
         int Id { get; set; }
+        CustomerDto customer { get; set; }
         public CustomerEditForm(int id) {
             InitializeComponent();
             Id = id;
+            SetCustomerProps(Id);
         }
+
+        public async void SetCustomerProps(int id) {
+            customer = await Program.httpClient.GetFromJsonAsync<CustomerDto>($"api/customer/{id}");
+            customerNameTextBox.Text = customer.Name;
+            customerSurnameTextBox.Text = customer.Surname;
+            customerCardNumberTextBox.Text = customer.CardNumber;
+        }
+
         private void cancelButton_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.Cancel;
             Close();
         }
 
         private async void okButton_ClickAsync(object sender, EventArgs e) {
-            CustomerDto customer = new() {
+            customer = new() {
                 Id = this.Id,
                 Name = customerNameTextBox.Text,
                 Surname = customerSurnameTextBox.Text,
