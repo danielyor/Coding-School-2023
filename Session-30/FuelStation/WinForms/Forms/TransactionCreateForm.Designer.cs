@@ -32,7 +32,6 @@
             this.transactionCardNumberLabel = new System.Windows.Forms.Label();
             this.transactionEmpIdLabel = new System.Windows.Forms.Label();
             this.editLabel = new System.Windows.Forms.Label();
-            this.editLinesBtn = new System.Windows.Forms.Button();
             this.findCusBtn = new System.Windows.Forms.Button();
             this.totalValueUpDown = new System.Windows.Forms.NumericUpDown();
             this.empIdUpDown = new System.Windows.Forms.NumericUpDown();
@@ -124,15 +123,6 @@
             this.editLabel.TabIndex = 23;
             this.editLabel.Text = "You are creating a new Transaction entity. ";
             // 
-            // editLinesBtn
-            // 
-            this.editLinesBtn.Location = new System.Drawing.Point(12, 201);
-            this.editLinesBtn.Name = "editLinesBtn";
-            this.editLinesBtn.Size = new System.Drawing.Size(142, 23);
-            this.editLinesBtn.TabIndex = 36;
-            this.editLinesBtn.Text = "Edit Transaction Lines";
-            this.editLinesBtn.UseVisualStyleBackColor = true;
-            // 
             // findCusBtn
             // 
             this.findCusBtn.Location = new System.Drawing.Point(332, 74);
@@ -167,7 +157,6 @@
             this.Controls.Add(this.empIdUpDown);
             this.Controls.Add(this.totalValueUpDown);
             this.Controls.Add(this.findCusBtn);
-            this.Controls.Add(this.editLinesBtn);
             this.Controls.Add(this.payMethodComboBox);
             this.Controls.Add(this.transactionTotalValueLabel);
             this.Controls.Add(this.transactionPayMethodLabel);
@@ -201,7 +190,6 @@
         private Label transactionCardNumberLabel;
         private Label transactionEmpIdLabel;
         private Label editLabel;
-        private Button editLinesBtn;
         private Button findCusBtn;
         private NumericUpDown totalValueUpDown;
         private NumericUpDown empIdUpDown;

@@ -67,6 +67,7 @@
             this.editLinesBtn.TabIndex = 48;
             this.editLinesBtn.Text = "Edit Transaction Lines";
             this.editLinesBtn.UseVisualStyleBackColor = true;
+            this.editLinesBtn.Click += new System.EventHandler(this.editLinesBtn_Click);
             // 
             // payMethodComboBox
             // 

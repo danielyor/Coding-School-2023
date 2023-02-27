@@ -78,6 +78,7 @@ namespace FuelStation.WinForms.Forms {
                 foundCustomer = true;
             }
         }
+
     }
 }
 

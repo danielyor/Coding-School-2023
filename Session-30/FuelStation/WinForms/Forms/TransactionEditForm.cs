@@ -88,5 +88,10 @@ namespace FuelStation.WinForms.Forms {
                 foundCustomer = true;
             }
         }
+
+        private void editLinesBtn_Click(object sender, EventArgs e) {
+            TransactionLineCreateForm form = new(transaction);
+            form.ShowDialog();
+        }
     }
 }
