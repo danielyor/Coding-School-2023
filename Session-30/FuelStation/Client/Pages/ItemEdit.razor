@@ -11,34 +11,42 @@
         <p>Loading...</p>
     }
     else {
-        <div class="row">
-            <div class="col-md-6">
-                <label class="form-label">Code</label>
-                <input class="form-control" @bind="@item.Code" />
+        <EditForm Model="item" OnValidSubmit="OnSave">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Code:</label>
+                    <InputText class="form-control" @bind-Value="@item.Code" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Description:</label>
+                    <InputText class="form-control" @bind-Value="@item.Description" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Item Type:</label>
+                    <InputSelect class="form-control" @bind-Value="item.Type">
+                        @foreach (var type in Enum.GetValues<ItemType>()) {
+                            <option value="@type">@type</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Price:</label>
+                    <InputNumber class="form-control" @bind-Value="@item.Price" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Cost:</label>
+                    <InputNumber class="form-control" @bind-Value="@item.Cost" />
+                </div>
             </div>
-            <div class=" col-md-6">
-                <label class="form-label">Description</label>
-                <input class="form-control" @bind="@item.Description" />
+            <div class="row mt-2">
+                <div class="col">
+                    <button class="btn btn-success" type="submit">Save</button>
+                    <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+                </div>
             </div>
-            <div class=" col-md-6">
-                <label class="form-label">Type</label>
-                <input class="form-control" @bind="@item.Type" />
-            </div>
-            <div class=" col-md-6">
-                <label class="form-label">Price</label>
-                <input class="form-control" @bind="@item.Price" />
-            </div>
-            <div class=" col-md-6">
-                <label class="form-label">Cost</label>
-                <input class="form-control" @bind="@item.Cost" />
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col">
-                <button class="btn btn-success" @onclick="OnSave">Save</button>
-                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
-            </div>
-        </div>
+        </EditForm>
     }
 }
 else {

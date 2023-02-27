@@ -11,8 +11,6 @@ namespace FuelStation.Model
             SalaryPerMonth = salaryPerMonth;
             HireDateStart = startDate;
             Type = employeeType;
-
-            Transactions = new List<Transaction>();
         }
 
         public int Id { get; set; }
@@ -24,6 +22,6 @@ namespace FuelStation.Model
         public EmployeeType Type { get; set; }
 
         // Relations
-        public List<Transaction> Transactions { get; set; }
+        public List<Transaction> Transactions { get; set; } = new();
     }
 }

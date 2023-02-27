@@ -11,38 +11,46 @@
         <p>Loading...</p>
     }
     else {
-        <div class="row">
-            <div class="col-md-6">
-                <label class="form-label">Name</label>
-                <input class="form-control" @bind="@employee.Name" />
+        <EditForm Model="employee" OnValidSubmit="OnSave">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Name:</label>
+                    <InputText class="form-control" @bind-Value="@employee.Name" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Surname:</label>
+                    <InputText class="form-control" @bind-Value="@employee.Surname" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Hire Date:</label>
+                    <InputDate class="form-control" @bind-Value="@employee.HireDateStart" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Termination Date:</label>
+                    <InputDate class="form-control" @bind-Value="@employee.HireDateEnd" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Salary:</label>
+                    <InputNumber class="form-control" @bind-Value="@employee.SalaryPerMonth" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Employee Type:</label>
+                    <InputSelect class="form-control" @bind-Value="employee.Type">
+                        @foreach (var type in Enum.GetValues<EmployeeType>()) {
+                            <option value="@type">@type</option>
+                        }
+                    </InputSelect>
+                </div>
             </div>
-            <div class=" col-md-6">
-                <label class="form-label">Surname</label>
-                <input class="form-control" @bind="@employee.Surname" />
+            <div class="row mt-2">
+                <div class="col">
+                    <button class="btn btn-success" type="submit">Save</button>
+                    <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+                </div>
             </div>
-            <div class=" col-md-6">
-                <label class="form-label">Hire Date</label>
-                <input class="form-control" @bind="@employee.HireDateStart" />
-            </div>
-            <div class=" col-md-6">
-                <label class="form-label">Termination Date</label>
-                <input class="form-control" @bind="@employee.HireDateEnd" />
-            </div>
-            <div class=" col-md-6">
-                <label class="form-label">Salary</label>
-                <input class="form-control" @bind="@employee.SalaryPerMonth" />
-            </div>
-            <div class=" col-md-6">
-                <label class="form-label">Role</label>
-                <input class="form-control" @bind="@employee.Type" />
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col">
-                <button class="btn btn-success" @onclick="OnSave">Save</button>
-                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
-            </div>
-        </div>
+        </EditForm>
     }
 }
 else {
@@ -52,7 +60,6 @@ else {
 @code {
     [Parameter] public int? Id { get; set; }
     EmployeeDto employee { get; set; }
-
 
     protected override async Task OnInitializedAsync() {
         if (Id == null) {

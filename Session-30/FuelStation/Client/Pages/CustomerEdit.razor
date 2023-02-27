@@ -11,26 +11,30 @@
         <p>Loading...</p>
     }
     else {
-        <div class="row">
-            <div class="col-md-6">
-                <label class="form-label">Name</label>
-                <input class="form-control" @bind="@customer.Name" />
+        <EditForm Model="customer" OnValidSubmit="OnSave">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Name:</label>
+                    <InputText class="form-control" @bind-Value="@customer.Name" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Surname:</label>
+                    <InputText class="form-control" @bind-Value="@customer.Surname" />
+                </div>
+                <div class=" col-md-6">
+                    <label class="form-label">Card Number:</label>
+                    <InputText class="form-control" @bind-Value="@customer.CardNumber" />
+                </div>
             </div>
-            <div class=" col-md-6">
-                <label class="form-label">Surname</label>
-                <input class="form-control" @bind="@customer.Surname" />
+            <div class="row mt-2">
+                <div class="col">
+                    <button class="btn btn-success" type="submit">Save</button>
+                    <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+                </div>
             </div>
-            <div class=" col-md-6">
-                <label class="form-label">Card Number</label>
-                <input class="form-control" @bind="@customer.CardNumber" />
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col">
-                <button class="btn btn-success" @onclick="OnSave">Save</button>
-                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
-            </div>
-        </div>
+        </EditForm>
     }
 }
 else {
