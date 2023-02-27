@@ -1,22 +1,14 @@
 ﻿using FuelStation.Model.Enums;
 using FuelStation.Shared;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WinForms;
 
 namespace FuelStation.WinForms.Forms {
     public partial class TransactionEditForm : Form {
         int Id { get; set; }
         TransactionDto transaction { get; set; }
+        bool foundCustomer = false;
+
         public TransactionEditForm(int id) {
             InitializeComponent();
             Id = id;
@@ -29,23 +21,47 @@ namespace FuelStation.WinForms.Forms {
 
         private async void SetTransactionProp(int id) {
             transaction = await Program.httpClient.GetFromJsonAsync<TransactionDto>($"api/transaction/{id}");
-            empIdTextBox.Text = transaction.EmployeeId.ToString();
+            empIdUpDown.Text = transaction.EmployeeId.ToString();
             var cus = await Program.httpClient.GetFromJsonAsync<CustomerDto>($"api/customer/{transaction.CustomerId}");
             cusCardNumTextBox.Text = cus.CardNumber.ToString();
             payMethodComboBox.Text = transaction.PayMethod.ToString();
-            totalValueTextBox.Text = transaction.TotalValue.ToString();
+            totalValueUpDown.Text = transaction.TotalValue.ToString();
 
         }
 
         private async void okButton_Click(object sender, EventArgs e) {
-            transaction.EmployeeId = int.Parse(empIdTextBox.Text);
-            Enum.TryParse(payMethodComboBox.Text, out PaymentMethod payMethod);
+            bool idCheck = int.TryParse(empIdUpDown.Text, out int id);
+            bool payCheck = Enum.TryParse(payMethodComboBox.Text, out PaymentMethod payMethod);
+
+            transaction.EmployeeId = id;
             transaction.PayMethod = payMethod;
+            // calc totalvalue from lines
 
-            HttpResponseMessage? response = await Program.httpClient.PutAsJsonAsync("api/transaction", transaction);
+            List<string> errorList = new();
 
-            this.DialogResult = DialogResult.OK;
-            Close();
+            List<EmployeeDto> empList = await Program.httpClient.GetFromJsonAsync<List<EmployeeDto>>("api/employee");
+            EmployeeDto found = empList.Find(i => i.Id == id);
+
+            if (found == null) {
+                errorList.Add("- No Employee found with the specified ID.");
+            }
+            if (foundCustomer == false) {
+                errorList.Add("- No valid Customer selected.");
+            }
+            if (payCheck == false) {
+                errorList.Add("- The Payment Method field is required.");
+            }
+
+            if (errorList.Count == 0) {
+                HttpResponseMessage? response = await Program.httpClient.PutAsJsonAsync("api/transaction", transaction);
+
+                this.DialogResult = DialogResult.OK;
+                Close();
+            }
+            else {
+                string msg = string.Join("\n", errorList.ToArray());
+                MessageBox.Show(msg, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e) {
@@ -57,6 +73,7 @@ namespace FuelStation.WinForms.Forms {
             List<CustomerDto> customers = await Program.httpClient.GetFromJsonAsync<List<CustomerDto>>("api/customer");
             var found = customers.Find(c => c.CardNumber == cusCardNumTextBox.Text);
             if (found == null) {
+                foundCustomer = false;
                 DialogResult result = MessageBox.Show("No Customer found! Create?", "Alert", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes) {
                     CustomerCreateForm form = new();
@@ -64,10 +81,11 @@ namespace FuelStation.WinForms.Forms {
                 }
             }
             else {
-                MessageBox.Show("Added Customer with ID:" + found.Id, "Customer Added");
+                MessageBox.Show("Added Customer with ID: " + found.Id, "Customer Added");
                 cusCardNumTextBox.Text = found.CardNumber;
                 cusCardNumTextBox.ReadOnly = true;
                 transaction.CustomerId = found.Id;
+                foundCustomer = true;
             }
         }
     }

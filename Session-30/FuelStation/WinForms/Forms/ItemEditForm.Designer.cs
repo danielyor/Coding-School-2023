@@ -183,6 +183,9 @@
             this.Controls.Add(this.itemDescriptionLabel);
             this.Controls.Add(this.itemCodeLabel);
             this.Controls.Add(this.editLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ItemEditForm";
             this.Text = "Item Edit";
             this.Load += new System.EventHandler(this.ItemEditForm_Load_1);

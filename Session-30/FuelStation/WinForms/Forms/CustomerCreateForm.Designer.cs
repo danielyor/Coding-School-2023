@@ -125,6 +125,9 @@
             this.Controls.Add(this.customerSurnameLabel);
             this.Controls.Add(this.customerNameLabel);
             this.Controls.Add(this.editLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CustomerCreateForm";
             this.Text = "Customer Create";
             this.Load += new System.EventHandler(this.CustomerCreateForm_Load);

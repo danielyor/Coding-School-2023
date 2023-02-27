@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Forms\StaffForm.resx~RF1f6cea0c.TMP" />
+    <None Remove="Forms\TransactionCreateForm.cs~RF1f94d6.TMP" />
   </ItemGroup>
 
   <ItemGroup>

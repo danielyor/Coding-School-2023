@@ -24,9 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.payMethodComboBox = new System.Windows.Forms.ComboBox();
-            this.totalValueTextBox = new System.Windows.Forms.TextBox();
             this.transactionTotalValueLabel = new System.Windows.Forms.Label();
-            this.empIdTextBox = new System.Windows.Forms.TextBox();
             this.transactionPayMethodLabel = new System.Windows.Forms.Label();
             this.cusCardNumTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -36,6 +34,10 @@
             this.editLabel = new System.Windows.Forms.Label();
             this.editLinesBtn = new System.Windows.Forms.Button();
             this.findCusBtn = new System.Windows.Forms.Button();
+            this.totalValueUpDown = new System.Windows.Forms.NumericUpDown();
+            this.empIdUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.totalValueUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empIdUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // payMethodComboBox
@@ -50,14 +52,6 @@
             this.payMethodComboBox.Size = new System.Drawing.Size(200, 23);
             this.payMethodComboBox.TabIndex = 35;
             // 
-            // totalValueTextBox
-            // 
-            this.totalValueTextBox.Location = new System.Drawing.Point(126, 132);
-            this.totalValueTextBox.Name = "totalValueTextBox";
-            this.totalValueTextBox.ReadOnly = true;
-            this.totalValueTextBox.Size = new System.Drawing.Size(200, 23);
-            this.totalValueTextBox.TabIndex = 34;
-            // 
             // transactionTotalValueLabel
             // 
             this.transactionTotalValueLabel.AutoSize = true;
@@ -66,13 +60,6 @@
             this.transactionTotalValueLabel.Size = new System.Drawing.Size(66, 15);
             this.transactionTotalValueLabel.TabIndex = 33;
             this.transactionTotalValueLabel.Text = "Total Value:";
-            // 
-            // empIdTextBox
-            // 
-            this.empIdTextBox.Location = new System.Drawing.Point(126, 45);
-            this.empIdTextBox.Name = "empIdTextBox";
-            this.empIdTextBox.Size = new System.Drawing.Size(200, 23);
-            this.empIdTextBox.TabIndex = 32;
             // 
             // transactionPayMethodLabel
             // 
@@ -156,17 +143,33 @@
             this.findCusBtn.UseVisualStyleBackColor = true;
             this.findCusBtn.Click += new System.EventHandler(this.findCusBtn_Click);
             // 
+            // totalValueUpDown
+            // 
+            this.totalValueUpDown.Enabled = false;
+            this.totalValueUpDown.Location = new System.Drawing.Point(126, 132);
+            this.totalValueUpDown.Name = "totalValueUpDown";
+            this.totalValueUpDown.ReadOnly = true;
+            this.totalValueUpDown.Size = new System.Drawing.Size(200, 23);
+            this.totalValueUpDown.TabIndex = 38;
+            // 
+            // empIdUpDown
+            // 
+            this.empIdUpDown.Location = new System.Drawing.Point(126, 45);
+            this.empIdUpDown.Name = "empIdUpDown";
+            this.empIdUpDown.Size = new System.Drawing.Size(200, 23);
+            this.empIdUpDown.TabIndex = 39;
+            // 
             // TransactionCreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 236);
+            this.Controls.Add(this.empIdUpDown);
+            this.Controls.Add(this.totalValueUpDown);
             this.Controls.Add(this.findCusBtn);
             this.Controls.Add(this.editLinesBtn);
             this.Controls.Add(this.payMethodComboBox);
-            this.Controls.Add(this.totalValueTextBox);
             this.Controls.Add(this.transactionTotalValueLabel);
-            this.Controls.Add(this.empIdTextBox);
             this.Controls.Add(this.transactionPayMethodLabel);
             this.Controls.Add(this.cusCardNumTextBox);
             this.Controls.Add(this.cancelButton);
@@ -174,9 +177,14 @@
             this.Controls.Add(this.transactionCardNumberLabel);
             this.Controls.Add(this.transactionEmpIdLabel);
             this.Controls.Add(this.editLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TransactionCreateForm";
             this.Text = "Create Transaction";
             this.Load += new System.EventHandler(this.TransactionCreateForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.totalValueUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empIdUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,9 +193,7 @@
         #endregion
 
         private ComboBox payMethodComboBox;
-        private TextBox totalValueTextBox;
         private Label transactionTotalValueLabel;
-        private TextBox empIdTextBox;
         private Label transactionPayMethodLabel;
         private TextBox cusCardNumTextBox;
         private Button cancelButton;
@@ -197,5 +203,7 @@
         private Label editLabel;
         private Button editLinesBtn;
         private Button findCusBtn;
+        private NumericUpDown totalValueUpDown;
+        private NumericUpDown empIdUpDown;
     }
 }
